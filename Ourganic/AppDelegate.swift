@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //Initialize Firebase
         FirebaseApp.configure()
+        
+        //Initialize FirebaseUI
+        let authUI = FUIAuth.defaultAuthUI()
+        authUI?.delegate = self
+        let providers: [FUIAuthProvider] = []
+        authUI?.providers = providers
+
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        let initialViewController: UIViewController = authUI?.authViewController()
+//        window?.rootViewController = initialViewController
+//        window?.makeKeyAndVisible()
+        
         return true
     }
 
@@ -46,3 +61,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: FUIAuthDelegate {
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        guard error == nil else {
+            print("Sign in error:", error!.localizedDescription)
+            return
+        }
+        
+        print(authDataResult!)
+    }
+}
