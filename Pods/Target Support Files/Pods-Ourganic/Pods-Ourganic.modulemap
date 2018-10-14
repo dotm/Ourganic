@@ -1,0 +1,6 @@
+framework module Pods_Ourganic {
+  umbrella header "Pods-Ourganic-umbrella.h"
+
+  export *
+  module * { export * }
+}
