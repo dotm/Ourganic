@@ -12,6 +12,9 @@
 		370008702173683100AF89F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3700086F2173683100AF89F3 /* Assets.xcassets */; };
 		370008732173683100AF89F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370008712173683100AF89F3 /* LaunchScreen.storyboard */; };
 		3700087E2173683200AF89F3 /* OurganicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3700087D2173683200AF89F3 /* OurganicTests.swift */; };
+		370F902B217582EF00B91689 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902A217582EF00B91689 /* ProfileViewController.swift */; };
+		370F902D21758A0F00B91689 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902C21758A0F00B91689 /* RegisterUserViewController.swift */; };
+		370F9030217594A300B91689 /* CustomStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902F217594A300B91689 /* CustomStyling.swift */; };
 		3758019D21736ADF004A249D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3758019C21736ADF004A249D /* GoogleService-Info.plist */; };
 		8AC949124311E7F4E6DE8C96 /* Pods_OurganicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748B41B9D18B672E4EB30688 /* Pods_OurganicTests.framework */; };
 		C9272341AF055076FBDCF85C /* Pods_Ourganic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C4ADBD78DB75C44F8A7AB8C /* Pods_Ourganic.framework */; };
@@ -38,6 +41,9 @@
 		370008792173683200AF89F3 /* OurganicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OurganicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3700087D2173683200AF89F3 /* OurganicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurganicTests.swift; sourceTree = "<group>"; };
 		3700087F2173683200AF89F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		370F902A217582EF00B91689 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		370F902C21758A0F00B91689 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		370F902F217594A300B91689 /* CustomStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyling.swift; sourceTree = "<group>"; };
 		3758019C21736ADF004A249D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3C4ADBD78DB75C44F8A7AB8C /* Pods_Ourganic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ourganic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DA122225142C15FDD0D7CAA /* Pods-OurganicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OurganicTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OurganicTests/Pods-OurganicTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +106,8 @@
 		370008672173683000AF89F3 /* Ourganic */ = {
 			isa = PBXGroup;
 			children = (
+				370F902F217594A300B91689 /* CustomStyling.swift */,
+				370F902E21758A1700B91689 /* Profile */,
 				370008682173683000AF89F3 /* AppDelegate.swift */,
 				3700086C2173683000AF89F3 /* Main.storyboard */,
 				3700086F2173683100AF89F3 /* Assets.xcassets */,
@@ -117,6 +125,15 @@
 				3700087F2173683200AF89F3 /* Info.plist */,
 			);
 			path = OurganicTests;
+			sourceTree = "<group>";
+		};
+		370F902E21758A1700B91689 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				370F902A217582EF00B91689 /* ProfileViewController.swift */,
+				370F902C21758A0F00B91689 /* RegisterUserViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		DBA92FE5A64F4D30F76A6FD7 /* Frameworks */ = {
@@ -359,7 +376,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				370F902B217582EF00B91689 /* ProfileViewController.swift in Sources */,
+				370F902D21758A0F00B91689 /* RegisterUserViewController.swift in Sources */,
 				370008692173683000AF89F3 /* AppDelegate.swift in Sources */,
+				370F9030217594A300B91689 /* CustomStyling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
