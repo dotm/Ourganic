@@ -19,10 +19,10 @@ class ProfileViewController: UIViewController {
         //Initialize FirebaseUI
         let authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self
-        let providers: [FUIAuthProvider] = []
-        authUI?.providers = providers
-        present(authUI!.authViewController(), animated: true, completion: nil)
-//        present(RegisterUserViewController(), animated: true, completion: nil)
+//        let providers: [FUIAuthProvider] = []
+//        authUI?.providers = providers
+//        present(authUI!.authViewController(), animated: true, completion: nil)
+        present(RegisterUserViewController(), animated: true, completion: nil)
     }
     
 
