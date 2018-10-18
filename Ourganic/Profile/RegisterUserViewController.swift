@@ -21,7 +21,6 @@ class RegisterUserViewController: UIViewController {
     @objc private func registerUser(){
         registerButton.alpha = 0.5
         registerButton.isUserInteractionEnabled = false
-        print(1111)
         
         self.view.endEditing(true)
         
