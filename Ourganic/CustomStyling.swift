@@ -20,6 +20,7 @@ func styleButton(_ button: UIButton){
     button.tintColor = .white
     button.backgroundColor = .orange
     button.setTitleColor(.white, for: .normal)
+    button.alpha = 1
 }
 
 func styleTextField(_ textField: UITextField){

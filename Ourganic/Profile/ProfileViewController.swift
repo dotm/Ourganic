@@ -7,24 +7,34 @@
 //
 
 import UIKit
-import FirebaseUI
+import Firebase
 
 class ProfileViewController: UIViewController {
+    var userHandle: AuthStateDidChangeListenerHandle!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        goTo_registrationPage()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        //Initialize FirebaseUI
-        let authUI = FUIAuth.defaultAuthUI()
-        authUI?.delegate = self
-//        let providers: [FUIAuthProvider] = []
-//        authUI?.providers = providers
-//        present(authUI!.authViewController(), animated: true, completion: nil)
+        userHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = auth.currentUser {
+                print("Logged In User:", user.uid, user.email!, user.displayName!, separator: "\n", terminator: "\n\n")
+            }
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        Auth.auth().removeStateDidChangeListener(userHandle!)
+    }
+    private func goTo_registrationPage(){
         present(RegisterUserViewController(), animated: true, completion: nil)
     }
-    
 
     /*
     // MARK: - Navigation
@@ -36,15 +46,4 @@ class ProfileViewController: UIViewController {
     }
     */
 
-}
-
-extension ProfileViewController: FUIAuthDelegate {
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        guard error == nil else {
-            print("Sign in error:", error!.localizedDescription)
-            return
-        }
-        
-        print(authDataResult!)
-    }
 }
