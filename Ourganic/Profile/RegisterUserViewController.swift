@@ -11,7 +11,7 @@ import Firebase
 
 class RegisterUserViewController: UIViewController {
     //MARK: Outlets
-    private weak var pageTitle: UILabel!
+    private weak var navigationBar: UINavigationBar!
     private weak var emailTextField: UITextField!
     private weak var nameTextField: UITextField!
     private weak var passwordTextField: UITextField!
@@ -43,9 +43,12 @@ class RegisterUserViewController: UIViewController {
                     return
                 }
                 
-                self.dismiss(animated: true, completion: nil)
+                self.closeRegistrationPage()
             })
         }
+    }
+    @objc private func closeRegistrationPage(){
+        self.dismiss(animated: true, completion: nil)
     }
     private func handleRegistrationError(message: String){
         registerButton.isUserInteractionEnabled = true
@@ -75,28 +78,31 @@ class RegisterUserViewController: UIViewController {
     //MARK: Layout
     private func setupLayout(){
         view.backgroundColor = .white
-        
-        setupPageTitle()
-        setupEmailTextField(previousElement: pageTitle)
+
+        setupNavigationBar()
+        setupEmailTextField(previousElement: navigationBar)
         setupNameTextField(previousElement: emailTextField)
         setupPasswordTextField(previousElement: nameTextField)
         setupRegisterButton(previousElement: passwordTextField)
     }
-    private func setupPageTitle(){
-        let pageTitle = UILabel()
-        pageTitle.text = "Register"
-        pageTitle.textAlignment = .center
-        pageTitle.isUserInteractionEnabled = true
-        styleTitleLabel(pageTitle)
+    private func setupNavigationBar(){
+        let navbar = UINavigationBar()
+        styleNavigationBar(navbar)
         
-        view.addSubview(pageTitle)
-        pageTitle.translatesAutoresizingMaskIntoConstraints = false
-        pageTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        pageTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
-        pageTitle.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        pageTitle.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        view.addSubview(navbar)
+        navbar.translatesAutoresizingMaskIntoConstraints = false
+        navbar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        navbar.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        navbar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        navbar.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
-        self.pageTitle = pageTitle
+        let navItem = UINavigationItem(title: "Register")
+        let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(closeRegistrationPage))
+        
+        navItem.rightBarButtonItem = backButton
+        navbar.setItems([navItem], animated: false)
+        
+        self.navigationBar = navbar
     }
     private func setupEmailTextField(previousElement: UIView){
         let textField = UITextField()

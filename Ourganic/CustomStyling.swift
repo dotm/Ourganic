@@ -10,15 +10,22 @@ import UIKit
 
 let defaultCornerRadius = CGFloat(10)
 let defaultTitleTextColor = UIColor.green
+let defaultButtonColor = UIColor.orange
 
 func styleTitleLabel(_ label: UILabel){
     label.textColor = defaultTitleTextColor
 }
 
+func styleNavigationBar(_ navbar: UINavigationBar){
+    navbar.tintColor = defaultButtonColor
+    navbar.barTintColor = .white
+    navbar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: defaultTitleTextColor]
+}
+
 func styleButton(_ button: UIButton){
     button.layer.cornerRadius = defaultCornerRadius
     button.tintColor = .white
-    button.backgroundColor = .orange
+    button.backgroundColor = defaultButtonColor
     button.setTitleColor(.white, for: .normal)
     button.alpha = 1
 }
