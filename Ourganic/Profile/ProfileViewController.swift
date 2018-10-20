@@ -16,7 +16,6 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        goTo_loginPage()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -24,6 +23,8 @@ class ProfileViewController: UIViewController {
         userHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = auth.currentUser {
                 print("Logged In User:", user.uid, user.email!, user.displayName!, separator: "\n", terminator: "\n\n")
+            }else{
+                print("No user is currently logged in.")
             }
         }
     }
@@ -31,6 +32,15 @@ class ProfileViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         Auth.auth().removeStateDidChangeListener(userHandle!)
+    }
+    
+    //MARK: User Management
+    private func logoutUser(){
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Error logging out:", error)
+        }
     }
     private func goTo_loginPage(){
         present(LoginUserViewController(), animated: true, completion: nil)
