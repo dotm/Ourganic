@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        goTo_registrationPage()
+        goTo_loginPage()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,6 +31,9 @@ class ProfileViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         Auth.auth().removeStateDidChangeListener(userHandle!)
+    }
+    private func goTo_loginPage(){
+        present(LoginUserViewController(), animated: true, completion: nil)
     }
     private func goTo_registrationPage(){
         present(RegisterUserViewController(), animated: true, completion: nil)

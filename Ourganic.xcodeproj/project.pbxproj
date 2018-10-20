@@ -15,6 +15,7 @@
 		370F902B217582EF00B91689 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902A217582EF00B91689 /* ProfileViewController.swift */; };
 		370F902D21758A0F00B91689 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902C21758A0F00B91689 /* RegisterUserViewController.swift */; };
 		370F9030217594A300B91689 /* CustomStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902F217594A300B91689 /* CustomStyling.swift */; };
+		374A5333217B30E6001F3FD5 /* LoginUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5332217B30E6001F3FD5 /* LoginUserViewController.swift */; };
 		3758019D21736ADF004A249D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3758019C21736ADF004A249D /* GoogleService-Info.plist */; };
 		8AC949124311E7F4E6DE8C96 /* Pods_OurganicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748B41B9D18B672E4EB30688 /* Pods_OurganicTests.framework */; };
 		C9272341AF055076FBDCF85C /* Pods_Ourganic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C4ADBD78DB75C44F8A7AB8C /* Pods_Ourganic.framework */; };
@@ -44,6 +45,7 @@
 		370F902A217582EF00B91689 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		370F902C21758A0F00B91689 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		370F902F217594A300B91689 /* CustomStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyling.swift; sourceTree = "<group>"; };
+		374A5332217B30E6001F3FD5 /* LoginUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserViewController.swift; sourceTree = "<group>"; };
 		3758019C21736ADF004A249D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3C4ADBD78DB75C44F8A7AB8C /* Pods_Ourganic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ourganic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DA122225142C15FDD0D7CAA /* Pods-OurganicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OurganicTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OurganicTests/Pods-OurganicTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				370F902A217582EF00B91689 /* ProfileViewController.swift */,
 				370F902C21758A0F00B91689 /* RegisterUserViewController.swift */,
+				374A5332217B30E6001F3FD5 /* LoginUserViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374A5333217B30E6001F3FD5 /* LoginUserViewController.swift in Sources */,
 				370F902B217582EF00B91689 /* ProfileViewController.swift in Sources */,
 				370F902D21758A0F00B91689 /* RegisterUserViewController.swift in Sources */,
 				370008692173683000AF89F3 /* AppDelegate.swift in Sources */,
