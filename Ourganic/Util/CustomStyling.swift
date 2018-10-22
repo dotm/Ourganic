@@ -9,11 +9,19 @@
 import UIKit
 
 let defaultCornerRadius = CGFloat(10)
-let defaultTitleTextColor = UIColor.green
-let defaultButtonColor = UIColor.orange
+let defaultTitleTextColor = UIColor(named: "cGreen")
+let defaultButtonColor = UIColor(named: "cOrange")
+let defaultHamTintColor = UIColor(named: "cGreenHam")
+let defaultTurqoiseLblColor = UIColor(named: "cTurqoise")
+let defaultDescLabelColor = UIColor(named: "cDescLblColor") 
+
 
 func styleTitleLabel(_ label: UILabel){
     label.textColor = defaultTitleTextColor
+}
+
+func styleViewCorner(_ view: UIView){
+    view.layer.cornerRadius = 30
 }
 
 func styleNavigationBar(_ navbar: UINavigationBar){
@@ -37,3 +45,4 @@ func styleTextField(_ textField: UITextField){
     textField.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 10.0))
     textField.leftViewMode = .always
 }
+

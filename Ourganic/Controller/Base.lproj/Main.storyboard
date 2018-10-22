@@ -5,26 +5,20 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Home-->
-        <scene sceneID="baQ-1H-rsj">
+        <scene sceneID="rxd-xv-BPh">
             <objects>
-                <viewController id="GXj-4y-d2U" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="sdA-FD-Q8q">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.88235294119999996" green="0.34509803919999998" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <viewLayoutGuide key="safeArea" id="NdX-vp-zfV"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="6DV-w1-c0W"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pct-N7-rSH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Home" id="BdS-O2-Xvu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Uwd-qc-sqk"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Myf-D4-9MZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1361" y="-740"/>
+            <point key="canvasLocation" x="624" y="-254"/>
         </scene>
         <!--Notification-->
         <scene sceneID="DY6-na-zOB">
@@ -67,16 +61,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" name="cOrange"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedTintItemColor">
+                                <color key="value" name="cGreen"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="GXj-4y-d2U" kind="relationship" relationship="viewControllers" id="6E1-PZ-d2p"/>
+                        <segue destination="BdS-O2-Xvu" kind="relationship" relationship="viewControllers" id="Hz4-3y-3p4"/>
                         <segue destination="N2f-9t-k89" kind="relationship" relationship="viewControllers" id="y7e-T3-onE"/>
                         <segue destination="mpq-zj-hsn" kind="relationship" relationship="viewControllers" id="GZh-9r-e9K"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ThF-Pl-fW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-182" y="216"/>
+            <point key="canvasLocation" x="-262" y="-76"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="cGreen">
+            <color red="0.5690000057220459" green="0.73299998044967651" blue="0.28600001335144043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="cOrange">
+            <color red="0.87099999189376831" green="0.45500001311302185" blue="0.16099999845027924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
