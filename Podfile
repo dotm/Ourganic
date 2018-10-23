@@ -8,6 +8,7 @@ target 'Ourganic' do
   # Pods for Ourganic
   pod 'Firebase/Core'
   pod 'FirebaseUI'
+  pod 'Firebase/Firestore'
   pod 'AACarousel'
 
 
