@@ -10,6 +10,7 @@ target 'Ourganic' do
   pod 'FirebaseUI'
   pod 'Firebase/Firestore'
   pod 'AACarousel'
+  pod 'Kingfisher'
 
 
   target 'OurganicTests' do
