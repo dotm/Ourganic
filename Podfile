@@ -8,7 +8,7 @@ target 'Ourganic' do
   # Pods for Ourganic
   pod 'Firebase/Core'
   pod 'FirebaseUI'
-
+  pod 'Firebase/Firestore'
 
   target 'OurganicTests' do
     inherit! :search_paths
