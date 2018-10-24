@@ -24,4 +24,7 @@ enum User {
     static func register(email: String, password: String, completion: AuthDataResultCallback?){
         Auth.auth().createUser(withEmail: email, password: password, completion: completion)
     }
+    static func isLoggedIn() -> Bool{
+        return Auth.auth().currentUser != nil
+    }
 }
