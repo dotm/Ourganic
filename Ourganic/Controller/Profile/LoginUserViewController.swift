@@ -14,12 +14,12 @@ class LoginUserViewController: UIViewController {
     private weak var navigationBar: UINavigationBar!
     private weak var emailTextField: UITextField!
     private weak var passwordTextField: UITextField!
-    private weak var loginButton: UIButton!
+    private weak var submitButton: UIButton!
 
     //MARK: Action
     @objc private func loginUser(){
-        loginButton.alpha = 0.5
-        loginButton.isUserInteractionEnabled = false
+        submitButton.alpha = 0.5
+        submitButton.isUserInteractionEnabled = false
         
         self.view.endEditing(true)
         
@@ -39,8 +39,8 @@ class LoginUserViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     private func handleLoginError(message: String){
-        loginButton.isUserInteractionEnabled = true
-        styleButton(loginButton)
+        submitButton.isUserInteractionEnabled = true
+        styleButton(submitButton)
         
         let alertErrorController = UIAlertController(
             title: "Login Failed",
@@ -70,7 +70,7 @@ class LoginUserViewController: UIViewController {
         setupNavigationBar()
         setupEmailTextField(previousElement: navigationBar)
         setupPasswordTextField(previousElement: emailTextField)
-        setupLoginButton(previousElement: passwordTextField)
+        setupSubmitButton(previousElement: passwordTextField)
     }
     private func setupNavigationBar(){
         let navbar = UINavigationBar()
@@ -126,7 +126,7 @@ class LoginUserViewController: UIViewController {
         
         self.passwordTextField = textField
     }
-    private func setupLoginButton(previousElement: UIView){
+    private func setupSubmitButton(previousElement: UIView){
         let button = UIButton()
         button.setTitle("Login", for: .normal)
         styleButton(button)
@@ -138,7 +138,7 @@ class LoginUserViewController: UIViewController {
         button.topAnchor.constraint(equalTo: previousElement.bottomAnchor, constant: 20).isActive = true
         button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        self.loginButton = button
+        self.submitButton = button
     }
 }
 
