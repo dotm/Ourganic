@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Initialize Firebase
         FirebaseApp.configure()
+        //Initialize User's Store
+        Store.initialize()
         
         return true
     }

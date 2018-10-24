@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        goTo_addStorePage()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,6 +50,29 @@ class ProfileViewController: UIViewController {
         present(RegisterUserViewController(), animated: true, completion: nil)
     }
 
+    //MARK: Store Management
+    private func goTo_addStorePage(){
+        if User.isLoggedIn(){
+            present(AddStoreViewController(), animated: true, completion: nil)
+        }else{
+            askUserToLoginFirst()
+        }
+    }
+    private func askUserToLoginFirst(){
+        let alertErrorController = UIAlertController(
+            title: "Login Required",
+            message: "Please log in to your account first",
+            preferredStyle: .alert
+        )
+        let dismiss = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil
+        )
+        alertErrorController.addAction(dismiss)
+        self.present(alertErrorController, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

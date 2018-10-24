@@ -10,12 +10,58 @@ import Foundation
 import Firebase
 
 typealias StoreData = (name: String, address: String?, phone: String?, image: UIImage?)
-class Store {
-    private let db = Firestore.firestore()
-    private let STORE_COLLECTION = "stores"
+
+fileprivate let db = Firestore.firestore()
+fileprivate let STORE_COLLECTION = "stores"
+
+enum Store {
+    //MARK: Private Properties
+    //You must run initialize() or register() before the below value is initialized
+    static private var store_id: String?
+    static private var storeData: StoreData?
+    //MARK: Public Properties
+    static var ID: String? {
+        guard let id = store_id else {
+            print("No ID found for your store.")
+            return nil
+        }
+        return id
+    }
+    static var data: StoreData? {
+        guard let data = storeData else {
+            print("No data found for your store.")
+            return nil
+        }
+        return data
+    }
+    //MARK: Actions
+    static func register(store: StoreData, completion callback: ((Error?) -> Void)?){
+        let storeData: [String: Any] = [
+            "user_id": User.ID,
+            "name": store.name,
+            "address": store.address ?? "",
+            "phone": store.phone ?? "",
+            "image_url": "" //TODO: save image
+        ]
+        
+        var ref: DocumentReference? = nil
+        ref = db.collection(STORE_COLLECTION).addDocument(data: storeData) { (error) in
+            if error == nil {
+                Store.store_id = ref?.documentID
+                Store.storeData = store
+                initialized = true
+            }
+            
+            callback?(error)
+        }
+        
+    }
     
-    private init() {
-        //get ID of store
+    //MARK: Initialization
+    static private var initialized: Bool = false
+    static func initialize(){
+        guard initialized == false else { return }
+        
         let query = db.collection(STORE_COLLECTION).whereField("user_id", isEqualTo: User.ID)
         query.getDocuments { (result, error) in
             if let error = error {
@@ -24,7 +70,7 @@ class Store {
             }
             
             guard let storeDocument = result?.documents.first else { return }
-            self.ID = storeDocument.documentID
+            store_id = storeDocument.documentID
             
             let dataDictionary = storeDocument.data()
             guard let name = dataDictionary["name"] as? String else {
@@ -32,33 +78,9 @@ class Store {
             }
             let address = dataDictionary["address"] as? String
             let phone = dataDictionary["phone"] as? String
-            self.storeData = (name: name, address: address, phone: phone, image: nil)
+            storeData = (name: name, address: address, phone: phone, image: nil)
+            
+            initialized = true
         }
     }
-    
-    var storeData: StoreData? = nil
-    var ID: String? = nil
-    private var storedInstance: Store? = nil
-    var instance: Store {
-        if let store = storedInstance {
-            return store
-        } else {
-            let store = Store()
-            storedInstance = store
-            return store
-        }
-    }
-    func register(store: StoreData, completion callback: ((Error?) -> Void)?){
-        let storeData: [String: Any] = [
-            "user_id": User.ID,
-            "name": store.name,
-            "address": store.address ?? "",
-            "phone": store.phone ?? "",
-            "image_url": "" //TODO: save image
-        ]
-        let documentRef = db.collection(STORE_COLLECTION).addDocument(data: storeData, completion: callback)
-        self.ID = documentRef.documentID
-    }
-    
-    private func saveStoreImage(image: UIImage){}
 }
