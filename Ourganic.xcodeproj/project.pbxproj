@@ -15,8 +15,11 @@
 		370F902B217582EF00B91689 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902A217582EF00B91689 /* ProfileViewController.swift */; };
 		370F902D21758A0F00B91689 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902C21758A0F00B91689 /* RegisterUserViewController.swift */; };
 		370F9030217594A300B91689 /* CustomStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902F217594A300B91689 /* CustomStyling.swift */; };
+		3733C5D5217ED359000BD6F6 /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3733C5D4217ED359000BD6F6 /* AddStoreViewController.swift */; };
 		374A5333217B30E6001F3FD5 /* LoginUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5332217B30E6001F3FD5 /* LoginUserViewController.swift */; };
 		3758019D21736ADF004A249D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3758019C21736ADF004A249D /* GoogleService-Info.plist */; };
+		377E07CF218026B900E0C86E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E07CE218026B900E0C86E /* User.swift */; };
+		377E07D1218026D200E0C86E /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E07D0218026D200E0C86E /* Store.swift */; };
 		8AC949124311E7F4E6DE8C96 /* Pods_OurganicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748B41B9D18B672E4EB30688 /* Pods_OurganicTests.framework */; };
 		C9272341AF055076FBDCF85C /* Pods_Ourganic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C4ADBD78DB75C44F8A7AB8C /* Pods_Ourganic.framework */; };
 		DD070656217D8874004EFA08 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD070655217D8874004EFA08 /* HomeViewController.swift */; };
@@ -49,8 +52,11 @@
 		370F902A217582EF00B91689 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		370F902C21758A0F00B91689 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		370F902F217594A300B91689 /* CustomStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyling.swift; sourceTree = "<group>"; };
+		3733C5D4217ED359000BD6F6 /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
 		374A5332217B30E6001F3FD5 /* LoginUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserViewController.swift; sourceTree = "<group>"; };
 		3758019C21736ADF004A249D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		377E07CE218026B900E0C86E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		377E07D0218026D200E0C86E /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		3C4ADBD78DB75C44F8A7AB8C /* Pods_Ourganic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ourganic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DA122225142C15FDD0D7CAA /* Pods-OurganicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OurganicTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OurganicTests/Pods-OurganicTests.debug.xcconfig"; sourceTree = "<group>"; };
 		748B41B9D18B672E4EB30688 /* Pods_OurganicTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OurganicTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +122,7 @@
 		370008672173683000AF89F3 /* Ourganic */ = {
 			isa = PBXGroup;
 			children = (
+				377E07CD218026A300E0C86E /* DatabaseAccess */,
 				DD070653217D8822004EFA08 /* Util */,
 				DD07065C217D9550004EFA08 /* Model */,
 				DD070652217D87D1004EFA08 /* Controller */,
@@ -143,8 +150,18 @@
 				370F902A217582EF00B91689 /* ProfileViewController.swift */,
 				370F902C21758A0F00B91689 /* RegisterUserViewController.swift */,
 				374A5332217B30E6001F3FD5 /* LoginUserViewController.swift */,
+				3733C5D4217ED359000BD6F6 /* AddStoreViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		377E07CD218026A300E0C86E /* DatabaseAccess */ = {
+			isa = PBXGroup;
+			children = (
+				377E07CE218026B900E0C86E /* User.swift */,
+				377E07D0218026D200E0C86E /* Store.swift */,
+			);
+			path = DatabaseAccess;
 			sourceTree = "<group>";
 		};
 		DBA92FE5A64F4D30F76A6FD7 /* Frameworks */ = {
@@ -438,7 +455,10 @@
 				370008692173683000AF89F3 /* AppDelegate.swift in Sources */,
 				DD07065B217D93A2004EFA08 /* CategoryTableViewCell.swift in Sources */,
 				370F9030217594A300B91689 /* CustomStyling.swift in Sources */,
+				377E07D1218026D200E0C86E /* Store.swift in Sources */,
+				3733C5D5217ED359000BD6F6 /* AddStoreViewController.swift in Sources */,
 				DD070656217D8874004EFA08 /* HomeViewController.swift in Sources */,
+				377E07CF218026B900E0C86E /* User.swift in Sources */,
 				DD07065E217D959A004EFA08 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

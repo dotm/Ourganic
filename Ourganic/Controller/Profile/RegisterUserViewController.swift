@@ -28,7 +28,7 @@ class RegisterUserViewController: UIViewController {
         let password = passwordTextField.text!
         let fullname = nameTextField.text!
 
-        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+        User.register(email: email, password: password) { (authResult, error) in
             if let error = error {
                 self.handleRegistrationError(message: error.localizedDescription)
                 return
