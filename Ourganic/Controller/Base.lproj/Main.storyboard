@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hAu-JG-tk7">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -25,12 +25,12 @@
             <objects>
                 <viewController id="N2f-9t-k89" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="81M-8l-pgl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="5DD-zh-2B4"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notification" id="dyJ-RT-0Em"/>
+                    <tabBarItem key="tabBarItem" title="Notification" image="Notif" id="dyJ-RT-0Em"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLC-wh-fdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,12 +41,12 @@
             <objects>
                 <viewController id="mpq-zj-hsn" customClass="ProfileViewController" customModule="Ourganic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kw4-uY-ieo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="REP-Yx-lnI"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="G1Q-qv-AkN"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile" id="G1Q-qv-AkN"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xh9-pF-Nyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -65,7 +65,7 @@
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" name="cOrange"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedTintItemColor">
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
                                 <color key="value" name="cGreen"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
@@ -82,6 +82,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Notif" width="24" height="28"/>
+        <image name="Profile" width="25" height="28"/>
         <namedColor name="cGreen">
             <color red="0.5690000057220459" green="0.73299998044967651" blue="0.28600001335144043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

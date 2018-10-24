@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,14 +22,8 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Products Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBc-O6-Lfh">
-                                <rect key="frame" x="20" y="176" width="144" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Fx-uT-K8p">
-                                <rect key="frame" x="20" y="215" width="374" height="598"/>
+                                <rect key="frame" x="20" y="392" width="374" height="421"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatCell" rowHeight="121" id="TXk-xk-reN" customClass="CategoryTableViewCell" customModule="Ourganic" customModuleProvider="target">
@@ -42,10 +37,10 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="120.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9qw-Pu-GsO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="120.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="100.5"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mqb-S1-SkH">
-                                                            <rect key="frame" x="20" y="88.5" width="61" height="17"/>
+                                                            <rect key="frame" x="20" y="68.5" width="61" height="17"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -55,10 +50,10 @@
                                                     <constraints>
                                                         <constraint firstItem="9qw-Pu-GsO" firstAttribute="leading" secondItem="sH2-QY-lZD" secondAttribute="leading" id="02g-gp-8hK"/>
                                                         <constraint firstAttribute="trailing" secondItem="9qw-Pu-GsO" secondAttribute="trailing" id="FOi-Xx-xk2"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Mqb-S1-SkH" secondAttribute="bottom" constant="15" id="Yyv-tV-Yx9"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Mqb-S1-SkH" secondAttribute="bottom" constant="35" id="Yyv-tV-Yx9"/>
                                                         <constraint firstItem="Mqb-S1-SkH" firstAttribute="leading" secondItem="sH2-QY-lZD" secondAttribute="leading" constant="20" id="g5f-Qe-taJ"/>
                                                         <constraint firstItem="9qw-Pu-GsO" firstAttribute="top" secondItem="sH2-QY-lZD" secondAttribute="top" id="ipk-sY-Mrg"/>
-                                                        <constraint firstAttribute="bottom" secondItem="9qw-Pu-GsO" secondAttribute="bottom" id="mdY-4H-MRF"/>
+                                                        <constraint firstAttribute="bottom" secondItem="9qw-Pu-GsO" secondAttribute="bottom" constant="20" id="mdY-4H-MRF"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -77,15 +72,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b53-ID-Q1H" customClass="AACarousel" customModule="AACarousel">
+                                <rect key="frame" x="0.0" y="158" width="414" height="170"/>
+                                <color key="backgroundColor" name="cTurqoise"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="b53-ID-Q1H" secondAttribute="height" multiplier="207:85" id="W6l-8L-zJ3"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Products Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBc-O6-Lfh">
+                                <rect key="frame" x="20" y="353" width="144" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="b53-ID-Q1H" firstAttribute="leading" secondItem="7eP-SC-1eT" secondAttribute="leading" id="4Hx-An-3sm"/>
                             <constraint firstItem="3Fx-uT-K8p" firstAttribute="top" secondItem="PBc-O6-Lfh" secondAttribute="bottom" constant="18" id="EBJ-im-nA3"/>
                             <constraint firstItem="7eP-SC-1eT" firstAttribute="trailing" secondItem="bOu-Nv-URq" secondAttribute="trailing" id="Erg-MM-ARH"/>
                             <constraint firstItem="7eP-SC-1eT" firstAttribute="trailing" secondItem="3Fx-uT-K8p" secondAttribute="trailing" constant="20" id="JIJ-Jk-p6X"/>
-                            <constraint firstItem="PBc-O6-Lfh" firstAttribute="top" secondItem="bOu-Nv-URq" secondAttribute="bottom" constant="32" id="Scq-HH-Ziv"/>
+                            <constraint firstItem="b53-ID-Q1H" firstAttribute="top" secondItem="bOu-Nv-URq" secondAttribute="bottom" constant="14" id="Rwy-re-ZZP"/>
                             <constraint firstItem="3Fx-uT-K8p" firstAttribute="leading" secondItem="7eP-SC-1eT" secondAttribute="leading" constant="20" id="TC1-bY-cYe"/>
+                            <constraint firstItem="b53-ID-Q1H" firstAttribute="trailing" secondItem="7eP-SC-1eT" secondAttribute="trailing" id="YRQ-P7-2Is"/>
                             <constraint firstItem="bOu-Nv-URq" firstAttribute="top" secondItem="7eP-SC-1eT" secondAttribute="top" id="abl-Ec-rtC"/>
+                            <constraint firstItem="PBc-O6-Lfh" firstAttribute="top" secondItem="b53-ID-Q1H" secondAttribute="bottom" constant="25" id="bLP-L3-SG2"/>
                             <constraint firstItem="7eP-SC-1eT" firstAttribute="bottom" secondItem="3Fx-uT-K8p" secondAttribute="bottom" id="gpt-A7-ctp"/>
                             <constraint firstItem="PBc-O6-Lfh" firstAttribute="leading" secondItem="7eP-SC-1eT" secondAttribute="leading" constant="20" id="uqF-8c-7yk"/>
                             <constraint firstItem="bOu-Nv-URq" firstAttribute="leading" secondItem="7eP-SC-1eT" secondAttribute="leading" id="wxn-6H-gtc"/>
@@ -94,6 +105,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cYW-Sm-rlO"/>
                     <connections>
+                        <outlet property="carouselView" destination="b53-ID-Q1H" id="jh0-B8-vs0"/>
                         <outlet property="catTableView" destination="3Fx-uT-K8p" id="b7v-6Z-swr"/>
                         <outletCollection property="headerLabelList" destination="PBc-O6-Lfh" collectionClass="NSMutableArray" id="jjg-R6-AGI"/>
                     </connections>
@@ -125,5 +137,8 @@
     </scenes>
     <resources>
         <image name="Home" width="37" height="29"/>
+        <namedColor name="cTurqoise">
+            <color red="0.19599999487400055" green="0.72200000286102295" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

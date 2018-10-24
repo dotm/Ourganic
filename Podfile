@@ -9,6 +9,9 @@ target 'Ourganic' do
   pod 'Firebase/Core'
   pod 'FirebaseUI'
   pod 'Firebase/Firestore'
+  pod 'AACarousel'
+  pod 'Kingfisher'
+
 
   target 'OurganicTests' do
     inherit! :search_paths
