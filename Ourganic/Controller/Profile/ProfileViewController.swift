@@ -52,25 +52,9 @@ class ProfileViewController: UIViewController {
 
     //MARK: Store Management
     private func goTo_addStorePage(){
-        if User.isLoggedIn(){
+        ensureThat_userIsLoggedIn(then: (
             present(AddStoreViewController(), animated: true, completion: nil)
-        }else{
-            askUserToLoginFirst()
-        }
-    }
-    private func askUserToLoginFirst(){
-        let alertErrorController = UIAlertController(
-            title: "Login Required",
-            message: "Please log in to your account first",
-            preferredStyle: .alert
-        )
-        let dismiss = UIAlertAction(
-            title: "OK",
-            style: .default,
-            handler: nil
-        )
-        alertErrorController.addAction(dismiss)
-        self.present(alertErrorController, animated: true, completion: nil)
+        ))
     }
     
     /*
