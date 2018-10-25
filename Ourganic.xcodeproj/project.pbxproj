@@ -15,6 +15,7 @@
 		370F902B217582EF00B91689 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902A217582EF00B91689 /* ProfileViewController.swift */; };
 		370F902D21758A0F00B91689 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902C21758A0F00B91689 /* RegisterUserViewController.swift */; };
 		370F9030217594A300B91689 /* CustomStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902F217594A300B91689 /* CustomStyling.swift */; };
+		3712FF92218180C700E011D8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3712FF91218180C700E011D8 /* Product.swift */; };
 		3733C5D5217ED359000BD6F6 /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3733C5D4217ED359000BD6F6 /* AddStoreViewController.swift */; };
 		374A5333217B30E6001F3FD5 /* LoginUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5332217B30E6001F3FD5 /* LoginUserViewController.swift */; };
 		3758019D21736ADF004A249D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3758019C21736ADF004A249D /* GoogleService-Info.plist */; };
@@ -53,6 +54,7 @@
 		370F902A217582EF00B91689 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		370F902C21758A0F00B91689 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		370F902F217594A300B91689 /* CustomStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyling.swift; sourceTree = "<group>"; };
+		3712FF91218180C700E011D8 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3733C5D4217ED359000BD6F6 /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
 		374A5332217B30E6001F3FD5 /* LoginUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserViewController.swift; sourceTree = "<group>"; };
 		3758019C21736ADF004A249D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				377E07CE218026B900E0C86E /* User.swift */,
 				377E07D0218026D200E0C86E /* Store.swift */,
+				3712FF91218180C700E011D8 /* Product.swift */,
 			);
 			path = DatabaseAccess;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				377E07CF218026B900E0C86E /* User.swift in Sources */,
 				377E07D321805AEE00E0C86E /* Alerts.swift in Sources */,
 				DD07065E217D959A004EFA08 /* Category.swift in Sources */,
+				3712FF92218180C700E011D8 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
