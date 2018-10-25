@@ -54,7 +54,15 @@ enum Store {
             
             callback?(error)
         }
+    }
+    static func add(product: Product, completion callback: ((Error?) -> Void)?){
+        guard let store_id = store_id else {
+            print("No ID found for your store.")
+            return
+        }
+        let productData: [String: Any] = convertProductData_toProductDictionary(product, store_id: store_id, store_name: data!.name, image_url: "")
         
+        var _ : DocumentReference? = db.collection(PRODUCT_COLLECTION).addDocument(data: productData, completion: callback)
     }
     
     //MARK: Initialization

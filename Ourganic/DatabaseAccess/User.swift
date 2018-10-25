@@ -10,9 +10,10 @@ import Foundation
 import Firebase
 
 enum User {
-    static var ID: String {
+    static var ID: String? {
         guard let currentUserID = Auth.auth().currentUser?.uid else {
-            fatalError("Trying to register store without logging in first results in fatal error.")
+            print("No user logged in.")
+            return nil
         }
         
         return currentUserID
