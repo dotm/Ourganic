@@ -11,10 +11,10 @@ import UIKit
 class ProductTableViewCell: UITableViewCell {
 
     @IBOutlet weak var prodView: UIView!
-    @IBOutlet weak var prodUnit: NSLayoutConstraint!
+    @IBOutlet weak var prodUnit: UILabel!
     @IBOutlet weak var prodPrice: UILabel!
     @IBOutlet weak var prodLoc: UILabel!
-    @IBOutlet weak var prodName: NSLayoutConstraint!
+    @IBOutlet weak var prodName: UILabel!
     @IBOutlet weak var prodDescView: UIView!
     @IBOutlet weak var prodImage: UIImageView!
     override func awakeFromNib() {
