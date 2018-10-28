@@ -36,25 +36,25 @@ class AddProductViewController: UIViewController {
         
         self.view.endEditing(true)
         
-        guard let name = productNameTextField.text else {
+        guard let name = productNameTextField.text, !name.isEmpty else {
             handleAddProductError(message: "Please insert product name.")
             return
         }
         let location = locationTextField.text ?? ""
         let description = descriptionTextField.text ?? ""
-        guard let minimalQuantityText = minimalQuantityTextField.text else {
+        guard let minimalQuantityText = minimalQuantityTextField.text, !minimalQuantityText.isEmpty else {
             handleAddProductError(message: "Please insert minimal quantity for product in \"min qty.\" field")
             return
         }
-        guard let minimal_quantity = Double(minimalQuantityText) else {
+        guard let minimal_quantity = Double(minimalQuantityText), minimal_quantity > 0 else {
             handleAddProductError(message: "Invalid minimal quantity for product in \"min qty.\" field")
             return
         }
-        guard let unit_measurement = unitMeasurementTextField.text else {
+        guard let unit_measurement = unitMeasurementTextField.text, !unit_measurement.isEmpty else {
             handleAddProductError(message: "Please insert unit measurement of minimal quantity of the product")
             return
         }
-        guard let priceText = priceTextField.text else {
+        guard let priceText = priceTextField.text, !priceText.isEmpty else {
             handleAddProductError(message: "Please insert price for minimal quantity of product.")
             return
         }
