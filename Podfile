@@ -11,6 +11,7 @@ target 'Ourganic' do
   pod 'Firebase/Firestore'
   pod 'AACarousel'
   pod 'Kingfisher'
+  pod 'IQKeyboardManagerSwift'
 
 
   target 'OurganicTests' do
