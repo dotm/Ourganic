@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        goTo_addProductPage()
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +56,9 @@ class ProfileViewController: UIViewController {
         ensureThat_userIsLoggedIn(then: (
             present(AddStoreViewController(), animated: true, completion: nil)
         ))
+    }
+    private func goTo_addProductPage(){
+        ensureThat_userHasRegisteredStore(then: present(AddProductViewController(), animated: true, completion: nil))
     }
     
     /*

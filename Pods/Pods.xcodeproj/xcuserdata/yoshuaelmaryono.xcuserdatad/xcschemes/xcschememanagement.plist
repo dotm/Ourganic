@@ -7,7 +7,7 @@
 		<key>AACarousel.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>33</integer>
+			<integer>32</integer>
 		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
@@ -152,7 +152,7 @@
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>34</integer>
+			<integer>33</integer>
 		</dict>
 		<key>Pods-Ourganic.xcscheme</key>
 		<dict>

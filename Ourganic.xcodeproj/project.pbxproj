@@ -22,6 +22,7 @@
 		377E07CF218026B900E0C86E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E07CE218026B900E0C86E /* User.swift */; };
 		377E07D1218026D200E0C86E /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E07D0218026D200E0C86E /* Store.swift */; };
 		377E07D321805AEE00E0C86E /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E07D221805AEE00E0C86E /* Alerts.swift */; };
+		37E3ABCF218577310063D127 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3ABCE218577310063D127 /* AddProductViewController.swift */; };
 		8AC949124311E7F4E6DE8C96 /* Pods_OurganicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748B41B9D18B672E4EB30688 /* Pods_OurganicTests.framework */; };
 		C9272341AF055076FBDCF85C /* Pods_Ourganic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C4ADBD78DB75C44F8A7AB8C /* Pods_Ourganic.framework */; };
 		DD070656217D8874004EFA08 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD070655217D8874004EFA08 /* HomeViewController.swift */; };
@@ -64,6 +65,7 @@
 		377E07CE218026B900E0C86E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		377E07D0218026D200E0C86E /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		377E07D221805AEE00E0C86E /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		37E3ABCE218577310063D127 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		3C4ADBD78DB75C44F8A7AB8C /* Pods_Ourganic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ourganic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DA122225142C15FDD0D7CAA /* Pods-OurganicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OurganicTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OurganicTests/Pods-OurganicTests.debug.xcconfig"; sourceTree = "<group>"; };
 		748B41B9D18B672E4EB30688 /* Pods_OurganicTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OurganicTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +163,7 @@
 				370F902C21758A0F00B91689 /* RegisterUserViewController.swift */,
 				374A5332217B30E6001F3FD5 /* LoginUserViewController.swift */,
 				3733C5D4217ED359000BD6F6 /* AddStoreViewController.swift */,
+				37E3ABCE218577310063D127 /* AddProductViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				DDCE019D2182CEC200B1C1D2 /* ProductTableViewCell.swift in Sources */,
 				DD07065B217D93A2004EFA08 /* CategoryTableViewCell.swift in Sources */,
 				370F9030217594A300B91689 /* CustomStyling.swift in Sources */,
+				37E3ABCF218577310063D127 /* AddProductViewController.swift in Sources */,
 				377E07D1218026D200E0C86E /* Store.swift in Sources */,
 				3733C5D5217ED359000BD6F6 /* AddStoreViewController.swift in Sources */,
 				DD070656217D8874004EFA08 /* HomeViewController.swift in Sources */,

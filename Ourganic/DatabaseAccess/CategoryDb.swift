@@ -17,7 +17,7 @@ func getCategoryList (completion: @escaping (_ result: [CategoryModel]) -> Void?
     let query = db.collection(CATEGORY_COLLECTION).order(by: "order", descending: false)
     query.getDocuments { (result, error) in
         if let error = error {
-            print("Error executing query to get store ID:", error.localizedDescription)
+            print("Error executing query to get category list:", error.localizedDescription)
             return
         }
         
@@ -34,7 +34,7 @@ func getHeadlineList (completion: @escaping (_ result: [[String:Any]]) -> Void?)
     let query = db.collection(HEADLINE_COLLECTION).order(by: "code", descending: false)
     query.getDocuments { (result, error) in
         if let error = error {
-            print("Error executing query to get store ID:", error.localizedDescription)
+            print("Error executing query to get headline list:", error.localizedDescription)
             return
         }
         
