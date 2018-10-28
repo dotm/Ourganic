@@ -90,3 +90,20 @@ func getProductList(store_id: String, completion callback: (([Product], Error?) 
         callback?(products, error)
     }
 }
+
+func getProductList(category_code: String, completion callback: (([Product], Error?) -> Void)?){
+    let query = db.collection(PRODUCT_COLLECTION).whereField("category", isEqualTo: category_code)
+    query.getDocuments { (result, error) in
+        if let error = error {
+            print("Error executing query to get product list:", error.localizedDescription)
+            return
+        }
+        
+        guard let productDocuments = result?.documents else { return }
+        let products = productDocuments.map({ (document) -> Product in
+            return convertProductDictionary_toProductData(document.data())
+        })
+        
+        callback?(products, error)
+    }
+}

@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "defaultImage.jpg",
+      "filename" : "indicator.png",
       "scale" : "1x"
     },
     {
