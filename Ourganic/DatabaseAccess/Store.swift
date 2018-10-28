@@ -55,7 +55,7 @@ enum Store {
             callback?(error)
         }
     }
-    static func add(product: Product, completion callback: ((Error?) -> Void)?){
+    static func add(product: ProductData, completion callback: ((Error?) -> Void)?){
         guard let store_id = store_id else {
             print("No ID found for your store.")
             return

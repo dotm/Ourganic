@@ -23,6 +23,15 @@ typealias Product = (
     price_per_unit: Double,
     image_url: String
 )
+typealias ProductData = (
+    product_name: String,
+    location: String,
+    category: String,
+    description: String,
+    minimal_quantity: Double,
+    unit_measurement: String,
+    price_per_unit: Double
+)
 let PRODUCT_COLLECTION = "products"
 
 func convertProductDictionary_toProductData(_ dataDictionary: [String:Any]) -> Product {
@@ -50,7 +59,7 @@ func convertProductDictionary_toProductData(_ dataDictionary: [String:Any]) -> P
         image_url
     )
 }
-func convertProductData_toProductDictionary(_ product: Product, store_id: String, store_name: String, image_url: String) -> [String:Any] {
+func convertProductData_toProductDictionary(_ product: ProductData, store_id: String, store_name: String, image_url: String) -> [String:Any] {
     return [
         "store_id": store_id,
         "store_name": store_name,
