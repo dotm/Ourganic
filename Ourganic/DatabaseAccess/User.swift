@@ -20,7 +20,15 @@ enum User {
     }
     
     static func signIn(email: String, password: String, completion: AuthDataResultCallback?){
-        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("Error signing in:", error)
+            }else{
+                Store.initialize()
+            }
+            
+            completion?(result, error)
+        }
     }
     static func register(email: String, password: String, completion: AuthDataResultCallback?){
         Auth.auth().createUser(withEmail: email, password: password, completion: completion)
