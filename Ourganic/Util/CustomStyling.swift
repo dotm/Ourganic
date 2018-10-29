@@ -19,6 +19,9 @@ let defaultDescLabelColor = UIColor(named: "cDescLblColor")
 func styleTitleLabel(_ label: UILabel){
     label.textColor = defaultTitleTextColor
 }
+func styleLink(_ label: UILabel){
+    label.textColor = defaultButtonColor
+}
 
 func styleViewCorner(_ view: UIView){
     view.layer.cornerRadius = 30

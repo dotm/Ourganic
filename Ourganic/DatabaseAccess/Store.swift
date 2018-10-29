@@ -27,12 +27,12 @@ enum Store {
         }
         return id
     }
-    static var data: StoreData? {
+    static var name: String? {
         guard let data = storeData else {
             print("No data found for your store.")
             return nil
         }
-        return data
+        return data.name
     }
     //MARK: Actions
     static func register(store: StoreData, completion callback: ((Error?) -> Void)?){
@@ -60,7 +60,7 @@ enum Store {
             print("No ID found for your store.")
             return
         }
-        let productData: [String: Any] = convertProductData_toProductDictionary(product, store_id: store_id, store_name: data!.name, image_url: "")
+        let productData: [String: Any] = convertProductData_toProductDictionary(product, store_id: store_id, store_name: storeData!.name, image_url: "")
         
         var _ : DocumentReference? = db.collection(PRODUCT_COLLECTION).addDocument(data: productData, completion: callback)
     }
