@@ -10,11 +10,12 @@ import UIKit
 import AACarousel
 import Kingfisher
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AACarouselDelegate {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AACarouselDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var carouselView: AACarousel!
     @IBOutlet weak var catTableView: UITableView!
     @IBOutlet var headerLabelList: [UILabel]!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var categoryList:[CategoryModel] = []
     var titleArray = [String]()
@@ -25,6 +26,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         catTableView.delegate = self
         catTableView.dataSource = self
         carouselView.delegate = self
+        searchBar.delegate = self
         for label in headerLabelList {
             styleTitleLabel(label)
         }
@@ -100,5 +102,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //startAutoScroll()
         //stopAutoScroll()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchBarText = searchBar.text, !searchBarText.isEmpty else {
+            return
+        }
+        let vc = UIStoryboard.init(name: "Home", bundle: Bundle.main).instantiateViewController(withIdentifier: "homeDetail") as? HomeDetailViewController
+        vc?.keyword = searchBarText
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

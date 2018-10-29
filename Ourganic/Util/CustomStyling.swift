@@ -18,6 +18,7 @@ let defaultDescLabelColor = UIColor(named: "cDescLblColor")
 
 func styleTitleLabel(_ label: UILabel){
     label.textColor = defaultTitleTextColor
+    label.font = UIFont(name: "Avenir", size: label.font.pointSize)
 }
 
 func styleViewCorner(_ view: UIView){
