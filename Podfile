@@ -9,6 +9,7 @@ target 'Ourganic' do
   pod 'Firebase/Core'
   pod 'FirebaseUI'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'AACarousel'
   pod 'Kingfisher'
   pod 'IQKeyboardManagerSwift'

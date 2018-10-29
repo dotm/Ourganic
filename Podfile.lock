@@ -203,6 +203,7 @@ DEPENDENCIES:
   - AACarousel
   - Firebase/Core
   - Firebase/Firestore
+  - Firebase/Storage
   - FirebaseUI
   - IQKeyboardManagerSwift
   - Kingfisher
@@ -280,6 +281,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: bc7bd086b9b724a1d888745a054e1d0b1ecc4f3f
 
-PODFILE CHECKSUM: 44025dd22bb544bee2ce272a933a94943fafedce
+PODFILE CHECKSUM: 2c35892a0f417751e3d6f2dddf916995e44e09bf
 
 COCOAPODS: 1.5.3
