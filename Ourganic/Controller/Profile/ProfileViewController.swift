@@ -82,8 +82,8 @@ class ProfileViewController: UIViewController {
     
     //MARK: Layout
     private let defaultUserName = "Guest"
-    private let defaultStoreName = "No store yet"
-    private let defaultUserImage_string = "defaultimage"
+    private let defaultStoreName = "Please login first"
+    private let defaultUserImage_string = "defaultUserImage"
     private func setupLayout_toLoggedOut(){
         self.usernameLabel.text = defaultUserName
         self.storeNameLabel.text = defaultStoreName
@@ -92,7 +92,7 @@ class ProfileViewController: UIViewController {
     private func setupLayout_toLoggedIn(username: String, userImageURL: URL?){
         self.usernameLabel.text = username
         loadUserImage(from: userImageURL)
-        self.storeNameLabel.text = Store.name ?? defaultStoreName
+        self.storeNameLabel.text = Store.name ?? "No store registered"
     }
     private func loadUserImage(from url: URL?){
         var data: Data? = nil
