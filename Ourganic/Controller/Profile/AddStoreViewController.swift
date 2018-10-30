@@ -40,8 +40,23 @@ class AddStoreViewController: UIViewController {
                 return
             }
             
+            self.alertRegistrationSuccess()
             self.closeAddStorePage()
         }
+    }
+    private func alertRegistrationSuccess(){
+        let alertController = UIAlertController(
+            title: "Store Registration Successful",
+            message: "You can now add products to your store.",
+            preferredStyle: .alert
+        )
+        let dismiss = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil
+        )
+        alertController.addAction(dismiss)
+        self.present(alertController, animated: true, completion: nil)
     }
     private func handleRegisterStoreError(message: String){
         submitButton.isUserInteractionEnabled = true
