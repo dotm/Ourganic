@@ -35,60 +35,46 @@ class RegisterUserViewController: UIViewController {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let currentDate: String = formatter.string(from: Date())
+            let imagePath = "user_images/\(email + fullname + currentDate).jpg"
             
             let storageRef = Storage.storage().reference()
-            let spaceRef = storageRef.child("user_images/\(email + fullname + currentDate).jpg")
+            let spaceRef = storageRef.child(imagePath)
             let uploadTask = spaceRef.putData(imageData, metadata: nil) { (metadata, error) in
                 guard let _ = metadata else {
                     print("Error uploading user image:", error!)
                     return
                 }
                 spaceRef.downloadURL(completion: { (url, error) in
-                    guard let image_url = url else {
-                        return
-                    }
-                    
-                    User.register(email: email, password: password) { (authResult, error) in
-                        if let error = error {
-                            self.handleRegistrationError(message: error.localizedDescription)
-                            return
-                        }
-                        
-                        guard let user = authResult?.user else {return}
-                        let changeRequest = user.createProfileChangeRequest()
-                        changeRequest.displayName = fullname
-                        changeRequest.photoURL = image_url
-                        changeRequest.commitChanges(completion: { (err) in
-                            if let error = err {
-                                self.handleRegistrationError(message: "Error setting user's name: \(error.localizedDescription)")
-                                return
-                            }
-                            
-                            self.closeRegistrationPage()
-                        })
-                    }
+                    guard let image_url = url else { return }
+                    self.callRegistrationAPI(email: email, password: password, fullname: fullname, image_url: image_url)
                 })
             }
             uploadTask.enqueue()
         }else{
-            User.register(email: email, password: password) { (authResult, error) in
-                if let error = error {
-                    self.handleRegistrationError(message: error.localizedDescription)
+            callRegistrationAPI(email: email, password: password, fullname: fullname, image_url: nil)
+        }
+    }
+    private func callRegistrationAPI(email: String, password: String, fullname: String, image_url: URL?){
+        User.register(email: email, password: password) { (authResult, error) in
+            if let error = error {
+                self.handleRegistrationError(message: error.localizedDescription)
+                return
+            }
+            
+            guard let user = authResult?.user else {return}
+            let changeRequest = user.createProfileChangeRequest()
+            changeRequest.displayName = fullname
+            if let image_url = image_url {
+                changeRequest.photoURL = image_url
+            }
+            changeRequest.commitChanges(completion: { (err) in
+                if let error = err {
+                    self.handleRegistrationError(message: "Error setting user's name: \(error.localizedDescription)")
                     return
                 }
                 
-                guard let user = authResult?.user else {return}
-                let changeRequest = user.createProfileChangeRequest()
-                changeRequest.displayName = fullname
-                changeRequest.commitChanges(completion: { (err) in
-                    if let error = err {
-                        self.handleRegistrationError(message: "Error setting user's name: \(error.localizedDescription)")
-                        return
-                    }
-                    
-                    self.closeRegistrationPage()
-                })
-            }
+                self.closeRegistrationPage()
+            })
         }
     }
     @objc private func closeRegistrationPage(){
