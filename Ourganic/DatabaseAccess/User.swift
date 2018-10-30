@@ -30,6 +30,15 @@ enum User {
             completion?(result, error)
         }
     }
+    static func signOut(completion: (()->())?){
+        do {
+            try Auth.auth().signOut()
+            Store.deinitialize()
+            completion?()
+        } catch {
+            print("Error logging out:", error)
+        }
+    }
     static func register(email: String, password: String, completion: AuthDataResultCallback?){
         Auth.auth().createUser(withEmail: email, password: password, completion: completion)
     }

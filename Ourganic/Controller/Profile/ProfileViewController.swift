@@ -57,11 +57,8 @@ class ProfileViewController: UIViewController {
     
     //MARK: User Management
     @objc private func logoutUser(){
-        do {
-            try Auth.auth().signOut()
-            userImage = nil
-        } catch {
-            print("Error logging out:", error)
+        User.signOut {
+            self.userImage = nil
         }
     }
     @objc private func goTo_loginPage(){

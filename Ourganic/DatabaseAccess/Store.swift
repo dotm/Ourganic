@@ -91,4 +91,9 @@ enum Store {
             initialized = true
         }
     }
+    static func deinitialize(){
+        store_id = nil
+        storeData = nil
+        initialized = false
+    }
 }
