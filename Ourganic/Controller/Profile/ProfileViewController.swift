@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController {
         
         userHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
             if let user = auth.currentUser {
-                print("Logged In User:", user.uid, user.email!, user.displayName!, separator: "\n", terminator: "\n\n")
+                print("Logged In User:", user.uid, user.email!, user.displayName ?? "No display name", user.photoURL ?? "No photo", separator: "\n", terminator: "\n\n")
                 self.setupLayout_toLoggedIn(username: user.displayName ?? "Username not set yet", userImageURL: user.photoURL)
             }else{
                 print("No user is currently logged in.")
