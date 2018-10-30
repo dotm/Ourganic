@@ -116,9 +116,13 @@ class ProfileViewController: UIViewController {
         loadUserImage(from: userImageURL)
         
         //To fix bug: store name not displayed some of the time when user login
-        self.storeNameLabel.text = "Loading your store data"
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (_) in
-            self.storeNameLabel.text = Store.name ?? "No store registered"
+        if let storeName = Store.name {
+            self.storeNameLabel.text = storeName
+        }else{
+            self.storeNameLabel.text = "Loading your store data"
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (_) in
+                self.storeNameLabel.text = Store.name ?? "No store registered"
+            }
         }
     }
     private func loadUserImage(from url: URL?){
