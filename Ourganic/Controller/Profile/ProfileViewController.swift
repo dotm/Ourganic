@@ -114,7 +114,12 @@ class ProfileViewController: UIViewController {
     private func setupLayout_toLoggedIn(username: String, userImageURL: URL?){
         self.usernameLabel.text = username
         loadUserImage(from: userImageURL)
-        self.storeNameLabel.text = Store.name ?? "No store registered"
+        
+        //To fix bug: store name not displayed some of the time when user login
+        self.storeNameLabel.text = "Loading your store data"
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (_) in
+            self.storeNameLabel.text = Store.name ?? "No store registered"
+        }
     }
     private func loadUserImage(from url: URL?){
         var data: Data? = nil
