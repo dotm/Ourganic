@@ -16,6 +16,7 @@
 		370F902D21758A0F00B91689 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902C21758A0F00B91689 /* RegisterUserViewController.swift */; };
 		370F9030217594A300B91689 /* CustomStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370F902F217594A300B91689 /* CustomStyling.swift */; };
 		3712FF92218180C700E011D8 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3712FF91218180C700E011D8 /* Product.swift */; };
+		3726125C2189A9BD00EB8F6A /* PriceStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3726125B2189A9BD00EB8F6A /* PriceStepper.swift */; };
 		3733C5D5217ED359000BD6F6 /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3733C5D4217ED359000BD6F6 /* AddStoreViewController.swift */; };
 		374A5333217B30E6001F3FD5 /* LoginUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A5332217B30E6001F3FD5 /* LoginUserViewController.swift */; };
 		3758019D21736ADF004A249D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3758019C21736ADF004A249D /* GoogleService-Info.plist */; };
@@ -68,6 +69,7 @@
 		370F902C21758A0F00B91689 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		370F902F217594A300B91689 /* CustomStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStyling.swift; sourceTree = "<group>"; };
 		3712FF91218180C700E011D8 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		3726125B2189A9BD00EB8F6A /* PriceStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceStepper.swift; sourceTree = "<group>"; };
 		3733C5D4217ED359000BD6F6 /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
 		374A5332217B30E6001F3FD5 /* LoginUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserViewController.swift; sourceTree = "<group>"; };
 		3758019C21736ADF004A249D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 		DD070657217D8AAF004EFA08 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3726125B2189A9BD00EB8F6A /* PriceStepper.swift */,
 				DDF102CC21896B580018F50B /* orderDetailView.storyboard */,
 				DD070658217D8AC4004EFA08 /* Home.storyboard */,
 				DD07065A217D93A2004EFA08 /* CategoryTableViewCell.swift */,
@@ -533,6 +536,7 @@
 				37E3ABCF218577310063D127 /* AddProductViewController.swift in Sources */,
 				377E07D1218026D200E0C86E /* Store.swift in Sources */,
 				DDCC5C02218826770095E1FC /* OrderModel.swift in Sources */,
+				3726125C2189A9BD00EB8F6A /* PriceStepper.swift in Sources */,
 				3733C5D5217ED359000BD6F6 /* AddStoreViewController.swift in Sources */,
 				DD070656217D8874004EFA08 /* HomeViewController.swift in Sources */,
 				DDCC5BFE21881B1E0095E1FC /* NotificationViewController.swift in Sources */,
