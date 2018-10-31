@@ -25,42 +25,24 @@ func ensureThat_userHasRegisteredStore(then callback: @autoclosure ()->()){
     }
 }
 func alertUser_toLoginFirst(){
-    let alertErrorController = UIAlertController(
-        title: "Login Required",
-        message: "Please log in to your account first.",
-        preferredStyle: .alert
-    )
-    let dismiss = UIAlertAction(
-        title: "OK",
-        style: .default,
-        handler: nil
-    )
-    alertErrorController.addAction(dismiss)
-    UIApplication.topViewController()?.present(alertErrorController, animated: true, completion: nil)
+    alertUser(title: "Login Required", message: "Please log in to your account first.")
 }
 func alertUser_toRegisterStoreFirst(){
-    let alertErrorController = UIAlertController(
-        title: "You don't have a store",
-        message: "Please register your store first.",
-        preferredStyle: .alert
-    )
-    let dismiss = UIAlertAction(
-        title: "OK",
-        style: .default,
-        handler: nil
-    )
-    alertErrorController.addAction(dismiss)
-    UIApplication.topViewController()?.present(alertErrorController, animated: true, completion: nil)
+    alertUser(title: "You don't have a store", message: "Please register your store first.")
 }
 
 func alert_featureToBeImplemented(){
+    alertUser(title: "Feature Under Construction", message: "This feature doesn't exist yet")
+}
+
+func alertUser(title: String, message: String, dismissText: String = "OK"){
     let alertErrorController = UIAlertController(
-        title: "Feature Under Construction",
-        message: "This feature doesn't exist yet",
+        title: title,
+        message: message,
         preferredStyle: .alert
     )
     let dismiss = UIAlertAction(
-        title: "OK",
+        title: dismissText,
         style: .default,
         handler: nil
     )

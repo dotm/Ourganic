@@ -9,6 +9,14 @@
 import Foundation
 import Firebase
 
+func getCurrentDate_asString() -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    let currentDate: String = formatter.string(from: Date())
+    
+    return currentDate
+}
+
 func uploadImage(imagePath: String, imageData: Data, completion: @escaping (URL?, Error?) -> Void){
     let storageRef = Storage.storage().reference()
     let spaceRef = storageRef.child(imagePath)
@@ -19,5 +27,8 @@ func uploadImage(imagePath: String, imageData: Data, completion: @escaping (URL?
         }
         spaceRef.downloadURL(completion: completion)
     }
-    uploadTask.enqueue()
+    Timer.scheduledTimer(withTimeInterval: 120, repeats: false) { (_) in
+        uploadTask.cancel()
+        alertUser(title: "Upload Image Failed", message: "Upload image takes too long.")
+    }
 }

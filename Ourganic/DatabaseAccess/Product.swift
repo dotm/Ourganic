@@ -25,6 +25,7 @@ typealias Product = (
     image_url: String
 )
 typealias ProductData = (
+    product_image: UIImage?,
     product_name: String,
     location: String,
     category: String,

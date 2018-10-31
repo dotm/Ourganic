@@ -30,15 +30,15 @@ class RegisterUserViewController: UIViewController {
         let password = passwordTextField.text!
         let fullname = nameTextField.text!
         
-        let imageData: Data? = userImage?.jpegData(compressionQuality: 1.0)
+        let imageData: Data? = userImage?.jpegData(compressionQuality: 0.0)
         if let imageData = imageData {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            let currentDate: String = formatter.string(from: Date())
-            let imagePath = "user_images/\(email + fullname + currentDate).jpg"
+            let imagePath = "user_images/\(email + fullname + getCurrentDate_asString()).jpg"
             
             uploadImage(imagePath: imagePath, imageData: imageData){ (url, error) in
-                guard let image_url = url else { return }
+                guard let image_url = url else {
+                    self.handleRegistrationError(message: error?.localizedDescription ?? "Error uploading image")
+                    return
+                }
                 self.callRegistrationAPI(email: email, password: password, fullname: fullname, image_url: image_url)
             }
         }else{

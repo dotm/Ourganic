@@ -38,33 +38,64 @@ class AddProductViewController: UIViewController {
         
         self.view.endEditing(true)
         
+        guard let product = getProductData_fromForm() else {return}
+        if let imageData = product.product_image?.jpegData(compressionQuality: 0.0) {
+            let storeName = Store.name ?? ""
+            let imagePath = "product_images/\(product.product_name + storeName + getCurrentDate_asString())"
+            uploadImage(imagePath: imagePath, imageData: imageData) { (url, error) in
+                guard let image_url = url?.absoluteString else {
+                    self.handleAddProductError(message: error?.localizedDescription ?? "Error uploading image")
+                    return
+                }
+                self.callAddProductAPI(product: product, image_url: image_url)
+            }
+        }else{
+            callAddProductAPI(product: product, image_url: nil)
+        }
+        
+    }
+    private func callAddProductAPI(product: ProductData, image_url: String?){
+        Store.add(product: product, image_url: image_url) { (error) in
+            if let error = error {
+                self.handleAddProductError(message: error.localizedDescription)
+                return
+            }
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { (_) in
+                alertUser(title: "Product Added", message: "Product has been successfully added to your store.")
+            })
+            self.closeAddProductPage()
+        }
+    }
+    private func getProductData_fromForm() -> ProductData? {
         guard let name = productNameTextField.text, !name.isEmpty else {
             handleAddProductError(message: "Please insert product name.")
-            return
+            return nil
         }
         let location = locationTextField.text ?? ""
         let description = descriptionTextField.text ?? ""
         guard let minimalQuantityText = minimalQuantityTextField.text, !minimalQuantityText.isEmpty else {
             handleAddProductError(message: "Please insert minimal quantity for product in \"min qty.\" field")
-            return
+            return nil
         }
         guard let minimal_quantity = Double(minimalQuantityText), minimal_quantity > 0 else {
             handleAddProductError(message: "Invalid minimal quantity for product in \"min qty.\" field")
-            return
+            return nil
         }
         guard let unit_measurement = unitMeasurementTextField.text, !unit_measurement.isEmpty else {
             handleAddProductError(message: "Please insert unit measurement of minimal quantity of the product")
-            return
+            return nil
         }
         guard let priceText = priceTextField.text, !priceText.isEmpty else {
             handleAddProductError(message: "Please insert price for minimal quantity of product.")
-            return
+            return nil
         }
         guard let price_per_unit = Double(priceText) else {
             handleAddProductError(message: "Invalid price per minimal quantity for product")
-            return
+            return nil
         }
+        
         let product: ProductData = (
+            product_image: self.productImage,
             product_name: name,
             location: location,
             category: self.selectedCategory,
@@ -73,13 +104,7 @@ class AddProductViewController: UIViewController {
             unit_measurement: unit_measurement,
             price_per_unit: price_per_unit
         )
-        Store.add(product: product) { (error) in
-            if let error = error {
-                self.handleAddProductError(message: error.localizedDescription)
-                return
-            }
-            self.closeAddProductPage()
-        }
+        return product
     }
     private func handleAddProductError(message: String){
         submitButton.isUserInteractionEnabled = true
