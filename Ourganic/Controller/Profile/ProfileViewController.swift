@@ -74,8 +74,8 @@ class ProfileViewController: UIViewController {
             if let _ = Store.ID { //if user has a store registered
                 goTo_addProductPage()
             }else{
-                alertUser_toRegisterStore()
                 goTo_addStorePage()
+                alertUser_toRegisterStore()
             }
         }
     }
