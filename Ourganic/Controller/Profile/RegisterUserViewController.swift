@@ -37,19 +37,10 @@ class RegisterUserViewController: UIViewController {
             let currentDate: String = formatter.string(from: Date())
             let imagePath = "user_images/\(email + fullname + currentDate).jpg"
             
-            let storageRef = Storage.storage().reference()
-            let spaceRef = storageRef.child(imagePath)
-            let uploadTask = spaceRef.putData(imageData, metadata: nil) { (metadata, error) in
-                guard let _ = metadata else {
-                    print("Error uploading user image:", error!)
-                    return
-                }
-                spaceRef.downloadURL(completion: { (url, error) in
-                    guard let image_url = url else { return }
-                    self.callRegistrationAPI(email: email, password: password, fullname: fullname, image_url: image_url)
-                })
+            uploadImage(imagePath: imagePath, imageData: imageData){ (url, error) in
+                guard let image_url = url else { return }
+                self.callRegistrationAPI(email: email, password: password, fullname: fullname, image_url: image_url)
             }
-            uploadTask.enqueue()
         }else{
             callRegistrationAPI(email: email, password: password, fullname: fullname, image_url: nil)
         }
