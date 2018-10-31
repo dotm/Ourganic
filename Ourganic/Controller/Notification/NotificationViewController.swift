@@ -10,12 +10,14 @@ import UIKit
 
 class NotificationViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var onMyCartLbl: UILabel!
     @IBOutlet weak var cartCollectionView: UICollectionView!
     var onMyCart:[OrderModel] = []
     var myProduct:[Product] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        styleTitleLabel(onMyCartLbl)
         cartCollectionView.delegate = self
         cartCollectionView.dataSource = self
         // Do any additional setup after loading the view.
@@ -32,8 +34,8 @@ class NotificationViewController: UIViewController, UICollectionViewDelegate, UI
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ccell", for: indexPath) as! NotifCollectionViewCell
-            let prod = onMyCart[indexPath.row]
-            cell.prodImage.kf.setImage(with: URL(string: prod.image_url), placeholder: UIImage.init(named: "defaultImage"), options: [.transition(.fade(1))], progressBlock: nil, completionHandler: nil)
+            let order = onMyCart[indexPath.row]
+            cell.prodImage.kf.setImage(with: URL(string: order.product.image_url), placeholder: UIImage.init(named: "defaultImage"), options: [.transition(.fade(1))], progressBlock: nil, completionHandler: nil)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ccell", for: indexPath) as! NotifCollectionViewCell

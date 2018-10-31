@@ -18,23 +18,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myf-D4-9MZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="624" y="-254"/>
+            <point key="canvasLocation" x="623" y="-180"/>
         </scene>
         <!--Notification-->
-        <scene sceneID="DY6-na-zOB">
+        <scene sceneID="guw-KG-PrH">
             <objects>
-                <viewController id="N2f-9t-k89" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="81M-8l-pgl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="5DD-zh-2B4"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Notification" image="Notif" id="dyJ-RT-0Em"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iLC-wh-fdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Notification" id="MLu-o6-Ac5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="JiT-be-SCI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bjH-pR-TqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1361" y="-4"/>
+            <point key="canvasLocation" x="649" y="-76"/>
         </scene>
         <!--Profile-->
         <scene sceneID="2aX-V2-VCi">
@@ -72,7 +66,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BdS-O2-Xvu" kind="relationship" relationship="viewControllers" id="Hz4-3y-3p4"/>
-                        <segue destination="N2f-9t-k89" kind="relationship" relationship="viewControllers" id="y7e-T3-onE"/>
+                        <segue destination="MLu-o6-Ac5" kind="relationship" relationship="viewControllers" id="bk3-Y8-J2Y"/>
                         <segue destination="mpq-zj-hsn" kind="relationship" relationship="viewControllers" id="GZh-9r-e9K"/>
                     </connections>
                 </tabBarController>
@@ -82,7 +76,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Notif" width="24" height="28"/>
         <image name="Profile" width="25" height="28"/>
         <namedColor name="cGreen">
             <color red="0.5690000057220459" green="0.73299998044967651" blue="0.28600001335144043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

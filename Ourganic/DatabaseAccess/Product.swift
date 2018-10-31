@@ -121,4 +121,16 @@ func getProductList(category_code: String, keyword: String, completion callback:
     }
 }
 
-
+func getProductByDocId(documentId: String, completion callback: ((Product, Error?) -> Void)?){
+    let query = db.collection(PRODUCT_COLLECTION).document(documentId)
+    
+    query.getDocument { (result, error) in
+        if let error = error {
+            print("Error executing query to get product list:", error.localizedDescription)
+            return
+        }
+        guard let productDocuments = result?.data() else { return }
+        let product:Product = convertProductDictionary_toProductData(productDocuments, (result?.documentID)!)
+        callback!(product, error)
+    }
+}
