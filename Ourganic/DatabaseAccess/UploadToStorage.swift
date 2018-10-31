@@ -27,8 +27,4 @@ func uploadImage(imagePath: String, imageData: Data, completion: @escaping (URL?
         }
         spaceRef.downloadURL(completion: completion)
     }
-    Timer.scheduledTimer(withTimeInterval: 120, repeats: false) { (_) in
-        uploadTask.cancel()
-        alertUser(title: "Upload Image Failed", message: "Upload image takes too long.")
-    }
 }
