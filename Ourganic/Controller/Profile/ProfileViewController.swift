@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     private weak var leftLink: UILabel!
     private weak var rightLink: UILabel!
     private var userImage: UIImage?
+    private weak var addProductButton: UIButton!
     fileprivate var userHandle: AuthStateDidChangeListenerHandle!
 
     override func viewDidLoad() {
@@ -56,11 +57,8 @@ class ProfileViewController: UIViewController {
     
     //MARK: User Management
     @objc private func logoutUser(){
-        do {
-            try Auth.auth().signOut()
-            userImage = nil
-        } catch {
-            print("Error logging out:", error)
+        User.signOut {
+            self.userImage = nil
         }
     }
     @objc private func goTo_loginPage(){
@@ -71,6 +69,16 @@ class ProfileViewController: UIViewController {
     }
 
     //MARK: Store Management
+    @objc private func addProductButtonPressed(){
+        ensureThat_userIsLoggedIn {
+            if let _ = Store.ID { //if user has a store registered
+                goTo_addProductPage()
+            }else{
+                alertUser_toRegisterStore()
+                goTo_addStorePage()
+            }
+        }
+    }
     private func goTo_addStorePage(){
         ensureThat_userIsLoggedIn(then: (
             present(AddStoreViewController(), animated: true, completion: nil)
@@ -78,6 +86,20 @@ class ProfileViewController: UIViewController {
     }
     private func goTo_addProductPage(){
         ensureThat_userHasRegisteredStore(then: present(AddProductViewController(), animated: true, completion: nil))
+    }
+    private func alertUser_toRegisterStore(){
+        let alertController = UIAlertController(
+            title: "No store registered",
+            message: "To add products to your store, please register your store first.",
+            preferredStyle: .alert
+        )
+        let dismiss = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil
+        )
+        alertController.addAction(dismiss)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     //MARK: Layout
@@ -92,7 +114,16 @@ class ProfileViewController: UIViewController {
     private func setupLayout_toLoggedIn(username: String, userImageURL: URL?){
         self.usernameLabel.text = username
         loadUserImage(from: userImageURL)
-        self.storeNameLabel.text = Store.name ?? "No store registered"
+        
+        //To fix bug: store name not displayed some of the time when user login
+        if let storeName = Store.name {
+            self.storeNameLabel.text = storeName
+        }else{
+            self.storeNameLabel.text = "Loading your store data"
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (_) in
+                self.storeNameLabel.text = Store.name ?? "No store registered"
+            }
+        }
     }
     private func loadUserImage(from url: URL?){
         var data: Data? = nil
@@ -120,6 +151,7 @@ class ProfileViewController: UIViewController {
     private func setupLayout(){
         setupNavigationBar()
         setupUserView(previousElement: navigationBar)
+        setupAddProductButton()
     }
     private func setupNavigationBar(){
         let navbar = UINavigationBar()
@@ -230,5 +262,19 @@ class ProfileViewController: UIViewController {
             rightLink.text = "Log in"
             rightLink.addGestureRecognizer(loginGesture)
         }
+    }
+    private func setupAddProductButton(){
+        let button = UIButton()
+        button.setTitle("Add Product to Your Store", for: .normal)
+        styleButton(button)
+        button.addTarget(self, action: #selector(addProductButtonPressed), for: .touchUpInside)
+        
+        view.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.addProductButton = button
     }
 }

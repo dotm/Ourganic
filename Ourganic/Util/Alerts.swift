@@ -14,6 +14,9 @@ func ensureThat_userIsLoggedIn(then callback: @autoclosure ()->()){
         alertUser_toLoginFirst()
     }
 }
+func ensureThat_userIsLoggedIn(callback: ()->()){
+    ensureThat_userIsLoggedIn(then: callback())
+}
 func ensureThat_userHasRegisteredStore(then callback: @autoclosure ()->()){
     if let _ = Store.ID {
         callback()
