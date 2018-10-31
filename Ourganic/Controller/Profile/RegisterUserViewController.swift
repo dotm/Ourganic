@@ -183,7 +183,7 @@ class RegisterUserViewController: UIViewController {
     }
     private func setupUserImage(previousElement: UIView){
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "defaultUserImage")
+        imageView.image = UIImage(named: "addImage")
         
         let openImagePickerGesture = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
         imageView.isUserInteractionEnabled = true
