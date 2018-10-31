@@ -29,6 +29,11 @@
 		DD070659217D8AC4004EFA08 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD070658217D8AC4004EFA08 /* Home.storyboard */; };
 		DD07065B217D93A2004EFA08 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07065A217D93A2004EFA08 /* CategoryTableViewCell.swift */; };
 		DD07065E217D959A004EFA08 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07065D217D959A004EFA08 /* CategoryModel.swift */; };
+		DDCC5BFC218802790095E1FC /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDCC5BFB218802790095E1FC /* Notification.storyboard */; };
+		DDCC5BFE21881B1E0095E1FC /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC5BFD21881B1E0095E1FC /* NotificationViewController.swift */; };
+		DDCC5C0021881CC20095E1FC /* NotifCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC5BFF21881CC20095E1FC /* NotifCollectionViewCell.swift */; };
+		DDCC5C02218826770095E1FC /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC5C01218826770095E1FC /* OrderModel.swift */; };
+		DDCC5C042188364A0095E1FC /* OrderDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC5C032188364A0095E1FC /* OrderDB.swift */; };
 		DDCE019721817FC100B1C1D2 /* CategoryDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE019621817FC100B1C1D2 /* CategoryDb.swift */; };
 		DDCE019B2182B4B600B1C1D2 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE019A2182B4B600B1C1D2 /* HomeDetailViewController.swift */; };
 		DDCE019D2182CEC200B1C1D2 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE019C2182CEC200B1C1D2 /* ProductTableViewCell.swift */; };
@@ -75,6 +80,11 @@
 		DD070658217D8AC4004EFA08 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		DD07065A217D93A2004EFA08 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		DD07065D217D959A004EFA08 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		DDCC5BFB218802790095E1FC /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		DDCC5BFD21881B1E0095E1FC /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		DDCC5BFF21881CC20095E1FC /* NotifCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDCC5C01218826770095E1FC /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
+		DDCC5C032188364A0095E1FC /* OrderDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDB.swift; sourceTree = "<group>"; };
 		DDCE019621817FC100B1C1D2 /* CategoryDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDb.swift; sourceTree = "<group>"; };
 		DDCE019A2182B4B600B1C1D2 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		DDCE019C2182CEC200B1C1D2 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
@@ -175,6 +185,7 @@
 				377E07D0218026D200E0C86E /* Store.swift */,
 				DDCE019621817FC100B1C1D2 /* CategoryDb.swift */,
 				3712FF91218180C700E011D8 /* Product.swift */,
+				DDCC5C032188364A0095E1FC /* OrderDB.swift */,
 			);
 			path = DatabaseAccess;
 			sourceTree = "<group>";
@@ -194,6 +205,7 @@
 				3700086C2173683000AF89F3 /* Main.storyboard */,
 				DD070654217D884A004EFA08 /* Home */,
 				370F902E21758A1700B91689 /* Profile */,
+				DDCC5BF9218801C30095E1FC /* Notification */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -231,8 +243,27 @@
 			isa = PBXGroup;
 			children = (
 				DD07065D217D959A004EFA08 /* CategoryModel.swift */,
+				DDCC5C01218826770095E1FC /* OrderModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DDCC5BF9218801C30095E1FC /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				DDCC5BFD21881B1E0095E1FC /* NotificationViewController.swift */,
+				DDCC5BFA218802690095E1FC /* View */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		DDCC5BFA218802690095E1FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDCC5BFB218802790095E1FC /* Notification.storyboard */,
+				DDCC5BFF21881CC20095E1FC /* NotifCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +356,7 @@
 				3758019D21736ADF004A249D /* GoogleService-Info.plist in Resources */,
 				370008702173683100AF89F3 /* Assets.xcassets in Resources */,
 				3700086E2173683000AF89F3 /* Main.storyboard in Resources */,
+				DDCC5BFC218802790095E1FC /* Notification.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +458,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -451,6 +484,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -483,14 +517,18 @@
 				370F9030217594A300B91689 /* CustomStyling.swift in Sources */,
 				37E3ABCF218577310063D127 /* AddProductViewController.swift in Sources */,
 				377E07D1218026D200E0C86E /* Store.swift in Sources */,
+				DDCC5C02218826770095E1FC /* OrderModel.swift in Sources */,
 				3733C5D5217ED359000BD6F6 /* AddStoreViewController.swift in Sources */,
 				DD070656217D8874004EFA08 /* HomeViewController.swift in Sources */,
+				DDCC5BFE21881B1E0095E1FC /* NotificationViewController.swift in Sources */,
 				DDCE019721817FC100B1C1D2 /* CategoryDb.swift in Sources */,
 				377E07CF218026B900E0C86E /* User.swift in Sources */,
+				DDCC5C042188364A0095E1FC /* OrderDB.swift in Sources */,
 				377E07D321805AEE00E0C86E /* Alerts.swift in Sources */,
 				DD07065E217D959A004EFA08 /* CategoryModel.swift in Sources */,
 				DD07065E217D959A004EFA08 /* CategoryModel.swift in Sources */,
 				3712FF92218180C700E011D8 /* Product.swift in Sources */,
+				DDCC5C0021881CC20095E1FC /* NotifCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,7 +692,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N55A3MSD3W;
+				DEVELOPMENT_TEAM = HPGVM37VV8;
 				INFOPLIST_FILE = Ourganic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -673,7 +711,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N55A3MSD3W;
+				DEVELOPMENT_TEAM = HPGVM37VV8;
 				INFOPLIST_FILE = Ourganic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

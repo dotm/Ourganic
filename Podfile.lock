@@ -195,6 +195,7 @@ PODS:
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
+  - SideMenu (5.0.2)
   - TwitterCore (3.2.0)
   - TwitterKit (3.4.0):
     - TwitterCore (>= 3.1.0)
@@ -207,6 +208,7 @@ DEPENDENCIES:
   - FirebaseUI
   - IQKeyboardManagerSwift
   - Kingfisher
+  - SideMenu
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -242,6 +244,7 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - SDWebImage
+    - SideMenu
     - TwitterCore
     - TwitterKit
 
@@ -278,9 +281,10 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  SideMenu: e5094f0b2e7d9609e100a90ae69025abd994f882
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: bc7bd086b9b724a1d888745a054e1d0b1ecc4f3f
 
-PODFILE CHECKSUM: 2c35892a0f417751e3d6f2dddf916995e44e09bf
+PODFILE CHECKSUM: feeb717af3ce31902baf9a4d6557b4b863f7ac69
 
 COCOAPODS: 1.5.3
