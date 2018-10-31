@@ -40,6 +40,7 @@ class HomeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         // Do any additional setup after loading the view.
+        
     }
     
     func filterContentForSearchText(_ searchText: String) {
@@ -79,7 +80,6 @@ class HomeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         let prodPrice = formater.string(from: NSNumber(value: productList[indexPath.row].price_per_unit))
         cell.prodPrice.text = prodPrice
         cell.prodUnit.text = productList[indexPath.row].unit_measurement
-        
         return cell
     }
     

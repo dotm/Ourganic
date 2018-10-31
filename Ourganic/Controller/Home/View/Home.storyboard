@@ -116,7 +116,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7eP-SC-1eT"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cYW-Sm-rlO"/>
+                    <navigationItem key="navigationItem" id="cYW-Sm-rlO">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="bm" id="zGH-p7-G8T"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="carouselView" destination="b53-ID-Q1H" id="jh0-B8-vs0"/>
                         <outlet property="catTableView" destination="3Fx-uT-K8p" id="b7v-6Z-swr"/>
@@ -132,6 +134,7 @@
         <!--Home-->
         <scene sceneID="XRs-3E-G03">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Vn-ll-yat" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="navInit" automaticallyAdjustsScrollViewInsets="NO" id="qdB-AL-i04" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="Home" id="vIq-c8-ncd"/>
                     <toolbarItems/>
@@ -141,11 +144,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="NO"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="VSW-RO-zNx" kind="relationship" relationship="rootViewController" id="1FM-BE-S8d"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Vn-ll-yat" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="68" y="-346"/>
         </scene>
@@ -319,6 +324,7 @@
     </scenes>
     <resources>
         <image name="Home" width="37" height="29"/>
+        <image name="bm" width="23" height="20"/>
         <image name="indicator" width="36" height="42"/>
         <namedColor name="cGreen">
             <color red="0.5690000057220459" green="0.73299998044967651" blue="0.28600001335144043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

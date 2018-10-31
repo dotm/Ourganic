@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-typealias StoreData = (name: String, address: String?, phone: String?, image: UIImage?)
+typealias StoreData = (name: String, address: String?, phone: String?, image: UIImage?, userId: String?)
 
 fileprivate let db = Firestore.firestore()
 fileprivate let STORE_COLLECTION = "stores"
@@ -34,6 +34,13 @@ enum Store {
         }
         return data.name
     }
+    static var userId: String? {
+        guard let data = storeData else {
+            print("No data found for your store.")
+            return nil
+        }
+        return data.userId
+    }
     //MARK: Actions
     static func register(store: StoreData, completion callback: ((Error?) -> Void)?){
         let storeData: [String: Any] = [
@@ -55,6 +62,7 @@ enum Store {
             callback?(error)
         }
     }
+    
     static func add(product: ProductData, completion callback: ((Error?) -> Void)?){
         guard let store_id = store_id else {
             print("No ID found for your store.")
@@ -86,7 +94,7 @@ enum Store {
             }
             let address = dataDictionary["address"] as? String
             let phone = dataDictionary["phone"] as? String
-            storeData = (name: name, address: address, phone: phone, image: nil)
+            storeData = (name: name, address: address, phone: phone, image: nil, User.ID)
             
             initialized = true
         }

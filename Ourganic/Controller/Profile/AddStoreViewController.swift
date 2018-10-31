@@ -33,7 +33,7 @@ class AddStoreViewController: UIViewController {
         let address = addressTextField.text
         let phone = phoneTextField.text
         let image: UIImage? = nil //TODO: implement this
-        let storeData = (name: name, address: address, phone: phone, image: image)
+        let storeData = (name: name, address: address, phone: phone, image: image, userId: User.ID)
         Store.register(store: storeData) { (error) in
             if let error = error {
                 self.handleRegisterStoreError(message: error.localizedDescription)

@@ -12,6 +12,7 @@ import Firebase
 fileprivate let db = Firestore.firestore()
 
 typealias Product = (
+    product_id: String,
     store_id: String,
     store_name: String,
     product_name: String,
@@ -34,7 +35,7 @@ typealias ProductData = (
 )
 let PRODUCT_COLLECTION = "products"
 
-func convertProductDictionary_toProductData(_ dataDictionary: [String:Any]) -> Product {
+func convertProductDictionary_toProductData(_ dataDictionary: [String:Any],_ product_id:String) -> Product {
     let store_id = dataDictionary["store_id"] as! String
     let store_name = dataDictionary["store_name"] as! String
     let product_name = dataDictionary["product_name"] as! String
@@ -47,6 +48,7 @@ func convertProductDictionary_toProductData(_ dataDictionary: [String:Any]) -> P
     let image_url = dataDictionary["image_url"] as! String
     
     return (
+        product_id,
         store_id,
         store_name,
         product_name,
@@ -84,7 +86,7 @@ func getProductList(store_id: String, completion callback: (([Product], Error?) 
         
         guard let productDocuments = result?.documents else { return }
         let products = productDocuments.map({ (document) -> Product in
-            return convertProductDictionary_toProductData(document.data())
+            return convertProductDictionary_toProductData(document.data(), document.documentID)
         })
         
         callback?(products, error)
@@ -107,7 +109,8 @@ func getProductList(category_code: String, keyword: String, completion callback:
         
         guard let productDocuments = result?.documents else { return }
         var products = productDocuments.map({ (document) -> Product in
-            return convertProductDictionary_toProductData(document.data())
+            
+            return convertProductDictionary_toProductData(document.data(), document.documentID)
         })
         if !keyword.isEmpty {
             products = products.filter({( product : Product) -> Bool in
@@ -117,3 +120,5 @@ func getProductList(category_code: String, keyword: String, completion callback:
         callback?(products, error)
     }
 }
+
+

@@ -13,6 +13,7 @@ target 'Ourganic' do
   pod 'AACarousel'
   pod 'Kingfisher'
   pod 'IQKeyboardManagerSwift'
+  pod 'SideMenu'
 
 
   target 'OurganicTests' do
