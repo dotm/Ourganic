@@ -10,7 +10,6 @@ import Foundation
 import Firebase
 
 fileprivate let ORDER_COLLECTION:String = "order"
-fileprivate let HEADLINE_COLLECTION:String = "headline"
 fileprivate let db = Firestore.firestore()
 
 func getOrderList (userId: String, completion: @escaping (_ result: [OrderModel]) -> Void?) {
@@ -22,11 +21,15 @@ func getOrderList (userId: String, completion: @escaping (_ result: [OrderModel]
         }
         
         guard let ordersDoc = result?.documents else { return }
-        let orders = ordersDoc.map({ (order) -> CategoryModel in
-            getPro
-            return cat
+        let orders = ordersDoc.map({ (order) -> OrderModel in
+            var orders:OrderModel?
+            getProductByDocId(documentId: order["product_id"] as! String) { (result, error) in
+                orders = OrderModel(productId: order.data()["product_id"] as! String, buyerUserId: userId, invoiceNumber: order.data()["invoice_number"] as! String, totalPrice: order.data()["total_orice"] as! Double, qty: order.data()["qty"] as! Int, sendFrom: order.data()["send_from"] as! String, sendTo: order.data()["send_to"] as! String, deliveryMethod: order.data()["delivery_method"] as! String, deliveryFee: order.data()["delivery_fee"] as! Double, product: result)
+                
+            }
+            return orders!
         })
-        completion(categories)
+        completion(orders)
     }
 }
 
