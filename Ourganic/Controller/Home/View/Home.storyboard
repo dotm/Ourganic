@@ -134,7 +134,6 @@
         <!--Home-->
         <scene sceneID="XRs-3E-G03">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Vn-ll-yat" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="navInit" automaticallyAdjustsScrollViewInsets="NO" id="qdB-AL-i04" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="Home" id="vIq-c8-ncd"/>
                     <toolbarItems/>
@@ -151,6 +150,7 @@
                         <segue destination="VSW-RO-zNx" kind="relationship" relationship="rootViewController" id="1FM-BE-S8d"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Vn-ll-yat" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="68" y="-346"/>
         </scene>
@@ -315,11 +315,20 @@
                         <outlet property="emptyMsgView" destination="nLc-g4-F7q" id="yUC-D0-0gZ"/>
                         <outlet property="prodTableView" destination="Grg-7Q-PwT" id="6i3-v6-Ahq"/>
                         <outlet property="searchBar" destination="yA3-p6-E2I" id="oxl-oz-cdK"/>
+                        <segue destination="f1h-kK-cqO" kind="show" id="8Jo-1A-L3b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHZ-dD-CPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1534.7826086956522" y="-346.20535714285711"/>
+        </scene>
+        <!--orderDetailView-->
+        <scene sceneID="oVd-yo-5er">
+            <objects>
+                <viewControllerPlaceholder storyboardName="orderDetailView" id="f1h-kK-cqO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ThV-8W-YIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2141" y="-346"/>
         </scene>
     </scenes>
     <resources>

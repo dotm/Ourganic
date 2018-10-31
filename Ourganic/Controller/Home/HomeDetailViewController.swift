@@ -83,6 +83,14 @@ class HomeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell = tableView.cellForRow(at: indexPath) as! ProductTableViewCell
+        selectedCell.isSelected = false
+        let vc = UIStoryboard.init(name: "orderDetailView", bundle: Bundle.main).instantiateViewController(withIdentifier: "prod detail") as? OrderDetailSatuViewController
+        vc?.idProduk = productList[indexPath.row].product_id
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         filterContentForSearchText(searchBar.text ?? "")
     }
