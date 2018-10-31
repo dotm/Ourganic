@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="FAV-xq-MdS">
             <objects>
                 <viewController id="VSW-RO-zNx" customClass="HomeViewController" customModule="Ourganic" customModuleProvider="target" sceneMemberID="viewController">
@@ -116,9 +116,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7eP-SC-1eT"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cYW-Sm-rlO">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="bm" id="zGH-p7-G8T"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Home" id="OyY-42-NkB"/>
                     <connections>
                         <outlet property="carouselView" destination="b53-ID-Q1H" id="jh0-B8-vs0"/>
                         <outlet property="catTableView" destination="3Fx-uT-K8p" id="b7v-6Z-swr"/>
@@ -154,7 +152,7 @@
             </objects>
             <point key="canvasLocation" x="68" y="-346"/>
         </scene>
-        <!--Home Detail View Controller-->
+        <!--Titel-->
         <scene sceneID="sfF-oP-Yfh">
             <objects>
                 <viewController storyboardIdentifier="homeDetail" id="HfG-dE-2tt" customClass="HomeDetailViewController" customModule="Ourganic" customModuleProvider="target" sceneMemberID="viewController">
@@ -309,7 +307,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eYd-1k-sro"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Vqj-OV-t15"/>
+                    <navigationItem key="navigationItem" title="Titel" id="yw1-Ro-g1k"/>
                     <connections>
                         <outlet property="categoryNameLbl" destination="76V-YY-7IH" id="rm4-oP-GmG"/>
                         <outlet property="emptyMsgView" destination="nLc-g4-F7q" id="yUC-D0-0gZ"/>
@@ -333,7 +331,6 @@
     </scenes>
     <resources>
         <image name="Home" width="37" height="29"/>
-        <image name="bm" width="23" height="20"/>
         <image name="indicator" width="36" height="42"/>
         <namedColor name="cGreen">
             <color red="0.5690000057220459" green="0.73299998044967651" blue="0.28600001335144043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

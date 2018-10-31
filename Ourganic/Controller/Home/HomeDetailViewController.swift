@@ -25,7 +25,7 @@ class HomeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         emptyMsgView.isHidden = true
         styleTitleLabel(categoryNameLbl)
-        
+        navigationItem.title = category?.name
         prodTableView.delegate = self
         prodTableView.dataSource = self
         searchBar.delegate = self

@@ -27,6 +27,16 @@ class OrderDetailSatuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Product Detail"
+        styleTitleLabel(produk)
+        styleTitleLabel(namaToko)
+        styleTitleLabel(jenis)
+        styleTitleLabel(harga)
+        styleTitleLabel(minQty)
+        styleTitleLabel(location)
+        styleTitleLabel(deskripsi)
+        styleViewCorner(productImage)
+        
         getProductByDocId(documentId: idProduk) { (result, error) in
             DispatchQueue.main.async {
                 self.produk.text = result.product_name
