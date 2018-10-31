@@ -67,6 +67,9 @@ class ProfileViewController: UIViewController {
     @objc private func goTo_registrationPage(){
         present(RegisterUserViewController(), animated: true, completion: nil)
     }
+    @objc private func goTo_editProfilePage(){
+        alert_featureToBeImplemented()
+    }
 
     //MARK: Store Management
     @objc private func addProductButtonPressed(){
@@ -244,14 +247,14 @@ class ProfileViewController: UIViewController {
         let registerGesture = UITapGestureRecognizer(target: self, action: #selector(goTo_registrationPage))
         let loginGesture = UITapGestureRecognizer(target: self, action: #selector(goTo_loginPage))
         let logoutGesture = UITapGestureRecognizer(target: self, action: #selector(logoutUser))
+        let editProfileGesture = UITapGestureRecognizer(target: self, action: #selector(goTo_editProfilePage))
         
         leftLink.isUserInteractionEnabled = true
         rightLink.isUserInteractionEnabled = true
         
         if User.isLoggedIn() {
             leftLink.text = "Edit Profile"
-            leftLink.isUserInteractionEnabled = false
-            //leftLink.addGestureRecognizer(editProfileGesture)
+            leftLink.addGestureRecognizer(editProfileGesture)
             
             rightLink.text = "Log out"
             rightLink.addGestureRecognizer(logoutGesture)

@@ -53,6 +53,21 @@ func alertUser_toRegisterStoreFirst(){
     UIApplication.topViewController()?.present(alertErrorController, animated: true, completion: nil)
 }
 
+func alert_featureToBeImplemented(){
+    let alertErrorController = UIAlertController(
+        title: "Feature Under Construction",
+        message: "This feature doesn't exist yet",
+        preferredStyle: .alert
+    )
+    let dismiss = UIAlertAction(
+        title: "OK",
+        style: .default,
+        handler: nil
+    )
+    alertErrorController.addAction(dismiss)
+    UIApplication.topViewController()?.present(alertErrorController, animated: true, completion: nil)
+}
+
 extension UIApplication {
     class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
