@@ -25,7 +25,7 @@ func ensureThat_userHasRegisteredStore(then callback: @autoclosure ()->()){
     }
 }
 func alertUser_toLoginFirst(){
-    alertUser(title: "Login Required", message: "Please log in to your account first.")
+    alertUser(title: "Login Required", message: "Please register first, and then log in to your account.")
 }
 func alertUser_toRegisterStoreFirst(_ callback: ((UIAlertAction)->())? = nil){
     alertUser(title: "You don't have a store", message: "Please register your store first.", completion: callback)
