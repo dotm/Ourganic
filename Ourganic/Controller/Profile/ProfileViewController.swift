@@ -77,8 +77,11 @@ class ProfileViewController: UIViewController {
             if let _ = Store.ID { //if user has a store registered
                 goTo_addProductPage()
             }else{
-                goTo_addStorePage()
-                alertUser_toRegisterStore()
+                alertUser_toRegisterStoreFirst({ (_) in
+                    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+                        self.goTo_addStorePage()
+                    })
+                })
             }
         }
     }
@@ -89,20 +92,6 @@ class ProfileViewController: UIViewController {
     }
     private func goTo_addProductPage(){
         ensureThat_userHasRegisteredStore(then: present(AddProductViewController(), animated: true, completion: nil))
-    }
-    private func alertUser_toRegisterStore(){
-        let alertController = UIAlertController(
-            title: "No store registered",
-            message: "To add products to your store, please register your store first.",
-            preferredStyle: .alert
-        )
-        let dismiss = UIAlertAction(
-            title: "OK",
-            style: .default,
-            handler: nil
-        )
-        alertController.addAction(dismiss)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     //MARK: Layout

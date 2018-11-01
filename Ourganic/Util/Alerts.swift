@@ -27,15 +27,15 @@ func ensureThat_userHasRegisteredStore(then callback: @autoclosure ()->()){
 func alertUser_toLoginFirst(){
     alertUser(title: "Login Required", message: "Please log in to your account first.")
 }
-func alertUser_toRegisterStoreFirst(){
-    alertUser(title: "You don't have a store", message: "Please register your store first.")
+func alertUser_toRegisterStoreFirst(_ callback: ((UIAlertAction)->())? = nil){
+    alertUser(title: "You don't have a store", message: "Please register your store first.", completion: callback)
 }
 
 func alert_featureToBeImplemented(){
     alertUser(title: "Feature Under Construction", message: "This feature doesn't exist yet")
 }
 
-func alertUser(title: String, message: String, dismissText: String = "OK"){
+func alertUser(title: String, message: String, dismissText: String = "OK", completion: ((UIAlertAction)->())? = nil){
     let alertErrorController = UIAlertController(
         title: title,
         message: message,
@@ -44,8 +44,9 @@ func alertUser(title: String, message: String, dismissText: String = "OK"){
     let dismiss = UIAlertAction(
         title: dismissText,
         style: .default,
-        handler: nil
+        handler: completion
     )
+    
     alertErrorController.addAction(dismiss)
     UIApplication.topViewController()?.present(alertErrorController, animated: true, completion: nil)
 }
