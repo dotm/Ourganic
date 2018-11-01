@@ -8,8 +8,13 @@
 
 import UIKit
 
-class TransferViewController: UIViewController {
-
+class TransferViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    
+    @IBOutlet weak var paymentMethod: UILabel!
+    @IBOutlet weak var receiverAddress: UITextField!
+    @IBOutlet weak var deliveryMethod: UILabel!
+    @IBOutlet weak var deliveryFee: UILabel!
     @IBOutlet weak var sendToText: UITextField!
     @IBOutlet weak var produk: UILabel!
     @IBOutlet weak var store: UILabel!
@@ -19,14 +24,25 @@ class TransferViewController: UIViewController {
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var uom: UILabel!
+    @IBOutlet var cityPicker: UIPickerView! = UIPickerView()
     
     var product:Product?
     var totalHarga:Double?
     var totalQuantity:Double?
+    var cities:[CityModel] = []
+    var selectedRow:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Product Detail"
+        cityPicker.delegate = self
+        cityPicker.dataSource = self
+        sendToText.inputView = cityPicker
+        getCityList() { (result) in
+            DispatchQueue.main.async {
+                self.cities = result
+            }
+        }
         
         styleTitleLabel(produk)
         styleTitleLabel(store)
@@ -37,6 +53,7 @@ class TransferViewController: UIViewController {
         styleViewCorner(productImage)
         styleTitleLabel(uom)
         
+        sendToText.layer.cornerRadius = 3
         productImage.contentMode = .scaleAspectFill
         productImage.clipsToBounds = true
         productImage.layer.cornerRadius = 10
@@ -45,6 +62,7 @@ class TransferViewController: UIViewController {
         totalQty.text = "\(totalQuantity!)"
         location.text = product?.location
         uom.text = product?.unit_measurement
+        
         let formater = NumberFormatter()
         formater.numberStyle = .currency
         formater.locale = Locale(identifier: "id-ID")
@@ -57,7 +75,29 @@ class TransferViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func didBeginEditing(_ sender: Any) {
+        self.sendToText.text = cities[selectedRow].name
+    }
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return cities.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        self.selectedRow = row
+        return cities[row].name
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.sendToText.text = cities[row].name
+    }
+    
+    
     /*
     // MARK: - Navigation
 

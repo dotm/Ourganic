@@ -29,6 +29,7 @@ class OrderDetailSatuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Product Detail"
+        
         styleTitleLabel(produk)
         styleTitleLabel(namaToko)
         styleTitleLabel(jenis)

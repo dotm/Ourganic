@@ -43,6 +43,8 @@
 		DDF102CA21896B500018F50B /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF102C721896B500018F50B /* OrderDetailViewController.swift */; };
 		DDF102CB21896B500018F50B /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF102C821896B500018F50B /* TransferViewController.swift */; };
 		DDF102CD21896B580018F50B /* orderDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF102CC21896B580018F50B /* orderDetailView.storyboard */; };
+		DDF102D0218AB1B10018F50B /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF102CF218AB1B10018F50B /* CityModel.swift */; };
+		DDF102D2218AB2F10018F50B /* CityDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF102D1218AB2F10018F50B /* CityDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		DDF102C721896B500018F50B /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		DDF102C821896B500018F50B /* TransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 		DDF102CC21896B580018F50B /* orderDetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = orderDetailView.storyboard; sourceTree = "<group>"; };
+		DDF102CF218AB1B10018F50B /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		DDF102D1218AB2F10018F50B /* CityDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,7 @@
 				3712FF91218180C700E011D8 /* Product.swift */,
 				DDCC5C032188364A0095E1FC /* OrderDB.swift */,
 				37AD736A2189B23F0036543C /* UploadToStorage.swift */,
+				DDF102D1218AB2F10018F50B /* CityDB.swift */,
 			);
 			path = DatabaseAccess;
 			sourceTree = "<group>";
@@ -235,9 +240,9 @@
 		DD070654217D884A004EFA08 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				DDF102C621896B500018F50B /* OrderDetailSatuViewController.swift */,
-				DDF102C721896B500018F50B /* OrderDetailViewController.swift */,
 				DDF102C821896B500018F50B /* TransferViewController.swift */,
+				DDF102C721896B500018F50B /* OrderDetailViewController.swift */,
+				DDF102C621896B500018F50B /* OrderDetailSatuViewController.swift */,
 				DD070655217D8874004EFA08 /* HomeViewController.swift */,
 				DDCE019A2182B4B600B1C1D2 /* HomeDetailViewController.swift */,
 				DD070657217D8AAF004EFA08 /* View */,
@@ -262,6 +267,7 @@
 			children = (
 				DD07065D217D959A004EFA08 /* CategoryModel.swift */,
 				DDCC5C01218826770095E1FC /* OrderModel.swift */,
+				DDF102CF218AB1B10018F50B /* CityModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -534,6 +540,7 @@
 				370008692173683000AF89F3 /* AppDelegate.swift in Sources */,
 				DDCE019B2182B4B600B1C1D2 /* HomeDetailViewController.swift in Sources */,
 				DDCE019D2182CEC200B1C1D2 /* ProductTableViewCell.swift in Sources */,
+				DDF102D2218AB2F10018F50B /* CityDB.swift in Sources */,
 				DD07065B217D93A2004EFA08 /* CategoryTableViewCell.swift in Sources */,
 				370F9030217594A300B91689 /* CustomStyling.swift in Sources */,
 				37E3ABCF218577310063D127 /* AddProductViewController.swift in Sources */,
@@ -546,6 +553,7 @@
 				DDF102CB21896B500018F50B /* TransferViewController.swift in Sources */,
 				DDCE019721817FC100B1C1D2 /* CategoryDb.swift in Sources */,
 				377E07CF218026B900E0C86E /* User.swift in Sources */,
+				DDF102D0218AB1B10018F50B /* CityModel.swift in Sources */,
 				DDCC5C042188364A0095E1FC /* OrderDB.swift in Sources */,
 				377E07D321805AEE00E0C86E /* Alerts.swift in Sources */,
 				DD07065E217D959A004EFA08 /* CategoryModel.swift in Sources */,
@@ -716,7 +724,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N55A3MSD3W;
+				DEVELOPMENT_TEAM = HPGVM37VV8;
 				INFOPLIST_FILE = Ourganic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -735,7 +743,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N55A3MSD3W;
+				DEVELOPMENT_TEAM = HPGVM37VV8;
 				INFOPLIST_FILE = Ourganic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
