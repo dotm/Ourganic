@@ -78,7 +78,7 @@ class ProfileViewController: UIViewController {
                 goTo_addProductPage()
             }else{
                 alertUser_toRegisterStoreFirst({ (_) in
-                    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+                    Timer.scheduledTimer(withTimeInterval: 0.33, repeats: false, block: { (_) in
                         self.goTo_addStorePage()
                     })
                 })

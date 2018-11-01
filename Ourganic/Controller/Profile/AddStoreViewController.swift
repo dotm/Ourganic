@@ -40,11 +40,10 @@ class AddStoreViewController: UIViewController {
                 return
             }
             
-            self.alertRegistrationSuccess()
-            self.closeAddStorePage()
+            self.alertRegistrationSuccess_andClosePage()
         }
     }
-    private func alertRegistrationSuccess(){
+    private func alertRegistrationSuccess_andClosePage(){
         let alertController = UIAlertController(
             title: "Store Registration Successful",
             message: "You can now add products to your store.",
@@ -53,7 +52,7 @@ class AddStoreViewController: UIViewController {
         let dismiss = UIAlertAction(
             title: "OK",
             style: .default,
-            handler: nil
+            handler: { (_) in self.closeAddStorePage() }
         )
         alertController.addAction(dismiss)
         self.present(alertController, animated: true, completion: nil)
