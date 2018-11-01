@@ -18,10 +18,11 @@ class TransferViewController: UIViewController {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var uom: UILabel!
     
     var product:Product?
     var totalHarga:Double?
-    var totalQuantity:Int?
+    var totalQuantity:Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +35,16 @@ class TransferViewController: UIViewController {
         styleTitleLabel(productPrice)
         styleTitleLabel(totalPrice)
         styleViewCorner(productImage)
+        styleTitleLabel(uom)
         
+        productImage.contentMode = .scaleAspectFill
+        productImage.clipsToBounds = true
+        productImage.layer.cornerRadius = 10
         produk.text = product?.product_name
         store.text = product?.store_name
-        totalQty.text = String(describing: totalQuantity)
+        totalQty.text = "\(totalQuantity!)"
         location.text = product?.location
+        uom.text = product?.unit_measurement
         let formater = NumberFormatter()
         formater.numberStyle = .currency
         formater.locale = Locale(identifier: "id-ID")

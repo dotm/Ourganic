@@ -11,6 +11,7 @@ import Firebase
 
 class OrderDetailSatuViewController: UIViewController {
 
+    @IBOutlet weak var qtyStepper: PriceStepper!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var produk: UILabel!
     @IBOutlet weak var namaToko: UILabel!
@@ -19,11 +20,11 @@ class OrderDetailSatuViewController: UIViewController {
     @IBOutlet weak var minQty: UILabel!
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var deskripsi: UILabel!
-    @IBOutlet weak var jumlahGram: UITextField!
+    @IBOutlet weak var uom: UILabel!
     
     var idProduk: String = ""
     var TotalHarga: Double = 0
-    var product:Product!
+    var productModel:Product!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,11 @@ class OrderDetailSatuViewController: UIViewController {
         styleTitleLabel(minQty)
         styleTitleLabel(location)
         styleTitleLabel(deskripsi)
+        styleTitleLabel(uom)
         styleViewCorner(productImage)
-        
+        productImage.contentMode = .scaleAspectFill
+        productImage.clipsToBounds = true
+        productImage.layer.cornerRadius = 10
         getProductByDocId(documentId: idProduk) { (result, error) in
             DispatchQueue.main.async {
                 self.produk.text = result.product_name
@@ -47,7 +51,10 @@ class OrderDetailSatuViewController: UIViewController {
                 self.location.text = result.location
                 self.deskripsi.text = result.description
                 self.productImage.kf.setImage(with: URL(string: result.image_url), placeholder: UIImage.init(named: "defaultImage"), options: [.transition(.fade(1))], progressBlock: nil, completionHandler: nil)
-                self.product = (
+                self.uom.text = result.unit_measurement
+                self.qtyStepper.minimal_quantity = result.minimal_quantity
+                self.qtyStepper.unit_measurement = result.unit_measurement
+                self.productModel = (
                     product_id: self.idProduk,
                     store_id: result.store_id,
                     store_name: result.store_name,
@@ -62,21 +69,19 @@ class OrderDetailSatuViewController: UIViewController {
                 )
             }
         }
+        
         // Do any additional setup after loading the view.
     }
     @IBAction func toTransfer(_ sender: Any) {
         let vc = UIStoryboard.init(name: "orderDetailView", bundle: Bundle.main).instantiateViewController(withIdentifier: "transferVC") as? TransferViewController
-        let jumlahUnit = Double(jumlahGram.text ?? "") ?? 0
+        let jumlahUnit = Double("\(qtyStepper.getTotalQty())") ?? 0
         let hargaUnit = Double(harga.text ?? "") ?? 0
         TotalHarga = jumlahUnit * hargaUnit
-        //        vc?.produk.text = produk.text
-        //        vc?.store.text = namaToko.text
-        //        vc?.totalQty.text = jumlahGram.text
-        //        vc?.location.text = location.text
-        //        vc?.productPrice.text = String(TotalHarga)
-        print(self.product)
-        vc?.product = self.product
+        print(self.productModel)
+        vc?.product = self.productModel
         vc?.totalHarga = TotalHarga
+        vc?.totalQuantity = jumlahUnit
+        
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     

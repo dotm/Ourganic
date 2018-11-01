@@ -9,6 +9,8 @@
 import UIKit
 
 @IBDesignable class PriceStepper: UIView {
+    private var totalQty:Double?
+    
     //MARK: Properties
     @IBInspectable var minimal_quantity: Double = 250 {
         didSet { reloadDisplayedText() }
@@ -23,9 +25,13 @@ import UIKit
         displayedTextLabel.text = getDisplayedText()
     }
     private func getDisplayedText() -> String {
-        let totalQuantity = minimal_quantity * Double(units_ordered)
-        let displayedText = "\(totalQuantity) \(unit_measurement)"
+        self.totalQty = minimal_quantity * Double(units_ordered)
+        let displayedText = "\(totalQty!) \(unit_measurement)"
         return displayedText
+    }
+    
+    func getTotalQty() -> Double {
+        return Double(self.totalQty ?? 0)
     }
     
     //MARK: Outlets
@@ -37,6 +43,7 @@ import UIKit
         super.init(coder: aDecoder)
         setupLayout()
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
@@ -75,6 +82,7 @@ import UIKit
         stepDownButton.addGestureRecognizer(tapGestureRecognizer)
         self.stepDownButton = stepDownButton
     }
+    
     @objc private func stepDown(){
         if units_ordered == 0 {return}
         units_ordered -= 1
