@@ -17,6 +17,10 @@ class ProfileViewController: UIViewController {
     private weak var leftLink: UILabel!
     private weak var rightLink: UILabel!
     private var userImage: UIImage?
+    private weak var userProfileView: UIView!
+    private weak var productCollectionView: UICollectionView!
+    private var products: [Product]? = nil
+    private let CELL_ID = "My products cell"
     private weak var addProductButton: UIButton!
     fileprivate var userHandle: AuthStateDidChangeListenerHandle!
 
@@ -142,8 +146,9 @@ class ProfileViewController: UIViewController {
     }
     private func setupLayout(){
         setupNavigationBar()
-        setupUserView(previousElement: navigationBar)
         setupAddProductButton()
+        setupUserView(previousElement: navigationBar)
+        setupProductCollectionView(previousElement: userProfileView, bottomElement: addProductButton)
     }
     private func setupNavigationBar(){
         let navbar = UINavigationBar()
@@ -161,6 +166,24 @@ class ProfileViewController: UIViewController {
         
         self.navigationBar = navbar
     }
+    private func setupProductCollectionView(previousElement: UIView, bottomElement: UIView){
+        let spacing = CGFloat(10)
+        let margins = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        let layout = ColumnFlowLayout(cellsPerRow: 2, minimumInteritemSpacing: spacing, minimumLineSpacing: spacing, sectionInset: margins)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(MyProductCollectionViewCell.self, forCellWithReuseIdentifier: CELL_ID)
+        
+        view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.topAnchor.constraint(equalTo: previousElement.bottomAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: previousElement.leadingAnchor).isActive = true
+        collectionView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bottomElement.topAnchor, constant: -10).isActive = true
+        
+        self.productCollectionView = collectionView
+    }
     private func setupUserView(previousElement: UIView){
         let userView = UIView()
         
@@ -173,6 +196,8 @@ class ProfileViewController: UIViewController {
         
         setupUserPhoto(parent: userView)
         setupUserLabels(parent: userView, elementOnTheLeft: userImageView)
+        
+        self.userProfileView = userView
     }
     private func setupUserPhoto(parent: UIView){
         let imageView = UIImageView()
@@ -269,4 +294,39 @@ class ProfileViewController: UIViewController {
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         self.addProductButton = button
     }
+}
+
+extension ProfileViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return products?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath) as! MyProductCollectionViewCell
+        guard let product: Product = products?[indexPath.row] else {
+            return cell
+        }
+        
+        cell.productName = product.product_name
+        var data: Data? = nil
+        let url = URL(string: product.image_url)
+        DispatchQueue.global().async {
+            if let url = url {
+                data = try? Data(contentsOf: url)
+            }
+            DispatchQueue.main.async {
+                if let data = data, let productImage = UIImage(data: data) {
+                    cell.productImage = productImage
+                }
+            }
+            
+        }
+        
+        return cell
+    }
+    
+}
+
+extension ProfileViewController: UICollectionViewDelegate {
+    
 }
