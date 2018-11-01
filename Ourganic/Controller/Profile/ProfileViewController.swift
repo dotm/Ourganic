@@ -29,7 +29,18 @@ class ProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupLayout()
-        
+        if let myStoreID = Store.ID {
+            getProductList(store_id: myStoreID) { (products, error) in
+                if let error = error {
+                    print("Error getting product list:", error)
+                    return
+                }
+                
+                self.products = products
+                print(111,products.count)
+                self.productCollectionView.reloadData()
+            }
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -170,9 +181,11 @@ class ProfileViewController: UIViewController {
         let spacing = CGFloat(10)
         let margins = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
         let layout = ColumnFlowLayout(cellsPerRow: 2, minimumInteritemSpacing: spacing, minimumLineSpacing: spacing, sectionInset: margins)
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.backgroundColor = .white
         collectionView.register(MyProductCollectionViewCell.self, forCellWithReuseIdentifier: CELL_ID)
         
         view.addSubview(collectionView)

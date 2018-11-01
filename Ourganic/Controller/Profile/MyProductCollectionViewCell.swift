@@ -56,6 +56,8 @@ class MyProductCollectionViewCell: UICollectionViewCell {
     private func setupProductNameLabel(){
         let label = UILabel()
         label.text = productName
+        label.textColor = .white
+        label.textAlignment = .center
         
         let parent = self
         parent.addSubview(label)
@@ -63,7 +65,7 @@ class MyProductCollectionViewCell: UICollectionViewCell {
         label.centerXAnchor.constraint(equalTo: parent.centerXAnchor).isActive = true
         label.bottomAnchor.constraint(equalTo: parent.bottomAnchor).isActive = true
         label.widthAnchor.constraint(equalTo: parent.widthAnchor).isActive = true
-        label.heightAnchor.constraint(equalTo: parent.heightAnchor).isActive = true
+        label.heightAnchor.constraint(lessThanOrEqualTo: parent.heightAnchor).isActive = true
         
         self.productNameLabel = label
     }
