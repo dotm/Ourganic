@@ -572,6 +572,9 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="done:" destination="y7k-U0-Ghj" eventType="touchUpInside" id="Ncj-FY-ffh"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay Before : 10-10-1999 10:10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fGc-WT-0pB">
                                 <rect key="frame" x="72.666666666666686" y="515" width="230" height="23.333333333333371"/>
@@ -609,7 +612,7 @@
                     <connections>
                         <outlet property="invoiceNumberLbl" destination="bgh-3b-mjQ" id="J7r-lS-1zF"/>
                         <outlet property="paymentDeadline" destination="fGc-WT-0pB" id="Fs3-R6-qqb"/>
-                        <outlet property="totalPaymentLbl" destination="fGc-WT-0pB" id="8Cf-Je-Q5y"/>
+                        <outlet property="totalPaymentLbl" destination="rQC-l1-Pgb" id="HcZ-ae-Lcq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdh-D9-ixt" userLabel="First Responder" sceneMemberID="firstResponder"/>

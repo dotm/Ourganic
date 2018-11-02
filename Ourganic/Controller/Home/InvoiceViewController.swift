@@ -15,6 +15,7 @@ class InvoiceViewController: UIViewController {
     
     var order:OrderModel?
     
+    var notifVC: NotificationViewController = NotificationViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class InvoiceViewController: UIViewController {
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         let date = Date().addingTimeInterval(2 * 60 * 60)
         paymentDeadline.text = "Pay Before : \(dateFormatter.string(from: date))"
+        paymentDeadline.textColor = UIColor.black
         invoiceNumberLbl.text = order?.invoiceNumber
         
         let numberFormatter = NumberFormatter()
@@ -33,15 +35,11 @@ class InvoiceViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func done(_ sender: Any) {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 5], animated: true)
     }
-    */
-
+    
+    
+    
 }

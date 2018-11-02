@@ -136,9 +136,6 @@ class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 } else {
                     let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
                     self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
-                    
-                    //                    vc?.orderedProduct = result!.product.product_name
-                    //                    self.navigationController?.popToViewController(vc!, animated: true)
                 }
             }
         }
