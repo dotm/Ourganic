@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/yoshuaelmaryono/Desktop/Ourganic/Ourganic/Controller/Notification/View/NotificationProductTableViewCell.swift">
+   </FileRef>
+   <FileRef
       location = "group:Ourganic.xcodeproj">
    </FileRef>
    <FileRef
