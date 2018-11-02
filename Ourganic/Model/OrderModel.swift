@@ -9,26 +9,32 @@
 import Foundation
 
 class OrderModel {
+    
+    var id:String?
     var productId: String
     var buyerUserId: String
     var invoiceNumber: String
     var totalPrice: Double
-    var qty: Int
+    var qty: Double
     var sendFrom: String
     var sendTo: String
+    var receiverAddress: String
     var deliveryMethod: String
     var deliveryFee: Double
+    var createdDate:Date
     var product:Product
     
     init(productId: String,
          buyerUserId: String,
          invoiceNumber: String,
          totalPrice: Double,
-         qty: Int,
+         qty: Double,
          sendFrom: String,
          sendTo: String,
+         receiverAddress:String,
          deliveryMethod: String,
          deliveryFee: Double,
+         createdDate: Date,
          product: Product) {
         self.productId = productId
         self.buyerUserId = buyerUserId
@@ -37,8 +43,10 @@ class OrderModel {
         self.qty = qty
         self.sendFrom = sendFrom
         self.sendTo = sendTo
+        self.receiverAddress = receiverAddress
         self.deliveryMethod = deliveryMethod
         self.deliveryFee = deliveryFee
+        self.createdDate = createdDate
         self.product = product
     }
 }

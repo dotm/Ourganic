@@ -86,7 +86,7 @@ class HomeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = tableView.cellForRow(at: indexPath) as! ProductTableViewCell
         selectedCell.isSelected = false
-        let vc = UIStoryboard.init(name: "orderDetailView", bundle: Bundle.main).instantiateViewController(withIdentifier: "prod detail") as? OrderDetailSatuViewController
+        let vc = UIStoryboard.init(name: "Product", bundle: Bundle.main).instantiateViewController(withIdentifier: "prod detail") as? ProductDetailViewController
         vc?.idProduk = productList[indexPath.row].product_id
         self.navigationController?.pushViewController(vc!, animated: true)
     }

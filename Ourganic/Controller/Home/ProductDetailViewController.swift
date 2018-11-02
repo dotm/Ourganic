@@ -9,11 +9,11 @@
 import UIKit
 import Firebase
 
-class OrderDetailSatuViewController: UIViewController {
+class ProductDetailViewController: UIViewController {
 
     @IBOutlet weak var qtyStepper: PriceStepper!
     @IBOutlet weak var productImage: UIImageView!
-    @IBOutlet weak var produk: UILabel!
+    @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var namaToko: UILabel!
     @IBOutlet weak var jenis: UILabel!
     @IBOutlet weak var harga: UILabel!
@@ -23,20 +23,19 @@ class OrderDetailSatuViewController: UIViewController {
     @IBOutlet weak var uom: UILabel!
     
     var idProduk: String = ""
-    var TotalHarga: Double = 0
+    var totalHarga: Double = 0
     var productModel:Product!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Product Detail"
         
-        styleTitleLabel(produk)
         styleTitleLabel(namaToko)
         styleTitleLabel(jenis)
         styleTitleLabel(harga)
         styleTitleLabel(minQty)
         styleTitleLabel(location)
-        styleTitleLabel(deskripsi)
+        //styleTitleLabel(deskripsi)
         styleTitleLabel(uom)
         styleViewCorner(productImage)
         productImage.contentMode = .scaleAspectFill
@@ -44,7 +43,7 @@ class OrderDetailSatuViewController: UIViewController {
         productImage.layer.cornerRadius = 10
         getProductByDocId(documentId: idProduk) { (result, error) in
             DispatchQueue.main.async {
-                self.produk.text = result.product_name
+                self.productName.text = result.product_name
                 self.namaToko.text = result.store_name
                 self.jenis.text = result.product_name
                 self.harga.text = String(result.price_per_unit)
@@ -74,26 +73,18 @@ class OrderDetailSatuViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func toTransfer(_ sender: Any) {
-        let vc = UIStoryboard.init(name: "orderDetailView", bundle: Bundle.main).instantiateViewController(withIdentifier: "transferVC") as? TransferViewController
+        let vc = UIStoryboard.init(name: "Product", bundle: Bundle.main).instantiateViewController(withIdentifier: "transferVC") as? OrderViewController
         let jumlahUnit = Double("\(qtyStepper.getTotalQty())") ?? 0
         let hargaUnit = Double(harga.text ?? "") ?? 0
-        TotalHarga = jumlahUnit * hargaUnit
+        totalHarga = jumlahUnit * hargaUnit
         print(self.productModel)
         vc?.product = self.productModel
-        vc?.totalHarga = TotalHarga
+        vc?.totalHarga = totalHarga
         vc?.totalQuantity = jumlahUnit
         
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
 }

@@ -40,12 +40,15 @@
 		DDCE019721817FC100B1C1D2 /* CategoryDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE019621817FC100B1C1D2 /* CategoryDb.swift */; };
 		DDCE019B2182B4B600B1C1D2 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE019A2182B4B600B1C1D2 /* HomeDetailViewController.swift */; };
 		DDCE019D2182CEC200B1C1D2 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE019C2182CEC200B1C1D2 /* ProductTableViewCell.swift */; };
-		DDF102C921896B500018F50B /* OrderDetailSatuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF102C621896B500018F50B /* OrderDetailSatuViewController.swift */; };
-		DDF102CA21896B500018F50B /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF102C721896B500018F50B /* OrderDetailViewController.swift */; };
-		DDF102CB21896B500018F50B /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF102C821896B500018F50B /* TransferViewController.swift */; };
-		DDF102CD21896B580018F50B /* orderDetailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF102CC21896B580018F50B /* orderDetailView.storyboard */; };
+		DDF102C921896B500018F50B /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF102C621896B500018F50B /* ProductDetailViewController.swift */; };
+		DDF102CB21896B500018F50B /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF102C821896B500018F50B /* OrderViewController.swift */; };
+		DDF102CD21896B580018F50B /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF102CC21896B580018F50B /* Product.storyboard */; };
 		DDF102D0218AB1B10018F50B /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF102CF218AB1B10018F50B /* CityModel.swift */; };
 		DDF102D2218AB2F10018F50B /* CityDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF102D1218AB2F10018F50B /* CityDB.swift */; };
+		DDF89520218C1C0600532AB1 /* InvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8951F218C1C0600532AB1 /* InvoiceViewController.swift */; };
+		DDF89522218C290A00532AB1 /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF89521218C290A00532AB1 /* BankModel.swift */; };
+		DDF89526218C294400532AB1 /* BankDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF89525218C294400532AB1 /* BankDB.swift */; };
+		DDF89528218C29DC00532AB1 /* UserBankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF89527218C29DC00532AB1 /* UserBankModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,12 +103,15 @@
 		DDCE019621817FC100B1C1D2 /* CategoryDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDb.swift; sourceTree = "<group>"; };
 		DDCE019A2182B4B600B1C1D2 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		DDCE019C2182CEC200B1C1D2 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
-		DDF102C621896B500018F50B /* OrderDetailSatuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailSatuViewController.swift; sourceTree = "<group>"; };
-		DDF102C721896B500018F50B /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
-		DDF102C821896B500018F50B /* TransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
-		DDF102CC21896B580018F50B /* orderDetailView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = orderDetailView.storyboard; sourceTree = "<group>"; };
+		DDF102C621896B500018F50B /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		DDF102C821896B500018F50B /* OrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		DDF102CC21896B580018F50B /* Product.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		DDF102CF218AB1B10018F50B /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		DDF102D1218AB2F10018F50B /* CityDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDB.swift; sourceTree = "<group>"; };
+		DDF8951F218C1C0600532AB1 /* InvoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceViewController.swift; sourceTree = "<group>"; };
+		DDF89521218C290A00532AB1 /* BankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankModel.swift; sourceTree = "<group>"; };
+		DDF89525218C294400532AB1 /* BankDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDB.swift; sourceTree = "<group>"; };
+		DDF89527218C29DC00532AB1 /* UserBankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBankModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,7 @@
 				DDCC5C032188364A0095E1FC /* OrderDB.swift */,
 				37AD736A2189B23F0036543C /* UploadToStorage.swift */,
 				DDF102D1218AB2F10018F50B /* CityDB.swift */,
+				DDF89525218C294400532AB1 /* BankDB.swift */,
 			);
 			path = DatabaseAccess;
 			sourceTree = "<group>";
@@ -225,8 +232,8 @@
 			children = (
 				3700086C2173683000AF89F3 /* Main.storyboard */,
 				DD070654217D884A004EFA08 /* Home */,
-				370F902E21758A1700B91689 /* Profile */,
 				DDCC5BF9218801C30095E1FC /* Notification */,
+				370F902E21758A1700B91689 /* Profile */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,11 +250,11 @@
 		DD070654217D884A004EFA08 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				DDF102C821896B500018F50B /* TransferViewController.swift */,
-				DDF102C721896B500018F50B /* OrderDetailViewController.swift */,
-				DDF102C621896B500018F50B /* OrderDetailSatuViewController.swift */,
 				DD070655217D8874004EFA08 /* HomeViewController.swift */,
 				DDCE019A2182B4B600B1C1D2 /* HomeDetailViewController.swift */,
+				DDF102C621896B500018F50B /* ProductDetailViewController.swift */,
+				DDF102C821896B500018F50B /* OrderViewController.swift */,
+				DDF8951F218C1C0600532AB1 /* InvoiceViewController.swift */,
 				DD070657217D8AAF004EFA08 /* View */,
 			);
 			path = Home;
@@ -256,11 +263,11 @@
 		DD070657217D8AAF004EFA08 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3726125B2189A9BD00EB8F6A /* PriceStepper.swift */,
-				DDF102CC21896B580018F50B /* orderDetailView.storyboard */,
 				DD070658217D8AC4004EFA08 /* Home.storyboard */,
+				DDF102CC21896B580018F50B /* Product.storyboard */,
 				DD07065A217D93A2004EFA08 /* CategoryTableViewCell.swift */,
 				DDCE019C2182CEC200B1C1D2 /* ProductTableViewCell.swift */,
+				3726125B2189A9BD00EB8F6A /* PriceStepper.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -271,6 +278,8 @@
 				DD07065D217D959A004EFA08 /* CategoryModel.swift */,
 				DDCC5C01218826770095E1FC /* OrderModel.swift */,
 				DDF102CF218AB1B10018F50B /* CityModel.swift */,
+				DDF89521218C290A00532AB1 /* BankModel.swift */,
+				DDF89527218C29DC00532AB1 /* UserBankModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -379,7 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				370008732173683100AF89F3 /* LaunchScreen.storyboard in Resources */,
-				DDF102CD21896B580018F50B /* orderDetailView.storyboard in Resources */,
+				DDF102CD21896B580018F50B /* Product.storyboard in Resources */,
 				DD070659217D8AC4004EFA08 /* Home.storyboard in Resources */,
 				3758019D21736ADF004A249D /* GoogleService-Info.plist in Resources */,
 				370008702173683100AF89F3 /* Assets.xcassets in Resources */,
@@ -535,31 +544,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDF102CA21896B500018F50B /* OrderDetailViewController.swift in Sources */,
 				374A5333217B30E6001F3FD5 /* LoginUserViewController.swift in Sources */,
 				370F902B217582EF00B91689 /* ProfileViewController.swift in Sources */,
-				DDF102C921896B500018F50B /* OrderDetailSatuViewController.swift in Sources */,
+				DDF102C921896B500018F50B /* ProductDetailViewController.swift in Sources */,
+				DDF89522218C290A00532AB1 /* BankModel.swift in Sources */,
 				370F902D21758A0F00B91689 /* RegisterUserViewController.swift in Sources */,
 				370008692173683000AF89F3 /* AppDelegate.swift in Sources */,
 				DDCE019B2182B4B600B1C1D2 /* HomeDetailViewController.swift in Sources */,
 				DDCE019D2182CEC200B1C1D2 /* ProductTableViewCell.swift in Sources */,
 				DDF102D2218AB2F10018F50B /* CityDB.swift in Sources */,
+				DDF89526218C294400532AB1 /* BankDB.swift in Sources */,
 				DD07065B217D93A2004EFA08 /* CategoryTableViewCell.swift in Sources */,
 				370F9030217594A300B91689 /* CustomStyling.swift in Sources */,
 				37E3ABCF218577310063D127 /* AddProductViewController.swift in Sources */,
 				377E07D1218026D200E0C86E /* Store.swift in Sources */,
 				DDCC5C02218826770095E1FC /* OrderModel.swift in Sources */,
 				3726125C2189A9BD00EB8F6A /* PriceStepper.swift in Sources */,
+				DDF89520218C1C0600532AB1 /* InvoiceViewController.swift in Sources */,
 				3733C5D5217ED359000BD6F6 /* AddStoreViewController.swift in Sources */,
 				DD070656217D8874004EFA08 /* HomeViewController.swift in Sources */,
 				DDCC5BFE21881B1E0095E1FC /* NotificationViewController.swift in Sources */,
-				DDF102CB21896B500018F50B /* TransferViewController.swift in Sources */,
+				DDF102CB21896B500018F50B /* OrderViewController.swift in Sources */,
 				DDCE019721817FC100B1C1D2 /* CategoryDb.swift in Sources */,
 				377E07CF218026B900E0C86E /* User.swift in Sources */,
 				DDF102D0218AB1B10018F50B /* CityModel.swift in Sources */,
 				DDCC5C042188364A0095E1FC /* OrderDB.swift in Sources */,
 				377E07D321805AEE00E0C86E /* Alerts.swift in Sources */,
 				DD07065E217D959A004EFA08 /* CategoryModel.swift in Sources */,
+				DDF89528218C29DC00532AB1 /* UserBankModel.swift in Sources */,
 				DD07065E217D959A004EFA08 /* CategoryModel.swift in Sources */,
 				3712FF92218180C700E011D8 /* Product.swift in Sources */,
 				DDCC5C0021881CC20095E1FC /* NotifCollectionViewCell.swift in Sources */,
@@ -728,7 +740,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N55A3MSD3W;
+				DEVELOPMENT_TEAM = HPGVM37VV8;
 				INFOPLIST_FILE = Ourganic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -747,7 +759,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N55A3MSD3W;
+				DEVELOPMENT_TEAM = HPGVM37VV8;
 				INFOPLIST_FILE = Ourganic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
