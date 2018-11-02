@@ -19,7 +19,11 @@ class ProfileViewController: UIViewController {
     private var userImage: UIImage?
     private weak var userProfileView: UIView!
     private weak var productCollectionView: UICollectionView!
-    private var products: [Product]? = nil
+    private var products: [Product]? = nil {
+        didSet {
+            self.productCollectionView.reloadData()
+        }
+    }
     private let CELL_ID = "My products cell"
     private weak var addProductButton: UIButton!
     fileprivate var userHandle: AuthStateDidChangeListenerHandle!
@@ -29,18 +33,6 @@ class ProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupLayout()
-        if let myStoreID = Store.ID {
-            getProductList(store_id: myStoreID) { (products, error) in
-                if let error = error {
-                    print("Error getting product list:", error)
-                    return
-                }
-                
-                self.products = products
-                print(111,products.count)
-                self.productCollectionView.reloadData()
-            }
-        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -117,19 +109,34 @@ class ProfileViewController: UIViewController {
         self.usernameLabel.text = defaultUserName
         self.storeNameLabel.text = defaultStoreName
         self.userImageView.image = UIImage(named: defaultUserImage_string)
+        self.products = []
     }
     private func setupLayout_toLoggedIn(username: String, userImageURL: URL?){
         self.usernameLabel.text = username
         loadUserImage(from: userImageURL)
         
         //To fix bug: store name not displayed some of the time when user login
-        if let storeName = Store.name {
+        if let storeName = Store.name, let myStoreID = Store.ID {
             self.storeNameLabel.text = storeName
+            loadProductList(myStoreID: myStoreID)
         }else{
             self.storeNameLabel.text = "Loading your store data"
+            products = []
             Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (_) in
                 self.storeNameLabel.text = Store.name ?? "No store registered"
+                self.loadProductList(myStoreID: Store.ID)
             }
+        }
+    }
+    private func loadProductList(myStoreID: String?){
+        guard let myStoreID = myStoreID else {return}
+        getProductList(store_id: myStoreID) { (products, error) in
+            if let error = error {
+                print("Error getting product list:", error)
+                return
+            }
+            
+            self.products = products
         }
     }
     private func loadUserImage(from url: URL?){
