@@ -17,15 +17,6 @@ typealias ProductTableViewCellData = (
     status_text2: String
 )
 
-let mock: ProductTableViewCellData = (
-    product_name: "Koin Organik",
-    product_image_url: "https://firebasestorage.googleapis.com/v0/b/ourganic-d931d.appspot.com/o/product_images%2FKoin%20OrganikPT.%20Joe%20Sejahtera2018-10-31%2017:20:05?alt=media&token=ace23471-094a-4ba6-bfb6-230c5ab90f18",
-    order_date: "5 Oct 2018 10:07",
-    delivery_method: "JNE REG",
-    status_text1: "Waiting Payment",
-    status_text2: "Rp. 20.000"
-)
-
 class NotificationViewController: UIViewController {
     //MARK: Outlets
     private weak var segmentedControl: UISegmentedControl!
@@ -33,7 +24,7 @@ class NotificationViewController: UIViewController {
 
     //MARK: Properties
     private let PRODUCT_CELL = "Product cell"
-    private var productsData: [ProductTableViewCellData] = [mock] {
+    private var productsData: [ProductTableViewCellData] = [] {
         didSet {
             reloadTable()
         }
@@ -75,10 +66,26 @@ class NotificationViewController: UIViewController {
         }
     }
     private func getProducts_onMyCart() -> [ProductTableViewCellData]{
-        return []
+        let mock: ProductTableViewCellData = (
+            product_name: "Koin Organik",
+            product_image_url: "https://firebasestorage.googleapis.com/v0/b/ourganic-d931d.appspot.com/o/product_images%2FKoin%20OrganikPT.%20Joe%20Sejahtera2018-10-31%2017:20:05?alt=media&token=ace23471-094a-4ba6-bfb6-230c5ab90f18",
+            order_date: "5 Oct 2018 10:07",
+            delivery_method: "JNE REG",
+            status_text1: "Waiting Payment",
+            status_text2: "Rp. 20.000"
+        )
+        return [mock]
     }
     private func getProducts_currentlySelling() -> [ProductTableViewCellData]{
-        return []
+        let mock: ProductTableViewCellData = (
+            product_name: "Koin Organik",
+            product_image_url: "https://firebasestorage.googleapis.com/v0/b/ourganic-d931d.appspot.com/o/product_images%2FKoin%20OrganikPT.%20Joe%20Sejahtera2018-10-31%2017:20:05?alt=media&token=ace23471-094a-4ba6-bfb6-230c5ab90f18",
+            order_date: "5 Oct 2018 10:07",
+            delivery_method: "JNE REG",
+            status_text1: "You have approved this order",
+            status_text2: "5 Oct 2018 10:37"
+        )
+        return [mock]
     }
     private func setupProductTable(previousElement: UIView){
         let tableView = UITableView()
@@ -118,6 +125,10 @@ extension NotificationViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: PRODUCT_CELL) as! NotificationProductTableViewCell
         cell.productNameLabel.text = productData.product_name
+        cell.orderDateLabel.text = productData.order_date
+        cell.deliveryMethodLabel.text = productData.delivery_method
+        cell.firstStatusLabel.text = productData.status_text1
+        cell.secondStatusLabel.text = productData.status_text2
         
         var data: Data? = nil
         let url = URL(string: productData.product_image_url)
