@@ -8,18 +8,18 @@
 
 import UIKit
 
-class TransferViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class OrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     
     @IBOutlet weak var paymentMethod: UILabel!
     @IBOutlet weak var receiverAddress: UITextField!
     @IBOutlet weak var deliveryMethod: UILabel!
-    @IBOutlet weak var deliveryFee: UILabel!
+    @IBOutlet weak var deliveryFeeText: UILabel!
+    @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var sendToText: UITextField!
-    @IBOutlet weak var produk: UILabel!
     @IBOutlet weak var store: UILabel!
     @IBOutlet weak var totalQty: UILabel!
-    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak var sendFrom: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var totalPrice: UILabel!
     @IBOutlet weak var productImage: UIImageView!
@@ -29,8 +29,10 @@ class TransferViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var product:Product?
     var totalHarga:Double?
     var totalQuantity:Double?
+    var deliveryFee:Double?
     var cities:[CityModel] = []
     var selectedRow:Int = 0
+    let formater = NumberFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +46,10 @@ class TransferViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             }
         }
         
-        styleTitleLabel(produk)
+        styleTitleLabel(productName)
         styleTitleLabel(store)
         styleTitleLabel(totalQty)
-        styleTitleLabel(location)
+        styleTitleLabel(sendFrom)
         styleTitleLabel(productPrice)
         styleTitleLabel(totalPrice)
         styleViewCorner(productImage)
@@ -57,17 +59,19 @@ class TransferViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         productImage.contentMode = .scaleAspectFill
         productImage.clipsToBounds = true
         productImage.layer.cornerRadius = 10
-        produk.text = product?.product_name
+        productName.text = product?.product_name
         store.text = product?.store_name
         totalQty.text = "\(totalQuantity!)"
-        location.text = product?.location
+        sendFrom.text = product?.location
         uom.text = product?.unit_measurement
         
-        let formater = NumberFormatter()
+        
         formater.numberStyle = .currency
         formater.locale = Locale(identifier: "id-ID")
         let prodPrice = formater.string(from: NSNumber(value: (product?.price_per_unit)!))
         productPrice.text = prodPrice
+        
+        deliveryFeeText.text = formater.string(from: NSNumber(value: 0.0))
         
         let hargaTotal = formater.string(from: NSNumber(value: totalHarga!))
         totalPrice.text = hargaTotal
@@ -77,6 +81,8 @@ class TransferViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func didBeginEditing(_ sender: Any) {
         self.sendToText.text = cities[selectedRow].name
+        self.deliveryFee = 9000.0
+        self.deliveryFeeText.text = formater.string(from: NSNumber(value: deliveryFee ?? 0))
     }
     
     
@@ -97,15 +103,45 @@ class TransferViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.sendToText.text = cities[row].name
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func makeOrder(_ sender: UIButton) {
+        if (!User.isLoggedIn()) {
+            goTo_loginPage()
+        } else {
+            if(sendToText.text?.isEmpty ?? true) {
+                let alert = UIAlertView.init(title:"Alert" , message: "\"Send To\" is empty!", delegate: self, cancelButtonTitle: "OK")
+                alert.show()
+                return
+            }
+            if(receiverAddress.text?.isEmpty ?? true) {
+                let alert = UIAlertView.init(title:"Alert" , message: "\"Receiver Address\" is empty!", delegate: self, cancelButtonTitle: "OK")
+                alert.show()
+                return
+            }
+            let sequence = String(format: "%03d", arc4random_uniform(999))
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "ddMMyyyyHHmmss"
+            let invoiceNumber = "INV"+formatter.string(from: date)+sequence
+            let order:OrderModel = OrderModel(productId: (self.product?.product_id)!, buyerUserId: User.ID!, invoiceNumber: invoiceNumber, totalPrice: totalHarga!, qty: totalQuantity!, sendFrom: sendFrom.text!, sendTo: sendToText.text!, receiverAddress: receiverAddress.text!, deliveryMethod: deliveryMethod.text!, deliveryFee: deliveryFee!, createdDate: date, product: product!)
+            add(order: order, userId: User.ID!) { (result, err) in
+                if err != nil {
+                    let alert = UIAlertView.init(title:"Alert" , message: err!.localizedDescription , delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
+                    return
+                }
+                if(sender.tag == 0) {
+                    let vc = UIStoryboard.init(name: "Product", bundle: Bundle.main).instantiateViewController(withIdentifier: "Invoice") as? InvoiceViewController
+                    vc?.order = order
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                } else {
+                    let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+                    self.navigationController!.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
+                }
+            }
+        }
     }
-    */
-
+    
+    @objc private func goTo_loginPage(){
+        present(LoginUserViewController(), animated: true, completion: nil)
+    }
 }

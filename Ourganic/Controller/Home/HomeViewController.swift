@@ -21,8 +21,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var titleArray = [String]()
     var pathArray = [String]()
     
+    var  orderedProduct:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !orderedProduct.isEmpty {
+            let alert = UIAlertController(title: "Order Added", message: "Your order \"\(orderedProduct)\" has been added", preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+            Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
+        }
+        
         catTableView.delegate = self
         catTableView.dataSource = self
         carouselView.delegate = self

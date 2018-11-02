@@ -15,7 +15,6 @@ enum User {
             print("No user logged in.")
             return nil
         }
-        
         return currentUserID
     }
     
@@ -26,7 +25,6 @@ enum User {
             }else{
                 Store.initialize()
             }
-            
             completion?(result, error)
         }
     }

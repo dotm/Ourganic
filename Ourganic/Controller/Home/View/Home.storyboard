@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qdB-AL-i04">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qdB-AL-i04">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +13,7 @@
         <!--Home-->
         <scene sceneID="FAV-xq-MdS">
             <objects>
-                <viewController id="VSW-RO-zNx" customClass="HomeViewController" customModule="Ourganic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="home" id="VSW-RO-zNx" customClass="HomeViewController" customModule="Ourganic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pXK-ON-M3k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -320,10 +320,10 @@
             </objects>
             <point key="canvasLocation" x="1534.7826086956522" y="-346.20535714285711"/>
         </scene>
-        <!--orderDetailView-->
+        <!--Product-->
         <scene sceneID="oVd-yo-5er">
             <objects>
-                <viewControllerPlaceholder storyboardName="orderDetailView" id="f1h-kK-cqO" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Product" id="f1h-kK-cqO" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ThV-8W-YIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2141" y="-346"/>

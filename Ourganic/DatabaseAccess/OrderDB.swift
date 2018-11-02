@@ -12,6 +12,22 @@ import Firebase
 fileprivate let ORDER_COLLECTION:String = "order"
 fileprivate let db = Firestore.firestore()
 
+func orderModelToDictionary(order:OrderModel) -> [String:Any] {
+    return [
+        "buyer_user_id": order.buyerUserId,
+        "created_date": order.createdDate,
+        "delivery_fee": order.deliveryFee,
+        "delivery_method": order.deliveryMethod,
+        "invoice_number": order.invoiceNumber,
+        "product_id": order.productId,
+        "qty": order.qty,
+        "send_from": order.sendFrom,
+        "send_to": order.sendTo,
+        "receiver_address": order.receiverAddress,
+        "total_price": order.totalPrice //TODO: save image
+    ]
+}
+
 func getOrderList (userId: String, completion: @escaping (_ result: [OrderModel]) -> Void?) {
     let query = db.collection(ORDER_COLLECTION).whereField("buyer_user_id", isEqualTo: userId)
     query.getDocuments { (result, error) in
@@ -24,7 +40,7 @@ func getOrderList (userId: String, completion: @escaping (_ result: [OrderModel]
         let orders = ordersDoc.map({ (order) -> OrderModel in
             var orders:OrderModel?
             getProductByDocId(documentId: order["product_id"] as! String) { (result, error) in
-                orders = OrderModel(productId: order.data()["product_id"] as! String, buyerUserId: userId, invoiceNumber: order.data()["invoice_number"] as! String, totalPrice: order.data()["total_orice"] as! Double, qty: order.data()["qty"] as! Int, sendFrom: order.data()["send_from"] as! String, sendTo: order.data()["send_to"] as! String, deliveryMethod: order.data()["delivery_method"] as! String, deliveryFee: order.data()["delivery_fee"] as! Double, product: result)
+                orders = OrderModel(productId: order.data()["product_id"] as! String, buyerUserId: userId, invoiceNumber: order.data()["invoice_number"] as! String, totalPrice: order.data()["total_orice"] as! Double, qty: Double(order.data()["qty"] as! Int), sendFrom: order.data()["send_from"] as! String, sendTo: order.data()["send_to"] as! String, receiverAddress: order.data()["receiver_address"] as! String, deliveryMethod: order.data()["delivery_method"] as! String, deliveryFee: order.data()["delivery_fee"] as! Double, createdDate: order.data()["created_date"] as! Date, product: result)
                 
             }
             return orders!
@@ -33,3 +49,12 @@ func getOrderList (userId: String, completion: @escaping (_ result: [OrderModel]
     }
 }
 
+func add(order: OrderModel, userId:String, completion callback: ((OrderModel?, Error?) -> Void)?){
+    order.buyerUserId = userId
+    let orderDictionary: [String: Any] = orderModelToDictionary(order: order)
+    var doc : DocumentReference? = nil
+    doc = db.collection(ORDER_COLLECTION).addDocument(data: orderDictionary) { (err) in
+        order.id = doc?.documentID
+        callback?(order, err)
+    }
+} 
