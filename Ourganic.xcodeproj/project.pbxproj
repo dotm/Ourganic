@@ -32,6 +32,7 @@
 		DD070659217D8AC4004EFA08 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD070658217D8AC4004EFA08 /* Home.storyboard */; };
 		DD07065B217D93A2004EFA08 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07065A217D93A2004EFA08 /* CategoryTableViewCell.swift */; };
 		DD07065E217D959A004EFA08 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07065D217D959A004EFA08 /* CategoryModel.swift */; };
+		DD0B667E218E035900433924 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD0B667D218E035900433924 /* SideMenu.storyboard */; };
 		DDCC5BFC218802790095E1FC /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDCC5BFB218802790095E1FC /* Notification.storyboard */; };
 		DDCC5BFE21881B1E0095E1FC /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC5BFD21881B1E0095E1FC /* NotificationViewController.swift */; };
 		DDCC5C02218826770095E1FC /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC5C01218826770095E1FC /* OrderModel.swift */; };
@@ -98,6 +99,7 @@
 		DD070658217D8AC4004EFA08 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		DD07065A217D93A2004EFA08 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		DD07065D217D959A004EFA08 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		DD0B667D218E035900433924 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		DDCC5BFB218802790095E1FC /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		DDCC5BFD21881B1E0095E1FC /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		DDCC5C01218826770095E1FC /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				3700086C2173683000AF89F3 /* Main.storyboard */,
+				DD0B667D218E035900433924 /* SideMenu.storyboard */,
 				DD070654217D884A004EFA08 /* Home */,
 				DDCC5BF9218801C30095E1FC /* Notification */,
 				370F902E21758A1700B91689 /* Profile */,
@@ -400,6 +403,7 @@
 				DDF102CD21896B580018F50B /* Product.storyboard in Resources */,
 				DD070659217D8AC4004EFA08 /* Home.storyboard in Resources */,
 				3758019D21736ADF004A249D /* GoogleService-Info.plist in Resources */,
+				DD0B667E218E035900433924 /* SideMenu.storyboard in Resources */,
 				370008702173683100AF89F3 /* Assets.xcassets in Resources */,
 				3700086E2173683000AF89F3 /* Main.storyboard in Resources */,
 				DDCC5BFC218802790095E1FC /* Notification.storyboard in Resources */,
@@ -752,7 +756,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N55A3MSD3W;
+				DEVELOPMENT_TEAM = HPGVM37VV8;
 				INFOPLIST_FILE = Ourganic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -771,7 +775,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N55A3MSD3W;
+				DEVELOPMENT_TEAM = HPGVM37VV8;
 				INFOPLIST_FILE = Ourganic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -9,6 +9,7 @@
 import UIKit
 import AACarousel
 import Kingfisher
+import SideMenu
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AACarouselDelegate, UISearchBarDelegate {
 
@@ -26,7 +27,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("family name : \(categoryLabel.font.fontName)")
         if !orderedProduct.isEmpty {
             let alert = UIAlertController(title: "Order Added", message: "Your order \"\(orderedProduct)\" has been added", preferredStyle: .alert)
             self.present(alert, animated: true, completion: nil)
@@ -51,10 +51,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         getHeadlineList() { (result) in
             DispatchQueue.main.async {
-                for map in result {
-                    print(map["name"] as! String)
-                    self.titleArray.append(map["name"] as! String)
-                    self.pathArray.append(map["image_url"] as! String)
+                for catModel in result {
+                    self.titleArray.append(catModel.name)
+                    self.pathArray.append(catModel.imageUrl)
                 }
                 self.carouselView.reloadInputViews()
                 self.carouselView.setCarouselOpaque(layer: true, describedTitle: true, pageIndicator: false)
