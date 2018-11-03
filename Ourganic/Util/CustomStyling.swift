@@ -50,3 +50,10 @@ func styleTextField(_ textField: UITextField){
     textField.leftViewMode = .always
 }
 
+func styleTextView(_ textView: UITextView){
+    textView.layer.cornerRadius = defaultCornerRadius
+    textView.layer.borderColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1).cgColor
+    textView.layer.borderWidth = 1.5
+    textView.font = UITextField().font
+    textView.textContainerInset = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+}
