@@ -12,7 +12,7 @@ import Firebase
 fileprivate let CITY_COLLECTION:String = "city"
 fileprivate let db = Firestore.firestore()
 
-func getCityList (completion: @escaping (_ result: [CityModel]) -> Void?) {
+func getCityList (completion: @escaping (_ result: [CityModel]) -> Void) {
     let query = db.collection(CITY_COLLECTION)
     query.getDocuments { (result, error) in
         if let error = error {

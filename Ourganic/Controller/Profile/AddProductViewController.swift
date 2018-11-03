@@ -11,7 +11,11 @@ import UIKit
 class AddProductViewController: UIViewController {
     //MARK: Property
     private var categoryList: [CategoryModel] = []
-    private let PICKER_TEXT_FIELD_TAG = 15135
+    private let CATEGORY_PICKER_TAG = 15135000
+    private let CATEGORY_PICKER_TEXT_FIELD_TAG = 15135
+    private var locationList: [CityModel] = []
+    private let LOCATION_PICKER_TAG = 47126400
+    private let LOCATION_PICKER_TEXT_FIELD_TAG = 471264
     //MARK: Outlets
     private weak var navigationBar: UINavigationBar!
     private weak var productImageView: UIImageView!
@@ -21,8 +25,9 @@ class AddProductViewController: UIViewController {
     private weak var unitQuantityView: UIView!
     private weak var minimalQuantityTextField: UITextField!
     private weak var unitMeasurementTextField: UITextField!
-    private weak var locationTextField: UITextField!
-    private weak var pickerTextField: UITextField!
+    private weak var locationPickerTextField: UITextField!
+    private weak var locationPicker: UIPickerView!
+    private weak var categoryPickerTextField: UITextField!
     private weak var categoryPicker: UIPickerView!
     private var selectedCategory: String = ""
     private weak var descriptionTextView: UITextView!
@@ -71,7 +76,7 @@ class AddProductViewController: UIViewController {
             handleAddProductError(message: "Please insert product name.")
             return nil
         }
-        let location = locationTextField.text ?? ""
+        let location = locationPickerTextField.text ?? ""
         let description = descriptionTextView.text ?? ""
         guard description != productDescription_placeholderText else {
             handleAddProductError(message: "Please insert the product description")
@@ -140,6 +145,10 @@ class AddProductViewController: UIViewController {
                 self.categoryPicker.reloadAllComponents()
             }
         }
+        getCityList { (result) -> Void in
+            self.locationList = result
+            self.locationPicker.reloadAllComponents()
+        }
     }
     //MARK: Layout
     private func setupLayout(){
@@ -151,8 +160,8 @@ class AddProductViewController: UIViewController {
         setupPriceTextField(previousElement: productNameTextField)
         setupUnitQuantityView(previousElement: priceTextField)
         setupLocationTextField(previousElement: unitQuantityView)
-        setupCategoryPicker(previousElement: locationTextField)
-        setupDescriptionTextView(previousElement: pickerTextField)
+        setupCategoryPicker(previousElement: locationPickerTextField)
+        setupDescriptionTextView(previousElement: categoryPickerTextField)
         setupSubmitButton(previousElement: descriptionTextView)
     }
     private func setupNavigationBar(){
@@ -295,7 +304,16 @@ class AddProductViewController: UIViewController {
         textField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
         textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        self.locationTextField = textField
+        textField.tag = LOCATION_PICKER_TEXT_FIELD_TAG
+        self.locationPickerTextField = textField
+        
+        let picker = UIPickerView()
+        picker.tag = LOCATION_PICKER_TAG
+        picker.delegate = self
+        picker.dataSource = self
+        
+        self.locationPicker = picker
+        textField.inputView = picker
     }
     private func setupCategoryPicker(previousElement: UIView){
         let textField = UITextField()
@@ -312,10 +330,11 @@ class AddProductViewController: UIViewController {
         textField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
         textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        textField.tag = PICKER_TEXT_FIELD_TAG
-        self.pickerTextField = textField
+        textField.tag = CATEGORY_PICKER_TEXT_FIELD_TAG
+        self.categoryPickerTextField = textField
         
         let picker = UIPickerView()
+        picker.tag = CATEGORY_PICKER_TAG
         picker.delegate = self
         picker.dataSource = self
         
@@ -360,15 +379,25 @@ class AddProductViewController: UIViewController {
 
 extension AddProductViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let categoryName = self.categoryList[row].name
-        return categoryName
+        if pickerView.tag == CATEGORY_PICKER_TAG {
+            let categoryName = self.categoryList[row].name
+            return categoryName
+        } else if pickerView.tag == LOCATION_PICKER_TAG {
+            return locationList[row].name
+        }
+        return nil
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedCategory = self.categoryList[row]
-        self.selectedCategory = selectedCategory.code
-        
-        let categoryName = selectedCategory.name
-        pickerTextField.text = categoryName
+        if pickerView.tag == CATEGORY_PICKER_TAG {
+            let selectedCategory = self.categoryList[row]
+            self.selectedCategory = selectedCategory.code
+            
+            let categoryName = selectedCategory.name
+            categoryPickerTextField.text = categoryName
+        } else if pickerView.tag == LOCATION_PICKER_TAG {
+            let selectedLocationName = locationList[row].name
+            locationPickerTextField.text = selectedLocationName
+        }
     }
 }
 extension AddProductViewController: UIPickerViewDataSource {
@@ -386,12 +415,15 @@ extension AddProductViewController: UITextFieldDelegate {
         return true
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField.tag == PICKER_TEXT_FIELD_TAG {
+        if textField.tag == CATEGORY_PICKER_TEXT_FIELD_TAG {
             let selectedCategory = self.categoryList[0]
             self.selectedCategory = selectedCategory.code
             
             let first_categoryName = selectedCategory.name
             textField.text = first_categoryName
+        } else if textField.tag == LOCATION_PICKER_TEXT_FIELD_TAG {
+            let first_locationName = locationList[0].name
+            textField.text = first_locationName
         }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
