@@ -54,6 +54,8 @@ class NotificationViewController: UIViewController {
         control.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
         
         self.segmentedControl = control
+        self.segmentedControl.selectedSegmentIndex = 0
+        segmentedControlChanged(self.segmentedControl)
     }
     @objc private func segmentedControlChanged(_ control: UISegmentedControl){
         switch segmentedControl.selectedSegmentIndex {

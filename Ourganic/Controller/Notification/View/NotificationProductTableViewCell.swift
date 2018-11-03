@@ -65,9 +65,10 @@ class NotificationProductTableViewCell: UITableViewCell {
         
         let label = self.productNameLabel
         label.text = "Product Name"
-        label.textColor = .black
+        label.textColor = .white
         label.textAlignment = .center
         label.font = UIFont(name: "Avenir-Heavy", size: 12)
+        label.backgroundColor = UIColor(named: "cGreen")
         view.addSubview(label)
         let container = self.productImageView
         label.translatesAutoresizingMaskIntoConstraints = false

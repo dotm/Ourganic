@@ -8,7 +8,7 @@
 
 import UIKit
 
-let defaultCornerRadius = CGFloat(10)
+let defaultCornerRadius = CGFloat(8)
 let defaultTitleTextColor = UIColor(named: "cGreen")
 let defaultButtonColor = UIColor(named: "cOrange")
 let defaultHamTintColor = UIColor(named: "cGreenHam")

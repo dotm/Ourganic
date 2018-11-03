@@ -59,7 +59,10 @@ class MyProductCollectionViewCell: UICollectionViewCell {
         label.text = productName
         label.textColor = .white
         label.textAlignment = .center
-        
+        label.font = UIFont(name: "Avenir-Heavy", size: 13)
+        label.layer.backgroundColor = UIColor(named: "cGreen")?.cgColor
+        label.layer.cornerRadius = 5
+        label.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         let parent = self
         parent.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
