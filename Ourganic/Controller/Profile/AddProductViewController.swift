@@ -175,7 +175,7 @@ class AddProductViewController: UIViewController {
         imageView.layer.borderColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1).cgColor
         imageView.layer.borderWidth = 1.5
         imageView.image = UIImage(named: "addImage")
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         
         let openImagePickerGesture = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
