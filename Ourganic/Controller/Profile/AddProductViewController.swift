@@ -24,7 +24,6 @@ class AddProductViewController: UIViewController {
     private weak var priceTextField: UITextField!
     private weak var unitQuantityView: UIView!
     private weak var minimalQuantityTextField: UITextField!
-    private weak var unitMeasurementTextField: UITextField!
     private weak var locationPickerTextField: UITextField!
     private weak var locationPicker: UIPickerView!
     private weak var categoryPickerTextField: UITextField!
@@ -82,18 +81,22 @@ class AddProductViewController: UIViewController {
             handleAddProductError(message: "Please insert the product description")
             return nil
         }
+        
         guard let minimalQuantityText = minimalQuantityTextField.text, !minimalQuantityText.isEmpty else {
-            handleAddProductError(message: "Please insert minimal quantity for product in \"min qty.\" field")
+            handleAddProductError(message: "Please insert minimal quantity for product")
             return nil
         }
-        guard let minimal_quantity = Double(minimalQuantityText), minimal_quantity > 0 else {
-            handleAddProductError(message: "Invalid minimal quantity for product in \"min qty.\" field")
+        var minimalQuantityTextArray = minimalQuantityText.components(separatedBy: " ")
+        guard let minimal_quantity = Double(minimalQuantityTextArray.removeFirst()), minimal_quantity > 0 else {
+            handleAddProductError(message: "Invalid minimal quantity. An example of valid input: 500 gram")
             return nil
         }
-        guard let unit_measurement = unitMeasurementTextField.text, !unit_measurement.isEmpty else {
-            handleAddProductError(message: "Please insert unit measurement of minimal quantity of the product")
+        guard !minimalQuantityTextArray.isEmpty else {
+            handleAddProductError(message: "Invalid minimal quantity. An example of valid input: 500 gram")
             return nil
         }
+        let unit_measurement = minimalQuantityTextArray.joined(separator: " ")
+        
         guard let priceText = priceTextField.text, !priceText.isEmpty else {
             handleAddProductError(message: "Please insert price for minimal quantity of product.")
             return nil
@@ -158,8 +161,8 @@ class AddProductViewController: UIViewController {
         setupProductImage(previousElement: navigationBar)
         setupProductNameTextField(previousElement: productImageView)
         setupPriceTextField(previousElement: productNameTextField)
-        setupUnitQuantityView(previousElement: priceTextField)
-        setupLocationTextField(previousElement: unitQuantityView)
+        setupMinimalQuantityTextField(previousElement: priceTextField)
+        setupLocationTextField(previousElement: minimalQuantityTextField)
         setupCategoryPicker(previousElement: locationPickerTextField)
         setupDescriptionTextView(previousElement: categoryPickerTextField)
         setupSubmitButton(previousElement: descriptionTextView)
@@ -238,56 +241,23 @@ class AddProductViewController: UIViewController {
         
         self.priceTextField = textField
     }
-    private func setupUnitQuantityView(previousElement: UIView){
-        let containerView = UIView()
-        
-        view.addSubview(containerView)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        containerView.topAnchor.constraint(equalTo: previousElement.bottomAnchor, constant: 10).isActive = true
-        containerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        setupMinimalQuantityTextField(parentElement: containerView)
-        setupUnitMeasurementTextField(parentElement: containerView)
-        
-        self.unitQuantityView = containerView
-    }
-    private func setupMinimalQuantityTextField(parentElement: UIView){
+    private func setupMinimalQuantityTextField(previousElement: UIView){
         let textField = UITextField()
         textField.delegate = self
         
-        textField.placeholder = "500 (min qty.)"
-        textField.keyboardType = .decimalPad
+        textField.placeholder = "Minimal Quantity (example: 500 gram, 1 pcs, ...)"
+        textField.autocapitalizationType = .words
+        textField.keyboardType = .namePhonePad
         styleTextField(textField)
-        textField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         
-        parentElement.addSubview(textField)
+        view.addSubview(textField)
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.leadingAnchor.constraint(equalTo: parentElement.leadingAnchor).isActive = true
-        textField.topAnchor.constraint(equalTo: parentElement.topAnchor).isActive = true
-        textField.widthAnchor.constraint(equalTo: parentElement.widthAnchor, multiplier: 0.475).isActive = true
-        textField.heightAnchor.constraint(equalTo: parentElement.heightAnchor).isActive = true
+        textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        textField.topAnchor.constraint(equalTo: previousElement.bottomAnchor, constant: 10).isActive = true
+        textField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         self.minimalQuantityTextField = textField
-    }
-    private func setupUnitMeasurementTextField(parentElement: UIView){
-        let textField = UITextField()
-        textField.delegate = self
-        
-        textField.placeholder = "gram (unit)"
-        textField.autocapitalizationType = .none
-        styleTextField(textField)
-        textField.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-        
-        parentElement.addSubview(textField)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.trailingAnchor.constraint(equalTo: parentElement.trailingAnchor).isActive = true
-        textField.topAnchor.constraint(equalTo: parentElement.topAnchor).isActive = true
-        textField.widthAnchor.constraint(equalTo: parentElement.widthAnchor, multiplier: 0.475).isActive = true
-        textField.heightAnchor.constraint(equalTo: parentElement.heightAnchor).isActive = true
-        
-        self.unitMeasurementTextField = textField
     }
     private func setupLocationTextField(previousElement: UIView){
         let textField = UITextField()
