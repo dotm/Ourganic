@@ -86,7 +86,9 @@ class ProfileViewController: UIViewController {
             }else{
                 alertUser_toRegisterStoreFirst({ (_) in
                     Timer.scheduledTimer(withTimeInterval: 0.33, repeats: false, block: { (_) in
-                        self.goTo_addStorePage()
+                        if Store.ID == nil { //check if store really isn't registered
+                            self.goTo_addStorePage()
+                        }
                     })
                 })
             }
