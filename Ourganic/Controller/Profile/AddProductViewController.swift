@@ -25,7 +25,7 @@ class AddProductViewController: UIViewController {
     private weak var pickerTextField: UITextField!
     private weak var categoryPicker: UIPickerView!
     private var selectedCategory: String = ""
-    private weak var descriptionTextField: UITextField!
+    private weak var descriptionTextView: UITextView!
     private weak var submitButton: UIButton!
     
     //MARK: Action
@@ -72,7 +72,11 @@ class AddProductViewController: UIViewController {
             return nil
         }
         let location = locationTextField.text ?? ""
-        let description = descriptionTextField.text ?? ""
+        let description = descriptionTextView.text ?? ""
+        guard description != productDescription_placeholderText else {
+            handleAddProductError(message: "Please insert the product description")
+            return nil
+        }
         guard let minimalQuantityText = minimalQuantityTextField.text, !minimalQuantityText.isEmpty else {
             handleAddProductError(message: "Please insert minimal quantity for product in \"min qty.\" field")
             return nil
@@ -148,8 +152,8 @@ class AddProductViewController: UIViewController {
         setupUnitQuantityView(previousElement: priceTextField)
         setupLocationTextField(previousElement: unitQuantityView)
         setupCategoryPicker(previousElement: locationTextField)
-        setupDescriptionTextField(previousElement: pickerTextField)
-        setupSubmitButton(previousElement: descriptionTextField)
+        setupDescriptionTextView(previousElement: pickerTextField)
+        setupSubmitButton(previousElement: descriptionTextView)
     }
     private func setupNavigationBar(){
         let navbar = UINavigationBar()
@@ -318,22 +322,24 @@ class AddProductViewController: UIViewController {
         self.categoryPicker = picker
         textField.inputView = picker
     }
-    private func setupDescriptionTextField(previousElement: UIView){
-        let textField = UITextField()
-        textField.delegate = self
+    private let productDescription_placeholderText = "Product Description"
+    private let placeholderColor = UIColor(red: 0.78, green: 0.78, blue: 0.80, alpha: 1.0)
+    private func setupDescriptionTextView(previousElement: UIView){
+        let textView = UITextView()
+        styleTextView(textView)
+        textView.textColor = placeholderColor
+        textView.text = productDescription_placeholderText
+        textView.delegate = self
+        textView.autocapitalizationType = .sentences
         
-        textField.placeholder = "Product Description"
-        textField.autocapitalizationType = .sentences
-        styleTextField(textField)
+        view.addSubview(textView)
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        textView.topAnchor.constraint(equalTo: previousElement.bottomAnchor, constant: 10).isActive = true
+        textView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
+        textView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
-        view.addSubview(textField)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        textField.topAnchor.constraint(equalTo: previousElement.bottomAnchor, constant: 10).isActive = true
-        textField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
-        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        self.descriptionTextField = textField
+        self.descriptionTextView = textView
     }
     private func setupSubmitButton(previousElement: UIView){
         let button = UIButton()
@@ -394,6 +400,21 @@ extension AddProductViewController: UITextFieldDelegate {
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         
+    }
+}
+
+extension AddProductViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == productDescription_placeholderText {
+            textView.text = ""
+            textView.textColor = .black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = productDescription_placeholderText
+            textView.textColor = placeholderColor
+        }
     }
 }
 
