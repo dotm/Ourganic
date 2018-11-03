@@ -133,13 +133,13 @@ class AddProductViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupLayout()
         getCategoryList() { (result) in
             DispatchQueue.main.async {
                 self.categoryList = result
                 self.categoryPicker.reloadAllComponents()
             }
         }
-        setupLayout()
     }
     //MARK: Layout
     private func setupLayout(){

@@ -10,6 +10,9 @@ import UIKit
 import Firebase
 
 class RegisterUserViewController: UIViewController {
+    //MARK: Property
+    private var bankList: [BankModel] = []
+    private let PICKER_TEXT_FIELD_TAG = 86985
     //MARK: Outlets
     private weak var navigationBar: UINavigationBar!
     private weak var userImageView: UIImageView!
@@ -17,6 +20,10 @@ class RegisterUserViewController: UIViewController {
     private weak var emailTextField: UITextField!
     private weak var nameTextField: UITextField!
     private weak var passwordTextField: UITextField!
+    private weak var pickerTextField: UITextField!
+    private weak var bankPicker: UIPickerView!
+    private weak var accountNameTextField: UITextField!
+    private weak var accountNumberTextField: UITextField!
     private weak var registerButton: UIButton!
 
     //MARK: Action
@@ -64,7 +71,18 @@ class RegisterUserViewController: UIViewController {
                     return
                 }
                 
-                self.closeRegistrationPage()
+                let accountName = self.accountNameTextField.text ?? ""
+                let accountNumber = self.accountNumberTextField.text ?? ""
+                let bankName = self.pickerTextField.text ?? ""
+                let bankModel = UserBankModel(accountName: accountName, accountNumber: accountNumber, bankName: bankName, userId: user.uid)
+                add(userBank: bankModel, userId: user.uid, completion: { (_, error) in
+                    if let error = error {
+                        self.handleRegistrationError(message: "Error registering user's bank: \(error.localizedDescription)")
+                        return
+                    }
+                    
+                    self.closeRegistrationPage()
+                })
             })
         }
     }
@@ -101,6 +119,10 @@ class RegisterUserViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupLayout()
+        getBankList { (result) -> Void in
+            self.bankList = result
+            self.bankPicker.reloadAllComponents()
+        }
     }
     //MARK: Layout
     private func setupLayout(){
@@ -111,7 +133,10 @@ class RegisterUserViewController: UIViewController {
         setupEmailTextField(previousElement: userImageView)
         setupNameTextField(previousElement: emailTextField)
         setupPasswordTextField(previousElement: nameTextField)
-        setupRegisterButton(previousElement: passwordTextField)
+        setupBankPicker(previousElement: passwordTextField)
+        setupAccountNumberTextField(previousElement: pickerTextField)
+        setupAccountNameTextField(previousElement: accountNumberTextField)
+        setupRegisterButton(previousElement: accountNameTextField)
     }
     private func setupNavigationBar(){
         let navbar = UINavigationBar()
@@ -202,6 +227,65 @@ class RegisterUserViewController: UIViewController {
         
         self.passwordTextField = textField
     }
+    private func setupBankPicker(previousElement: UIView){
+        let textField = UITextField()
+        textField.delegate = self
+        
+        textField.placeholder = "Bank Name"
+        textField.autocapitalizationType = .words
+        styleTextField(textField)
+        
+        view.addSubview(textField)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        textField.topAnchor.constraint(equalTo: previousElement.bottomAnchor, constant: 10).isActive = true
+        textField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        textField.tag = PICKER_TEXT_FIELD_TAG
+        self.pickerTextField = textField
+        
+        let picker = UIPickerView()
+        picker.delegate = self
+        picker.dataSource = self
+        
+        self.bankPicker = picker
+        textField.inputView = picker
+    }
+    private func setupAccountNumberTextField(previousElement: UIView){
+        let textField = UITextField()
+        textField.delegate = self
+        
+        textField.placeholder = "Bank Account Number"
+        textField.keyboardType = .decimalPad
+        styleTextField(textField)
+        
+        view.addSubview(textField)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        textField.topAnchor.constraint(equalTo: previousElement.bottomAnchor, constant: 10).isActive = true
+        textField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        self.accountNumberTextField = textField
+    }
+    private func setupAccountNameTextField(previousElement: UIView){
+        let textField = UITextField()
+        textField.delegate = self
+        
+        textField.placeholder = "Bank Account Name"
+        textField.autocapitalizationType = .words
+        styleTextField(textField)
+        
+        view.addSubview(textField)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        textField.topAnchor.constraint(equalTo: previousElement.bottomAnchor, constant: 10).isActive = true
+        textField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
+        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        self.accountNameTextField = textField
+    }
     private func setupRegisterButton(previousElement: UIView){
         let button = UIButton()
         button.setTitle("Register", for: .normal)
@@ -223,7 +307,10 @@ extension RegisterUserViewController: UITextFieldDelegate {
         return true
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
+        if textField.tag == PICKER_TEXT_FIELD_TAG {
+            let selectedBank = self.bankList[0]
+            textField.text = selectedBank.name
+        }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -287,4 +374,24 @@ extension RegisterUserViewController: UIImagePickerControllerDelegate {
 }
 extension RegisterUserViewController: UINavigationControllerDelegate {
     
+}
+
+extension RegisterUserViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let bankName = self.bankList[row].name
+        return bankName
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedBank = self.bankList[row]
+        pickerTextField.text = selectedBank.name
+    }
+}
+extension RegisterUserViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.bankList.count
+    }
 }

@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 fileprivate let BANK_COLLECTION:String = "bank"
-fileprivate let USER_BANK_COLLECTION:String = "bank"
+fileprivate let USER_BANK_COLLECTION:String = "user_bank"
 fileprivate let db = Firestore.firestore()
 
 
@@ -24,20 +24,29 @@ func userBankModelToDictionary(bank:UserBankModel) -> [String:Any] {
 }
 
 
-func getBankList (completion: @escaping (_ result: [BankModel]) -> Void?) {
-    let query = db.collection(BANK_COLLECTION)
-    query.getDocuments { (result, error) in
-        if let error = error {
-            print("Error executing query to get bank list:", error.localizedDescription)
-            return
-        }
-        
-        guard let bankDoc = result?.documents else { return }
-        let banks = bankDoc.map({ (bankModel) -> BankModel in
-            return BankModel(name: bankModel["name"] as! String)
-        })
-        completion(banks)
-    }
+func getBankList (completion: @escaping (_ result: [BankModel]) -> Void) {
+//    let query = db.collection(BANK_COLLECTION)
+//    query.getDocuments { (result, error) in
+//        if let error = error {
+//            print("Error executing query to get bank list:", error.localizedDescription)
+//            return
+//        }
+//
+//        guard let bankDoc = result?.documents else { return }
+//        let banks = bankDoc.map({ (bankModel) -> BankModel in
+//            return BankModel(name: bankModel["name"] as! String)
+//        })
+//        completion(banks)
+//    }
+    let hardCode: [BankModel] = [
+        BankModel(name: "BCA"),
+        BankModel(name: "BNI"),
+        BankModel(name: "Permata"),
+        BankModel(name: "BRI"),
+        BankModel(name: "Mandiri"),
+        BankModel(name: "CIMB Niaga"),
+    ]
+    completion(hardCode)
 }
 
 func add(userBank: UserBankModel, userId:String, completion callback: ((UserBankModel?, Error?) -> Void)?){
