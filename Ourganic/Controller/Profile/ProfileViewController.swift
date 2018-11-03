@@ -27,10 +27,10 @@ class ProfileViewController: UIViewController {
     private let CELL_ID = "My products cell"
     private weak var addProductButton: UIButton!
     fileprivate var userHandle: AuthStateDidChangeListenerHandle!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         setupLayout()
     }
@@ -77,7 +77,7 @@ class ProfileViewController: UIViewController {
     @objc private func goTo_editProfilePage(){
         alert_featureToBeImplemented()
     }
-
+    
     //MARK: Store Management
     @objc private func addProductButtonPressed(){
         ensureThat_userIsLoggedIn {
@@ -159,7 +159,7 @@ class ProfileViewController: UIViewController {
                     self.userImageView.image = userImage
                 }
             }
-
+            
         }
     }
     private func setupLayout(){
@@ -187,7 +187,7 @@ class ProfileViewController: UIViewController {
     private func setupProductCollectionView(previousElement: UIView, bottomElement: UIView){
         let spacing = CGFloat(10)
         let margins = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        let layout = ColumnFlowLayout(cellsPerRow: 2, minimumInteritemSpacing: spacing, minimumLineSpacing: spacing, sectionInset: margins)
+        let layout = ColumnFlowLayout(cellsPerRow: 3, minimumInteritemSpacing: spacing, minimumLineSpacing: spacing, sectionInset: margins)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self
@@ -328,19 +328,7 @@ extension ProfileViewController: UICollectionViewDataSource {
         }
         
         cell.productName = product.product_name
-        var data: Data? = nil
-        let url = URL(string: product.image_url)
-        DispatchQueue.global().async {
-            if let url = url {
-                data = try? Data(contentsOf: url)
-            }
-            DispatchQueue.main.async {
-                if let data = data, let productImage = UIImage(data: data) {
-                    cell.productImage = productImage
-                }
-            }
-            
-        }
+        cell.productImageUrl = product.image_url
         
         return cell
     }

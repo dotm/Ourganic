@@ -22,7 +22,9 @@ class OrderModel {
     var deliveryMethod: String
     var deliveryFee: Double
     var createdDate:Date
-    var product:Product
+    var product:Product?
+    
+    var statusHistory:[StatusModel] = []
     
     init(productId: String,
          buyerUserId: String,
@@ -48,5 +50,29 @@ class OrderModel {
         self.deliveryFee = deliveryFee
         self.createdDate = createdDate
         self.product = product
+    }
+    
+    init(productId: String,
+         buyerUserId: String,
+         invoiceNumber: String,
+         totalPrice: Double,
+         qty: Double,
+         sendFrom: String,
+         sendTo: String,
+         receiverAddress:String,
+         deliveryMethod: String,
+         deliveryFee: Double,
+         createdDate: Date) {
+        self.productId = productId
+        self.buyerUserId = buyerUserId
+        self.invoiceNumber = invoiceNumber
+        self.totalPrice = totalPrice
+        self.qty = qty
+        self.sendFrom = sendFrom
+        self.sendTo = sendTo
+        self.receiverAddress = receiverAddress
+        self.deliveryMethod = deliveryMethod
+        self.deliveryFee = deliveryFee
+        self.createdDate = createdDate
     }
 }

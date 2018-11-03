@@ -12,6 +12,7 @@ import Kingfisher
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AACarouselDelegate, UISearchBarDelegate {
 
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var carouselView: AACarousel!
     @IBOutlet weak var catTableView: UITableView!
     @IBOutlet var headerLabelList: [UILabel]!
@@ -25,7 +26,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("family name : \(categoryLabel.font.fontName)")
         if !orderedProduct.isEmpty {
             let alert = UIAlertController(title: "Order Added", message: "Your order \"\(orderedProduct)\" has been added", preferredStyle: .alert)
             self.present(alert, animated: true, completion: nil)

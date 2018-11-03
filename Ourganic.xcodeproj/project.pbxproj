@@ -36,7 +36,7 @@
 		DDCC5BFE21881B1E0095E1FC /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC5BFD21881B1E0095E1FC /* NotificationViewController.swift */; };
 		DDCC5C02218826770095E1FC /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC5C01218826770095E1FC /* OrderModel.swift */; };
 		DDCC5C042188364A0095E1FC /* OrderDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC5C032188364A0095E1FC /* OrderDB.swift */; };
-		DDCE019721817FC100B1C1D2 /* CategoryDb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE019621817FC100B1C1D2 /* CategoryDb.swift */; };
+		DDCE019721817FC100B1C1D2 /* CategoryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE019621817FC100B1C1D2 /* CategoryDB.swift */; };
 		DDCE019B2182B4B600B1C1D2 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE019A2182B4B600B1C1D2 /* HomeDetailViewController.swift */; };
 		DDCE019D2182CEC200B1C1D2 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE019C2182CEC200B1C1D2 /* ProductTableViewCell.swift */; };
 		DDF102C921896B500018F50B /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF102C621896B500018F50B /* ProductDetailViewController.swift */; };
@@ -49,6 +49,9 @@
 		DDF89526218C294400532AB1 /* BankDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF89525218C294400532AB1 /* BankDB.swift */; };
 		DDF89528218C29DC00532AB1 /* UserBankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF89527218C29DC00532AB1 /* UserBankModel.swift */; };
 		DDF8952B218C3FB000532AB1 /* NotificationProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF8952A218C3FB000532AB1 /* NotificationProductTableViewCell.swift */; };
+		DDF89534218D9CFF00532AB1 /* StatusDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF89533218D9CFF00532AB1 /* StatusDB.swift */; };
+		DDF89536218D9D1400532AB1 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF89535218D9D1400532AB1 /* StatusModel.swift */; };
+		DDF89538218D9DCC00532AB1 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF89537218D9DCC00532AB1 /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +102,7 @@
 		DDCC5BFD21881B1E0095E1FC /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		DDCC5C01218826770095E1FC /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		DDCC5C032188364A0095E1FC /* OrderDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDB.swift; sourceTree = "<group>"; };
-		DDCE019621817FC100B1C1D2 /* CategoryDb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDb.swift; sourceTree = "<group>"; };
+		DDCE019621817FC100B1C1D2 /* CategoryDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDB.swift; sourceTree = "<group>"; };
 		DDCE019A2182B4B600B1C1D2 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		DDCE019C2182CEC200B1C1D2 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		DDF102C621896B500018F50B /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +115,9 @@
 		DDF89525218C294400532AB1 /* BankDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankDB.swift; sourceTree = "<group>"; };
 		DDF89527218C29DC00532AB1 /* UserBankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBankModel.swift; sourceTree = "<group>"; };
 		DDF8952A218C3FB000532AB1 /* NotificationProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProductTableViewCell.swift; sourceTree = "<group>"; };
+		DDF89533218D9CFF00532AB1 /* StatusDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusDB.swift; sourceTree = "<group>"; };
+		DDF89535218D9D1400532AB1 /* StatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
+		DDF89537218D9DCC00532AB1 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,9 +212,10 @@
 		377E07CD218026A300E0C86E /* DatabaseAccess */ = {
 			isa = PBXGroup;
 			children = (
+				DDF89533218D9CFF00532AB1 /* StatusDB.swift */,
 				377E07CE218026B900E0C86E /* User.swift */,
 				377E07D0218026D200E0C86E /* Store.swift */,
-				DDCE019621817FC100B1C1D2 /* CategoryDb.swift */,
+				DDCE019621817FC100B1C1D2 /* CategoryDB.swift */,
 				3712FF91218180C700E011D8 /* Product.swift */,
 				DDCC5C032188364A0095E1FC /* OrderDB.swift */,
 				37AD736A2189B23F0036543C /* UploadToStorage.swift */,
@@ -241,6 +248,7 @@
 		DD070653217D8822004EFA08 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				DDF89537218D9DCC00532AB1 /* Constant.swift */,
 				370F902F217594A300B91689 /* CustomStyling.swift */,
 				377E07D221805AEE00E0C86E /* Alerts.swift */,
 			);
@@ -275,6 +283,7 @@
 		DD07065C217D9550004EFA08 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DDF89535218D9D1400532AB1 /* StatusModel.swift */,
 				DD07065D217D959A004EFA08 /* CategoryModel.swift */,
 				DDCC5C01218826770095E1FC /* OrderModel.swift */,
 				DDF102CF218AB1B10018F50B /* CityModel.swift */,
@@ -551,8 +560,11 @@
 				370F902D21758A0F00B91689 /* RegisterUserViewController.swift in Sources */,
 				370008692173683000AF89F3 /* AppDelegate.swift in Sources */,
 				DDCE019B2182B4B600B1C1D2 /* HomeDetailViewController.swift in Sources */,
+				DDF89534218D9CFF00532AB1 /* StatusDB.swift in Sources */,
 				DDCE019D2182CEC200B1C1D2 /* ProductTableViewCell.swift in Sources */,
 				DDF102D2218AB2F10018F50B /* CityDB.swift in Sources */,
+				DDF89536218D9D1400532AB1 /* StatusModel.swift in Sources */,
+				DDF89538218D9DCC00532AB1 /* Constant.swift in Sources */,
 				DDF89526218C294400532AB1 /* BankDB.swift in Sources */,
 				DD07065B217D93A2004EFA08 /* CategoryTableViewCell.swift in Sources */,
 				370F9030217594A300B91689 /* CustomStyling.swift in Sources */,
@@ -566,7 +578,7 @@
 				DD070656217D8874004EFA08 /* HomeViewController.swift in Sources */,
 				DDCC5BFE21881B1E0095E1FC /* NotificationViewController.swift in Sources */,
 				DDF102CB21896B500018F50B /* OrderViewController.swift in Sources */,
-				DDCE019721817FC100B1C1D2 /* CategoryDb.swift in Sources */,
+				DDCE019721817FC100B1C1D2 /* CategoryDB.swift in Sources */,
 				377E07CF218026B900E0C86E /* User.swift in Sources */,
 				DDF102D0218AB1B10018F50B /* CityModel.swift in Sources */,
 				DDCC5C042188364A0095E1FC /* OrderDB.swift in Sources */,
@@ -740,7 +752,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N55A3MSD3W;
+				DEVELOPMENT_TEAM = HPGVM37VV8;
 				INFOPLIST_FILE = Ourganic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -759,7 +771,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N55A3MSD3W;
+				DEVELOPMENT_TEAM = HPGVM37VV8;
 				INFOPLIST_FILE = Ourganic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

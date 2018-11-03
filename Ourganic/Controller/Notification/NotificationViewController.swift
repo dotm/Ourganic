@@ -21,7 +21,7 @@ class NotificationViewController: UIViewController {
     //MARK: Outlets
     private weak var segmentedControl: UISegmentedControl!
     private weak var productTableView: UITableView!
-
+    
     //MARK: Properties
     private let PRODUCT_CELL = "Product cell"
     private var productsData: [ProductTableViewCellData] = [] {
@@ -58,34 +58,141 @@ class NotificationViewController: UIViewController {
     @objc private func segmentedControlChanged(_ control: UISegmentedControl){
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            productsData = getProducts_onMyCart()
+            getProducts_onMyCart() { (myCartRes) in
+                self.productsData = myCartRes
+            }
         case 1:
-            productsData = getProducts_currentlySelling()
+            getProducts_currentlySelling() { (mySelling) in
+                self.productsData = mySelling
+            }
         default:
             productsData = []
         }
     }
-    private func getProducts_onMyCart() -> [ProductTableViewCellData]{
-        let mock: ProductTableViewCellData = (
-            product_name: "Koin Organik",
-            product_image_url: "https://firebasestorage.googleapis.com/v0/b/ourganic-d931d.appspot.com/o/product_images%2FKoin%20OrganikPT.%20Joe%20Sejahtera2018-10-31%2017:20:05?alt=media&token=ace23471-094a-4ba6-bfb6-230c5ab90f18",
-            order_date: "5 Oct 2018 10:07",
-            delivery_method: "JNE REG",
-            status_text1: "Waiting Payment",
-            status_text2: "Rp. 20.000"
-        )
-        return [mock]
+    private func getProducts_onMyCart(completion callback: (([ProductTableViewCellData]) -> Void)?){
+        var list:[ProductTableViewCellData] = []
+        getOrderList(userId: User.ID!) { (result) in
+            DispatchQueue.global().async {
+                for order:OrderModel in result {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+                    let orderDate = dateFormatter.string(from: order.createdDate)
+                    let numberFormatter = NumberFormatter()
+                    numberFormatter.numberStyle = .currency
+                    numberFormatter.locale = Locale(identifier: "id-ID")
+                    var text2 = "-"
+                    
+                    getProductByDocId(documentId: order.productId) { (prodRes, error) in
+                        DispatchQueue.main.async {
+                            order.product = (
+                                product_id: prodRes.product_id,
+                                store_id: prodRes.store_id,
+                                store_name: prodRes.store_name,
+                                product_name: prodRes.product_name,
+                                location: prodRes.location,
+                                category: prodRes.category,
+                                description: prodRes.description,
+                                minimal_quantity: prodRes.minimal_quantity,
+                                unit_measurement: prodRes.unit_measurement,
+                                price_per_unit: prodRes.price_per_unit,
+                                image_url: prodRes.image_url
+                            )
+                            var statusList:[StatusModel] = []
+                            getStatusList(orderDocId: order.id!) { (statusRes) in
+                                DispatchQueue.main.async {
+                                    order.statusHistory = statusRes
+                                    
+                                    if statusList.isEmpty {
+                                        statusList.append(statusCons[0])
+                                    }
+                                    
+                                    if (order.statusHistory.isEmpty) {
+                                        order.statusHistory.append(statusCons[0])
+                                    }
+                                    
+                                    if order.statusHistory[0].code == 2 || order.statusHistory[0].code == 3 {
+                                        text2 = order.statusHistory[0].buyerDesc
+                                    } else {
+                                        if order.statusHistory[0].createdDate != nil {
+                                            text2 = dateFormatter.string(from: ((order.statusHistory[0].createdDate!)))
+                                        }
+                                    }
+                                    
+                                    list.append(ProductTableViewCellData(
+                                        product_name: order.product?.product_name ?? "Unkonwn",
+                                        product_image_url: order.product?.image_url ?? "",
+                                        order_date: orderDate,
+                                        delivery_method: order.deliveryMethod,
+                                        status_text1: order.statusHistory[0].buyerDesc ,
+                                        status_text2: text2))
+                                    
+                                    callback!(list)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-    private func getProducts_currentlySelling() -> [ProductTableViewCellData]{
-        let mock: ProductTableViewCellData = (
-            product_name: "Koin Organik",
-            product_image_url: "https://firebasestorage.googleapis.com/v0/b/ourganic-d931d.appspot.com/o/product_images%2FKoin%20OrganikPT.%20Joe%20Sejahtera2018-10-31%2017:20:05?alt=media&token=ace23471-094a-4ba6-bfb6-230c5ab90f18",
-            order_date: "5 Oct 2018 10:07",
-            delivery_method: "JNE REG",
-            status_text1: "You have approved this order",
-            status_text2: "5 Oct 2018 10:37"
-        )
-        return [mock]
+    
+    private func getProducts_currentlySelling(completion callback: (([ProductTableViewCellData]) -> Void)?) {
+        var list:[ProductTableViewCellData] = []
+        getSellingList(userId: User.ID!) { (result) in
+            DispatchQueue.main.async {
+                for order:OrderModel in result {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+                    let orderDate = dateFormatter.string(from: order.createdDate)
+                    let numberFormatter = NumberFormatter()
+                    numberFormatter.numberStyle = .currency
+                    numberFormatter.locale = Locale(identifier: "id-ID")
+                    
+                    getProductByDocId(documentId: order.productId) { (prodRes, error) in
+                        DispatchQueue.main.async {
+                            order.product = (
+                                product_id: prodRes.product_id,
+                                store_id: prodRes.store_id,
+                                store_name: prodRes.store_name,
+                                product_name: prodRes.product_name,
+                                location: prodRes.location,
+                                category: prodRes.category,
+                                description: prodRes.description,
+                                minimal_quantity: prodRes.minimal_quantity,
+                                unit_measurement: prodRes.unit_measurement,
+                                price_per_unit: prodRes.price_per_unit,
+                                image_url: prodRes.image_url
+                            )
+                            
+                            getStatusList(orderDocId: order.id!) { (statusRes) in
+                                DispatchQueue.main.async {
+                                    order.statusHistory = statusRes
+                                    if (order.statusHistory.isEmpty) {
+                                        order.statusHistory.append(statusCons[0])
+                                    }
+                                    
+                                    var text2 = numberFormatter.string(from: NSNumber(value: (order.totalPrice)))
+                                    if order.statusHistory[0].code == 2 {
+                                        text2 = order.statusHistory[0].sellerDesc ?? statusCons[2].sellerDesc
+                                    }
+                                    
+                                    list.append(ProductTableViewCellData(
+                                        product_name: order.product?.product_name ?? "Unknown",
+                                        product_image_url: order.product?.image_url ?? "",
+                                        order_date: orderDate,
+                                        delivery_method: order.deliveryMethod,
+                                        status_text1: order.statusHistory[0].sellerDesc ?? statusCons[0].sellerDesc,
+                                        status_text2: text2!))
+                                    
+                                    callback!(list)
+                                }
+                            }
+                        }
+                    }
+                }
+                callback!(list)
+            }
+        }
     }
     private func setupProductTable(previousElement: UIView){
         let tableView = UITableView()
@@ -129,20 +236,7 @@ extension NotificationViewController: UITableViewDataSource {
         cell.deliveryMethodLabel.text = productData.delivery_method
         cell.firstStatusLabel.text = productData.status_text1
         cell.secondStatusLabel.text = productData.status_text2
-        
-        var data: Data? = nil
-        let url = URL(string: productData.product_image_url)
-        DispatchQueue.global().async {
-            if let url = url {
-                data = try? Data(contentsOf: url)
-            }
-            DispatchQueue.main.async {
-                if let data = data, let productImage = UIImage(data: data) {
-                    cell.productImageView.image = productImage
-                }
-            }
-            
-        }
+        cell.productImageView.kf.setImage(with: URL(string: productData.product_image_url), placeholder: UIImage.init(named: "defaultImage"), options: [.transition(.fade(1))], progressBlock: nil, completionHandler: nil)
         
         return cell
     }

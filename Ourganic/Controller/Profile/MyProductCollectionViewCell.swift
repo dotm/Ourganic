@@ -10,9 +10,9 @@ import UIKit
 
 class MyProductCollectionViewCell: UICollectionViewCell {
     //MARK: Properties
-    var productImage: UIImage = UIImage(named: "defaultimage")! {
+    var productImageUrl: String = "defaultImage" {
         didSet {
-            productImageView.image = productImage
+            productImageView.kf.setImage(with: URL(string: productImageUrl), placeholder: UIImage.init(named: "defaultImage"), options: [.transition(.fade(1))], progressBlock: nil, completionHandler: nil)
         }
     }
     var productName: String = "Name" {
@@ -41,8 +41,7 @@ class MyProductCollectionViewCell: UICollectionViewCell {
     }
     private func setupProductImageView(){
         let imageView = UIImageView()
-        imageView.image = productImage
-        
+        imageView.kf.setImage(with: URL(string: productImageUrl), placeholder: UIImage.init(named: "defaultImage"), options: [.transition(.fade(1))], progressBlock: nil, completionHandler: nil)
         let parent = self
         parent.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +49,9 @@ class MyProductCollectionViewCell: UICollectionViewCell {
         imageView.centerYAnchor.constraint(equalTo: parent.centerYAnchor).isActive = true
         imageView.widthAnchor.constraint(equalTo: parent.widthAnchor).isActive = true
         imageView.heightAnchor.constraint(equalTo: parent.heightAnchor).isActive = true
-        
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 5
         self.productImageView = imageView
     }
     private func setupProductNameLabel(){

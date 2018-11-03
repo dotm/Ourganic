@@ -51,7 +51,8 @@ class NotificationProductTableViewCell: UITableViewCell {
         
         let imageView = self.productImageView
         imageView.image = UIImage(named: "defaultimage")
-
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 2*margin).isActive = true
@@ -64,9 +65,9 @@ class NotificationProductTableViewCell: UITableViewCell {
         
         let label = self.productNameLabel
         label.text = "Product Name"
-        label.textColor = .white
+        label.textColor = .black
         label.textAlignment = .center
-        
+        label.font = UIFont(name: "Avenir-Heavy", size: 12)
         view.addSubview(label)
         let container = self.productImageView
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +90,7 @@ class NotificationProductTableViewCell: UITableViewCell {
         let hardCodeLabel = UILabel()
         hardCodeLabel.text = "Order made"
         hardCodeLabel.textAlignment = .left
-        
+        hardCodeLabel.font = hardCodeLabel.font.withSize(13)
         containerView.addSubview(hardCodeLabel)
         hardCodeLabel.translatesAutoresizingMaskIntoConstraints = false
         hardCodeLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
@@ -100,7 +101,7 @@ class NotificationProductTableViewCell: UITableViewCell {
         let dynamicLabel = self.orderDateLabel
         dynamicLabel.text = "78 Oct 2897 25:12"
         dynamicLabel.textAlignment = .right
-        
+        dynamicLabel.font = dynamicLabel.font.withSize(13)
         containerView.addSubview(dynamicLabel)
         dynamicLabel.translatesAutoresizingMaskIntoConstraints = false
         dynamicLabel.leadingAnchor.constraint(equalTo: hardCodeLabel.trailingAnchor).isActive = true
@@ -122,7 +123,7 @@ class NotificationProductTableViewCell: UITableViewCell {
         let hardCodeLabel = UILabel()
         hardCodeLabel.text = "Delivery method"
         hardCodeLabel.textAlignment = .left
-        
+        hardCodeLabel.font = hardCodeLabel.font.withSize(13)
         containerView.addSubview(hardCodeLabel)
         hardCodeLabel.translatesAutoresizingMaskIntoConstraints = false
         hardCodeLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
@@ -133,7 +134,7 @@ class NotificationProductTableViewCell: UITableViewCell {
         let dynamicLabel = self.deliveryMethodLabel
         dynamicLabel.text = "Fedex"
         dynamicLabel.textAlignment = .right
-        
+        dynamicLabel.font = dynamicLabel.font.withSize(13)
         containerView.addSubview(dynamicLabel)
         dynamicLabel.translatesAutoresizingMaskIntoConstraints = false
         dynamicLabel.leadingAnchor.constraint(equalTo: hardCodeLabel.trailingAnchor).isActive = true
@@ -146,7 +147,7 @@ class NotificationProductTableViewCell: UITableViewCell {
         let label = self.firstStatusLabel
         label.text = "Status 1"
         label.textColor = defaultTitleTextColor
-        
+        label.font = label.font.withSize(13)
         view.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.leadingAnchor.constraint(equalTo: productImageView.trailingAnchor, constant: margin).isActive = true
@@ -159,7 +160,7 @@ class NotificationProductTableViewCell: UITableViewCell {
         let label = self.secondStatusLabel
         label.text = "Status 2"
         label.textColor = defaultTitleTextColor
-        
+        label.font = label.font.withSize(13)
         view.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.leadingAnchor.constraint(equalTo: productImageView.trailingAnchor, constant: margin).isActive = true
