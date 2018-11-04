@@ -57,13 +57,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="63.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X9-CS-11f">
-                                                    <rect key="frame" x="20" y="-46.333333333333336" width="118" height="45"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
-                                                    <state key="normal" title="Contact Us">
-                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="be8-Wz-tZf">
                                                     <rect key="frame" x="40" y="8.6666666666666643" width="120" height="45"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
@@ -76,7 +69,6 @@
                                             <constraints>
                                                 <constraint firstItem="be8-Wz-tZf" firstAttribute="leading" secondItem="NVA-KX-wOC" secondAttribute="leading" constant="40" id="DOO-3e-g0q"/>
                                                 <constraint firstAttribute="bottom" secondItem="be8-Wz-tZf" secondAttribute="bottom" priority="100" constant="10" id="IJc-gI-tMC"/>
-                                                <constraint firstItem="be8-Wz-tZf" firstAttribute="top" secondItem="4X9-CS-11f" secondAttribute="bottom" constant="10" id="Qzv-Pf-bJU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="cGreen"/>
@@ -224,7 +216,7 @@
                                 <rect key="frame" x="40" y="179" width="296" height="599"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">How to order in Ourganic?
+                                <string key="text">How to order in Ourganic?
 You need to first register yourself and login to Ourganic before doing any transaction.
 
 What is the minimum order quantity?
@@ -276,7 +268,7 @@ Credit Card
 5. Input your credit card details into the payment page
 6. Click ‘Confirm Payment’
 7. Upon successful credit card payment, your order will automatically be confirmed and you don’t need to make payment confirmation through website
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -348,7 +340,7 @@ We want the consumers to get quality products by providing a convenience online 
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ya-UJ-cXb">
-                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="732"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9Ya-UJ-cXb" secondAttribute="height" multiplier="207:404" id="277-oa-v1E"/>
                                 </constraints>
@@ -362,7 +354,6 @@ We want the consumers to get quality products by providing a convenience online 
                             <constraint firstItem="aN0-Kp-DzI" firstAttribute="top" secondItem="04S-o3-R7Z" secondAttribute="top" constant="60" id="FnY-ND-GsA"/>
                             <constraint firstItem="9Ya-UJ-cXb" firstAttribute="top" secondItem="04S-o3-R7Z" secondAttribute="top" id="OyK-j2-iIL"/>
                             <constraint firstItem="aN0-Kp-DzI" firstAttribute="leading" secondItem="04S-o3-R7Z" secondAttribute="leading" constant="40" id="YX2-Hv-0Ex"/>
-                            <constraint firstAttribute="bottom" secondItem="9Ya-UJ-cXb" secondAttribute="bottom" id="Yfk-nj-Y7m"/>
                             <constraint firstItem="koG-yp-MCn" firstAttribute="leading" secondItem="aN0-Kp-DzI" secondAttribute="leading" id="eie-Fy-CLf"/>
                             <constraint firstItem="9Ya-UJ-cXb" firstAttribute="leading" secondItem="04S-o3-R7Z" secondAttribute="leading" id="ev6-eo-IFQ"/>
                             <constraint firstItem="9Ya-UJ-cXb" firstAttribute="trailing" secondItem="04S-o3-R7Z" secondAttribute="trailing" id="iq4-mA-t11"/>
@@ -442,7 +433,7 @@ AOI - Asosiasi Organik Indonesia</string>
                                 <rect key="frame" x="40" y="179" width="294" height="599"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Hello, thank you for using Ourganic mobile application.
+                                <string key="text">Hello, thank you for using Ourganic mobile application.
 
 Here are the Terms and Conditions which contain all the rules and conditions that will automatically bind You when You perfom such activities like, visiting, registering as user, make transaction, using Ourganic mobile application, and when You are enjoying all the features and facility provided by Ourganic in Ourganic mobile app.
 
@@ -544,7 +535,7 @@ We reserve the right to make changes to these app, policies, terms of service, a
 
 
 
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -585,7 +576,7 @@ We reserve the right to make changes to these app, policies, terms of service, a
                                 <rect key="frame" x="40" y="179" width="294" height="599"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Collection of Personal Information
+                                <string key="text">Collection of Personal Information
 At Ourganic we recognise that privacy is important. This Privacy Policy applies to all the products, services and information offered by Ourganic Platform. However, there are times We need certain information from you to enable Ourganic to serve you better.
 We understand the importance placed on the privacy of your personal information, and will take all reasonable steps to protect the privacy of the personal information that We collect, use or disclose.  
 
@@ -636,7 +627,7 @@ Generally, you have the right to see or obtain a copy of Personal Information ab
 Security of Your Information 
 We are committed to ensuring the security of your Personal Information and we will take all reasonable precautions to protect this information from loss, misuse or alteration.  
 
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
