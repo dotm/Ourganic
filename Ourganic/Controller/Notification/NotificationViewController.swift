@@ -24,6 +24,7 @@ class NotificationViewController: UIViewController {
     
     //MARK: Properties
     private let PRODUCT_CELL = "Product cell"
+    private var orderModels:[OrderModel] = []
     private var productsData: [ProductTableViewCellData] = [] {
         didSet {
             reloadTable()
@@ -71,10 +72,13 @@ class NotificationViewController: UIViewController {
             productsData = []
         }
     }
+    
     private func getProducts_onMyCart(completion callback: (([ProductTableViewCellData]) -> Void)?){
         var list:[ProductTableViewCellData] = []
         getOrderList(userId: User.ID!) { (result) in
-            DispatchQueue.global().async {
+            DispatchQueue.main.async {
+                self.orderModels.removeAll()
+                self.orderModels = result
                 for order:OrderModel in result {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
@@ -134,6 +138,7 @@ class NotificationViewController: UIViewController {
                         }
                     }
                 }
+                callback!(list)
             }
         }
     }
@@ -142,6 +147,8 @@ class NotificationViewController: UIViewController {
         var list:[ProductTableViewCellData] = []
         getSellingList(userId: User.ID!) { (result) in
             DispatchQueue.main.async {
+                self.orderModels.removeAll()
+                self.orderModels = result
                 for order:OrderModel in result {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
@@ -196,6 +203,7 @@ class NotificationViewController: UIViewController {
             }
         }
     }
+    
     private func setupProductTable(previousElement: UIView){
         let tableView = UITableView()
         tableView.tableFooterView = UIView() //remove empty cells in table view
@@ -249,5 +257,16 @@ extension NotificationViewController: UITableViewDataSource {
         case 1: return "Products ordered"
         default: return "Please select one option above"
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard.init(name: "Notification", bundle: Bundle.main).instantiateViewController(withIdentifier: "invoice") as? OrderInvoiceViewController
+        vc?.orderModel = self.orderModels[indexPath.row]
+        if segmentedControl.selectedSegmentIndex == 0 {
+            vc?.isBuyer = true
+        } else {
+            vc?.isBuyer = false
+        }
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

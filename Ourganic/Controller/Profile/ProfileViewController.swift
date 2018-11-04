@@ -142,27 +142,8 @@ class ProfileViewController: UIViewController {
         }
     }
     private func loadUserImage(from url: URL?){
-        var data: Data? = nil
-        if let userImage = userImage {
-            self.userImageView.image = userImage
-            return //don't load image again
-        }else{
-            self.userImageView.image = UIImage(named: defaultUserImage_string)
-        }
-        
-        DispatchQueue.global().async {
-            if let url = url {
-                data = try? Data(contentsOf: url)
-            }
-            DispatchQueue.main.async {
-                if let data = data {
-                    let userImage = UIImage(data: data)
-                    self.userImage = userImage
-                    self.userImageView.image = userImage
-                }
-            }
-            
-        }
+        self.userImageView.kf.setImage(with: url, placeholder: UIImage.init(named: "defaultImage"), options: [.transition(.fade(1))], progressBlock: nil, completionHandler: nil)
+
     }
     private func setupLayout(){
         setupNavigationBar()

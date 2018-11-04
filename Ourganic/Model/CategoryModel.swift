@@ -12,12 +12,13 @@ class CategoryModel {
     var name: String
     var desc:String
     var code:String
+    var type:String
     
-    
-    init(name: String, imageUrl: String, desc: String, code: String) {
+    init(name: String, imageUrl: String, desc: String, code: String, type: String) {
         self.imageUrl = imageUrl
         self.name = name
         self.desc = desc
         self.code = code
+        self.type = type
     }
 }

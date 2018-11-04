@@ -23,7 +23,7 @@ func getCategoryList (completion: @escaping (_ result: [CategoryModel]) -> Void?
         
         guard let categoriesDoc = result?.documents else { return }
         let categories = categoriesDoc.map({ (catDoc) -> CategoryModel in
-            let cat = CategoryModel(name: catDoc["name"] as! String, imageUrl: catDoc["image_url"] as! String, desc: catDoc["desc"] as! String, code: catDoc["code"] as! String)
+            let cat = CategoryModel(name: catDoc["name"] as! String, imageUrl: catDoc["image_url"] as! String, desc: catDoc["desc"] as! String, code: catDoc["code"] as! String, type: catDoc["type"] as! String)
             return cat
         })
         completion(categories)
@@ -40,7 +40,7 @@ func getHeadlineList (completion: @escaping (_ result: [CategoryModel]) -> Void?
         
         guard let categoriesDoc = result?.documents else { return }
         let categories = categoriesDoc.map({ (catDoc) -> CategoryModel in
-            let cat = CategoryModel(name: catDoc["name"] as! String, imageUrl: catDoc["image_url"] as! String, desc: catDoc["desc"] as! String, code: catDoc["code"] as! String)
+            let cat = CategoryModel(name: catDoc["name"] as! String, imageUrl: catDoc["image_url"] as! String, desc: catDoc["desc"] as! String, code: catDoc["code"] as! String, type: catDoc["type"] as! String)
             return cat
         })
         completion(categories)

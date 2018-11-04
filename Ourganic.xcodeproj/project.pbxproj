@@ -33,6 +33,9 @@
 		DD07065B217D93A2004EFA08 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07065A217D93A2004EFA08 /* CategoryTableViewCell.swift */; };
 		DD07065E217D959A004EFA08 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD07065D217D959A004EFA08 /* CategoryModel.swift */; };
 		DD0B667E218E035900433924 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD0B667D218E035900433924 /* SideMenu.storyboard */; };
+		DD0B6680218EF6B800433924 /* OrderInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B667F218EF6B800433924 /* OrderInvoiceViewController.swift */; };
+		DD0B6682218F46A500433924 /* OrderInvoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B6681218F46A500433924 /* OrderInvoiceTableViewCell.swift */; };
+		DDAB3643218F6393003DA37D /* FormatterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB3642218F6393003DA37D /* FormatterUtil.swift */; };
 		DDCC5BFC218802790095E1FC /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDCC5BFB218802790095E1FC /* Notification.storyboard */; };
 		DDCC5BFE21881B1E0095E1FC /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC5BFD21881B1E0095E1FC /* NotificationViewController.swift */; };
 		DDCC5C02218826770095E1FC /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC5C01218826770095E1FC /* OrderModel.swift */; };
@@ -100,6 +103,9 @@
 		DD07065A217D93A2004EFA08 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		DD07065D217D959A004EFA08 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		DD0B667D218E035900433924 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		DD0B667F218EF6B800433924 /* OrderInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInvoiceViewController.swift; sourceTree = "<group>"; };
+		DD0B6681218F46A500433924 /* OrderInvoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInvoiceTableViewCell.swift; sourceTree = "<group>"; };
+		DDAB3642218F6393003DA37D /* FormatterUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatterUtil.swift; sourceTree = "<group>"; };
 		DDCC5BFB218802790095E1FC /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		DDCC5BFD21881B1E0095E1FC /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		DDCC5C01218826770095E1FC /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
@@ -254,6 +260,7 @@
 				DDF89537218D9DCC00532AB1 /* Constant.swift */,
 				370F902F217594A300B91689 /* CustomStyling.swift */,
 				377E07D221805AEE00E0C86E /* Alerts.swift */,
+				DDAB3642218F6393003DA37D /* FormatterUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -300,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				DDCC5BFD21881B1E0095E1FC /* NotificationViewController.swift */,
+				DD0B667F218EF6B800433924 /* OrderInvoiceViewController.swift */,
 				DDCC5BFA218802690095E1FC /* View */,
 			);
 			path = Notification;
@@ -308,8 +316,9 @@
 		DDCC5BFA218802690095E1FC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DDF8952A218C3FB000532AB1 /* NotificationProductTableViewCell.swift */,
 				DDCC5BFB218802790095E1FC /* Notification.storyboard */,
+				DDF8952A218C3FB000532AB1 /* NotificationProductTableViewCell.swift */,
+				DD0B6681218F46A500433924 /* OrderInvoiceTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -557,10 +566,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDAB3643218F6393003DA37D /* FormatterUtil.swift in Sources */,
 				374A5333217B30E6001F3FD5 /* LoginUserViewController.swift in Sources */,
 				370F902B217582EF00B91689 /* ProfileViewController.swift in Sources */,
 				DDF102C921896B500018F50B /* ProductDetailViewController.swift in Sources */,
 				DDF89522218C290A00532AB1 /* BankModel.swift in Sources */,
+				DD0B6682218F46A500433924 /* OrderInvoiceTableViewCell.swift in Sources */,
 				370F902D21758A0F00B91689 /* RegisterUserViewController.swift in Sources */,
 				370008692173683000AF89F3 /* AppDelegate.swift in Sources */,
 				DDCE019B2182B4B600B1C1D2 /* HomeDetailViewController.swift in Sources */,
@@ -582,6 +593,7 @@
 				DD070656217D8874004EFA08 /* HomeViewController.swift in Sources */,
 				DDCC5BFE21881B1E0095E1FC /* NotificationViewController.swift in Sources */,
 				DDF102CB21896B500018F50B /* OrderViewController.swift in Sources */,
+				DD0B6680218EF6B800433924 /* OrderInvoiceViewController.swift in Sources */,
 				DDCE019721817FC100B1C1D2 /* CategoryDB.swift in Sources */,
 				377E07CF218026B900E0C86E /* User.swift in Sources */,
 				DDF102D0218AB1B10018F50B /* CityModel.swift in Sources */,

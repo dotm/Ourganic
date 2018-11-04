@@ -17,7 +17,7 @@ class HomeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var filteredProducts:[Product] = []
     var productListMaster:[Product] = []
-    var category:CategoryModel?
+    var categoryModel:CategoryModel?
     var productList:[Product] = []
     var keyword:String = ""
     
@@ -25,17 +25,22 @@ class HomeDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         emptyMsgView.isHidden = true
         styleTitleLabel(categoryNameLbl)
-        navigationItem.title = category?.name
+        navigationItem.title = categoryModel?.name
         prodTableView.delegate = self
         prodTableView.dataSource = self
         searchBar.delegate = self
         prodTableView.cellLayoutMarginsFollowReadableWidth = true
         prodTableView.separatorColor = UIColor(white: 0, alpha: 0)
-        getProductList(category_code: (category?.code ?? ""), keyword: keyword) { (result, error) in
+        
+        getProductList(category_code: (categoryModel?.code ?? ""), keyword: keyword) { (result, error) in
             DispatchQueue.main.async {
                 self.productList = result
                 self.productListMaster = result
-                self.categoryNameLbl.text = self.category?.name ?? "Search result by \"\(self.keyword)\""
+                if self.categoryModel?.type.lowercased() == "h" {
+                    self.categoryNameLbl.text = "Our Promo"
+                } else {
+                     self.categoryNameLbl.text = self.categoryModel?.name ?? "Search result by \"\(self.keyword)\""
+                }
                 self.prodTableView.reloadData()
             }
         }

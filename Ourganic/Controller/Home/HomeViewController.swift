@@ -20,8 +20,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var searchBar: UISearchBar!
     
     var categoryList:[CategoryModel] = []
-    var titleArray = [String]()
-    var pathArray = [String]()
+    var headlineList:[CategoryModel] = []
+    var titleArray:[String] = []
+    var pathArray:[String] = []
     
     var  orderedProduct:String = ""
     
@@ -41,21 +42,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             styleTitleLabel(label)
         }
         
-        getCategoryList() { (result) in
+        getCategoryList() { (resultCategory) in
             DispatchQueue.main.async {
-                self.categoryList = result
+                self.categoryList = resultCategory
                 self.catTableView.reloadData()
             }
             
         }
         
-        getHeadlineList() { (result) in
+        getHeadlineList() { (resultHeadline) in
             DispatchQueue.main.async {
-                for catModel in result {
+                self.headlineList = resultHeadline
+                self.carouselView.reloadInputViews()
+                for catModel in self.headlineList {
                     self.titleArray.append(catModel.name)
                     self.pathArray.append(catModel.imageUrl)
                 }
-                self.carouselView.reloadInputViews()
                 self.carouselView.setCarouselOpaque(layer: true, describedTitle: true, pageIndicator: false)
                 self.carouselView.setCarouselData(paths: self.pathArray,  describedTitle: self.titleArray, isAutoScroll: true, timer: 5.0, defaultImage: "defaultImage")
             }
@@ -85,7 +87,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let selectedCell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
         selectedCell.isSelected = false
         let vc = UIStoryboard.init(name: "Home", bundle: Bundle.main).instantiateViewController(withIdentifier: "homeDetail") as? HomeDetailViewController
-        vc?.category = categoryList[indexPath.row]
+        vc?.categoryModel = categoryList[indexPath.row]
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -106,11 +108,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func didSelectCarouselView(_ view: AACarousel, _ index: Int) {
-        let alert = UIAlertView.init(title:"Alert" , message: titleArray[index], delegate: self, cancelButtonTitle: "OK")
-        alert.show()
-        
-        //startAutoScroll()
-        //stopAutoScroll()
+        let vc = UIStoryboard.init(name: "Home", bundle: Bundle.main).instantiateViewController(withIdentifier: "homeDetail") as? HomeDetailViewController
+        vc?.categoryModel = headlineList[index]
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

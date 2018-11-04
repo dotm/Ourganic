@@ -23,7 +23,7 @@ func statusModelToDictionary(status:StatusModel, orderId:String) -> [String:Any]
 }
 
 func getStatusList (orderDocId:String, completion: @escaping (_ result: [StatusModel]) -> Void?) {
-    let query = db.collection(STATUS_COLLECTION).whereField("order_id", isEqualTo: orderDocId).order(by: "created_date", descending: true)
+    let query = db.collection(STATUS_COLLECTION).order(by: "created_date", descending: true).whereField("order_id", isEqualTo: orderDocId).order(by: "code", descending: true)
     query.getDocuments { (result, error) in
         if let error = error {
             print("Error executing query to get status list:", error.localizedDescription)
@@ -32,7 +32,8 @@ func getStatusList (orderDocId:String, completion: @escaping (_ result: [StatusM
         
         guard let statusDoc = result?.documents else { return }
         let statusList = statusDoc.map({ (statusModel) -> StatusModel in
-            return StatusModel(code: statusModel.data()["code"] as! Int, sellerDesc: statusModel.data()["seller_desc"] as! String, buyerDesc: statusModel.data()["buyer_desc"] as! String, createdDate: statusModel.data()["created_date"] as! Date)
+            print("statusModel : \(statusModel.data())")
+            return StatusModel(code: statusModel.data()["code"] as! Int, sellerDesc: statusModel.data()["seller_desc"] as! String, buyerDesc: statusModel.data()["buyer_desc"] as! String, createdDate: statusModel.data()["created_date"] as? Date ?? dateFromString(DATE_STR_NIL))
         })
         completion(statusList)
     }
@@ -41,7 +42,10 @@ func getStatusList (orderDocId:String, completion: @escaping (_ result: [StatusM
 func update(status: StatusModel, orderId:String, completion callback: (([StatusModel]?, Error?) -> Void)?){
     let statusDictionary: [String: Any] = statusModelToDictionary(status: status, orderId: orderId)
     db.collection(STATUS_COLLECTION).addDocument(data: statusDictionary) { (err) in
-        callback?([status], err)
+        getStatusList(orderDocId: orderId) { (resultUpdate) in
+            callback?(resultUpdate, err)
+        }
+        
     }
 }
 

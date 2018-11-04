@@ -54,6 +54,8 @@ func add(order: OrderModel, userId:String, completion callback: ((OrderModel?, E
     doc = db.collection(ORDER_COLLECTION).addDocument(data: orderDictionary) { (err) in
         DispatchQueue.main.async {
             order.id = doc?.documentID
+            let status = statusCons[0]
+            status.createdDate = Date()
             update(status: statusCons[0], orderId: order.id!) { (result, error) in
                 DispatchQueue.main.async {
                     order.statusHistory = result!
@@ -65,7 +67,7 @@ func add(order: OrderModel, userId:String, completion callback: ((OrderModel?, E
 }
 
 func getSellingList (userId: String, completion: @escaping (_ result: [OrderModel]) -> Void?) {
-    let query = db.collection(ORDER_COLLECTION).whereField("buyer_user_id", isEqualTo: userId)
+    let query = db.collection(ORDER_COLLECTION)
     var orderRet:[OrderModel] = []
     query.getDocuments { (result, error) in
         if let error = error {

@@ -9,15 +9,17 @@
 import Foundation
 
 enum status {
-    static let WAITING_APPROVAL:Int = 0
-    static let WAITING_PAYMENT:Int = 1
+    static let WAITING_PAYMENT:Int = 0
+    static let WAITING_APPROVAL:Int = 1
     static let APPROVE:Int = 2
     static let DONE:Int = 3
 }
 
-private let statusStrSeller:[String] = ["Need your approval", "Waiting for payment", "You just approved the order", "Transaction success"]
+let DATE_STR_NIL:String = "01-01-1990 00:00"
 
-private let statusStrBuyer:[String] = ["Waiting for approval", "Waiting for payment", "Seller just approved your order", "Transaction success"]
+private let statusStrSeller:[String] = ["Waiting for payment", "Need your approval", "You just approved the order", "Transaction success"]
+
+private let statusStrBuyer:[String] = ["Waiting for payment", "Waiting for approval", "Seller just approved your order", "Transaction success"]
 
 let statusCons:[StatusModel] = [
     StatusModel(code: 0, sellerDesc: statusStrSeller[0], buyerDesc: statusStrBuyer[0]),
