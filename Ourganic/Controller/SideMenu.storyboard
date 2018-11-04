@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w7h-ts-t2f">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <tableViewController id="mCQ-Bk-nsc" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hEj-9m-iaB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="cGreenHam"/>
                         <color key="tintColor" name="cGreenHam"/>
@@ -23,15 +23,15 @@
                         <sections>
                             <tableViewSection headerTitle="" id="EsD-8D-xWp">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="534" id="G7w-hF-Fa3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="534"/>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="369" id="G7w-hF-Fa3">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="369"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G7w-hF-Fa3" id="uwQ-cr-CEE">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="533.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="368.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoham" translatesAutoresizingMaskIntoConstraints="NO" id="xRK-vH-1eS">
-                                                    <rect key="frame" x="140.5" y="30" width="133" height="140"/>
+                                                    <rect key="frame" x="121" y="30" width="133" height="140"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="140" id="chM-fx-mGq"/>
                                                         <constraint firstAttribute="width" secondItem="xRK-vH-1eS" secondAttribute="height" multiplier="157:165" id="laL-4o-Z0r"/>
@@ -51,21 +51,21 @@
                             <tableViewSection headerTitle="" id="oTn-r1-n0w">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="64" id="dQH-fx-ZGF">
-                                        <rect key="frame" x="0.0" y="534" width="414" height="64"/>
+                                        <rect key="frame" x="0.0" y="369" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dQH-fx-ZGF" id="NVA-KX-wOC">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="63.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="63.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X9-CS-11f">
-                                                    <rect key="frame" x="20" y="-46.5" width="118" height="45"/>
+                                                    <rect key="frame" x="20" y="-46.333333333333336" width="118" height="45"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
                                                     <state key="normal" title="Contact Us">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="be8-Wz-tZf">
-                                                    <rect key="frame" x="40" y="8.5" width="120" height="45"/>
+                                                    <rect key="frame" x="40" y="8.6666666666666643" width="120" height="45"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
                                                     <state key="normal" title="About App">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -85,10 +85,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="70" id="KaZ-Ss-V3z">
-                                        <rect key="frame" x="0.0" y="598" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="433" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KaZ-Ss-V3z" id="UxM-T4-crX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0Y-hY-eOv">
@@ -111,6 +111,87 @@
                                             <segue destination="UzH-Vk-H1t" kind="show" id="vzw-9C-lGk"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="70" id="8kW-LE-kKC">
+                                        <rect key="frame" x="0.0" y="503" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8kW-LE-kKC" id="12S-tt-2xo">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aI0-qp-yBC">
+                                                    <rect key="frame" x="40" y="10" width="148" height="45"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
+                                                    <state key="normal" title="How to Order">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" name="cGreenHam"/>
+                                            <constraints>
+                                                <constraint firstItem="aI0-qp-yBC" firstAttribute="top" secondItem="12S-tt-2xo" secondAttribute="top" constant="10" id="4DP-PR-IiQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="aI0-qp-yBC" secondAttribute="bottom" priority="100" constant="10" id="Om7-ui-x1W"/>
+                                                <constraint firstItem="aI0-qp-yBC" firstAttribute="leading" secondItem="12S-tt-2xo" secondAttribute="leading" constant="40" id="hrL-I6-YLQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="cGreen"/>
+                                        <connections>
+                                            <segue destination="KYn-eG-VZB" kind="show" id="MjD-ZA-T8M"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="70" id="90v-ac-py4">
+                                        <rect key="frame" x="0.0" y="573" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="90v-ac-py4" id="iem-Oc-kOd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fm8-bC-fCr">
+                                                    <rect key="frame" x="40" y="10" width="64" height="45"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
+                                                    <state key="normal" title="Terms">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" name="cGreenHam"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="fm8-bC-fCr" secondAttribute="bottom" priority="100" constant="10" id="Nub-Mh-3jX"/>
+                                                <constraint firstItem="fm8-bC-fCr" firstAttribute="top" secondItem="iem-Oc-kOd" secondAttribute="top" constant="10" id="O3d-ha-zeu"/>
+                                                <constraint firstItem="fm8-bC-fCr" firstAttribute="leading" secondItem="iem-Oc-kOd" secondAttribute="leading" constant="40" id="uO2-2R-FD0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="cGreen"/>
+                                        <connections>
+                                            <segue destination="Hg7-BC-7tJ" kind="show" id="K8F-oI-Y8n"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="70" id="hwc-V9-kcA">
+                                        <rect key="frame" x="0.0" y="643" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hwc-V9-kcA" id="JM8-aj-qcp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryU-de-svd">
+                                                    <rect key="frame" x="40" y="10" width="144" height="45"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
+                                                    <state key="normal" title="Privacy Policy">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" name="cGreenHam"/>
+                                            <constraints>
+                                                <constraint firstItem="ryU-de-svd" firstAttribute="leading" secondItem="JM8-aj-qcp" secondAttribute="leading" constant="40" id="2eW-9h-jEz"/>
+                                                <constraint firstItem="ryU-de-svd" firstAttribute="top" secondItem="JM8-aj-qcp" secondAttribute="top" constant="10" id="bJV-LP-kdQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="ryU-de-svd" secondAttribute="bottom" priority="100" constant="10" id="z2S-p8-ofF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="cGreen"/>
+                                        <connections>
+                                            <segue destination="1XC-PM-lcx" kind="show" id="5LT-KR-qBG"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="" id="XdE-j0-GaV">
@@ -128,12 +209,105 @@
             </objects>
             <point key="canvasLocation" x="950.72463768115949" y="527.67857142857144"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="h7L-WQ-yxe">
+            <objects>
+                <viewController id="KYn-eG-VZB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MOw-lF-fOi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Mw-6f-wwf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zm9-9z-6vj">
+                                <rect key="frame" x="40" y="179" width="296" height="599"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">How to order in Ourganic?
+You need to first register yourself and login to Ourganic before doing any transaction.
+
+What is the minimum order quantity?
+There’s no minimum order quantity need to be concerned.
+
+What is the available payment methods?
+We provide various payment methods such as:
+- conventional bank transfer
+- virtual account bank transfer
+- credit cards
+
+What is the payment deadline?
+Payment deadline is 17:00 daily, to start the delivery process on the next day.
+
+When is the delivery time?
+Delivery will be processed after the payment has been confirmed.
+
+How to pay for my order?
+We currently accept payments through manual bank transfer, virtual account bank transfer, and credit card.
+Manual Bank Transfer
+
+1. After checkout, select BCA Bank Transfer option and clik ‘Pay’
+2. Once you have submitted your order, you will receive an order confirmation email from Sayurbox containing the information about your order along with the total amount to pay.
+3. Transfer the total transaction amount to SayurBox BCA account with the following details:
+  - Account name: PT KREASI NOSTRA MANDIRI
+  - Account no: 006-919-7771
+4. Once you have transferred the payment, please make payment confirmation through our Payment Confirmation page or by clicking the payment confirmation link in your order confirmation email.
+5. After your payment is verified and confirmed by SayurBox team, you will receive an email confirmation.
+6. It’s done! You can now sit back and relax; we’ll deliver your lovely produce on the harvest day you have selected!
+
+Virtual Account Bank Transfer (through ATM or Internet Banking)
+
+1. After checkout, select the option ATM/Bank Transfer via Virtual Account Mandiri or ATM/Bank Transfer via Virtual Account Permata, then click ‘Pay’
+2. You will be directed to a secure payment page handled by Midtrans
+3. The order and the total price will be displayed on the page for your review
+4. Click ‘Continue’
+5. The payment instruction will be displayed on the page
+6. Click ‘See Account Number’
+7. The virtual account number will be displayed on the page for your reference
+8. Complete payment for your order by transferring to the virtual account number through ATM or Internet Banking
+9. Upon successful transfer to virtual account, your order will automatically be confirmed and you don’t need to make payment confirmation through website
+
+Credit Card
+
+1. After checkout, select the option Credit Card then click ‘Pay’
+2. You will be directed to a secure payment page handled by Midtrans
+3. The order and the total price will be displayed on the page for your review
+4. Click ‘Continue’
+5. Input your credit card details into the payment page
+6. Click ‘Confirm Payment’
+7. Upon successful credit card payment, your order will automatically be confirmed and you don’t need to make payment confirmation through website
+</mutableString>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How do I Order?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15V-i2-r7Z">
+                                <rect key="frame" x="40" y="121" width="296" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2Mw-6f-wwf" firstAttribute="top" secondItem="MOw-lF-fOi" secondAttribute="top" id="9Yu-go-85W"/>
+                            <constraint firstAttribute="bottom" secondItem="2Mw-6f-wwf" secondAttribute="bottom" id="L24-Q4-biN"/>
+                            <constraint firstAttribute="trailing" secondItem="2Mw-6f-wwf" secondAttribute="trailing" id="iDW-g0-yWH"/>
+                            <constraint firstItem="2Mw-6f-wwf" firstAttribute="leading" secondItem="MOw-lF-fOi" secondAttribute="leading" id="rl0-oq-sAB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hJ3-n5-fGm"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6hh-p6-yAy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1744.8" y="1013.7931034482759"/>
+        </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="nxi-WX-f57">
             <objects>
                 <navigationController storyboardIdentifier="sidemenu" id="w7h-ts-t2f" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZOn-Tb-rQi">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
@@ -152,29 +326,29 @@
             <objects>
                 <viewController id="oSQ-tY-wFA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s26-xI-9lc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is Ourganic? " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aN0-Kp-DzI">
-                                <rect key="frame" x="40" y="148" width="334" height="49.5"/>
+                                <rect key="frame" x="40" y="148" width="295" height="49.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koG-yp-MCn">
-                                <rect key="frame" x="40" y="205" width="334" height="369"/>
-                                <mutableString key="text">
+                                <rect key="frame" x="40" y="205" width="295" height="418"/>
+                                <string key="text">
 Ouganic provides a market place platform for organic consumers to get organic products directly from organic farmers.
 
 We facilitate and educate farmers to get organic certification and to upload their products into the platform to be offered to their surrounding consumers.
 
-We want the consumers to get quality products by providing a convenience online shopping experience with a competitive price offer.</mutableString>
+We want the consumers to get quality products by providing a convenience online shopping experience with a competitive price offer.</string>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ya-UJ-cXb">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9Ya-UJ-cXb" secondAttribute="height" multiplier="207:404" id="277-oa-v1E"/>
                                 </constraints>
@@ -198,18 +372,18 @@ We want the consumers to get quality products by providing a convenience online 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5aI-7t-s0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1854" y="167"/>
+            <point key="canvasLocation" x="1901" y="-244"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mAG-GJ-n1M">
             <objects>
                 <viewController id="UzH-Vk-H1t" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ype-Lh-zbN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8T-fc-h93">
-                                <rect key="frame" x="40" y="148" width="334" height="49.5"/>
+                                <rect key="frame" x="40" y="148" width="295" height="49.333333333333343"/>
                                 <string key="text">Contact Us
 </string>
                                 <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
@@ -217,7 +391,7 @@ We want the consumers to get quality products by providing a convenience online 
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HtA-qo-5Ge">
-                                <rect key="frame" x="40" y="205" width="334" height="197"/>
+                                <rect key="frame" x="40" y="205" width="295" height="221.33333333333337"/>
                                 <string key="text">Have you got any problem with the app? We really want to hear from you.
 Call/WA us on: 0815 913 9550
 E-mail: cs@ourganic.co.id
@@ -230,7 +404,7 @@ AOI - Asosiasi Organik Indonesia</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cu" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jaU-Eq-CLz">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -251,7 +425,242 @@ AOI - Asosiasi Organik Indonesia</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDs-Ta-4Nx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1854" y="917"/>
+            <point key="canvasLocation" x="2765" y="-244"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ypH-eZ-QO2">
+            <objects>
+                <viewController id="Hg7-BC-7tJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IpF-hg-42v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nAw-WT-TyB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xwg-hL-B4r">
+                                <rect key="frame" x="40" y="179" width="294" height="599"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">Hello, thank you for using Ourganic mobile application.
+
+Here are the Terms and Conditions which contain all the rules and conditions that will automatically bind You when You perfom such activities like, visiting, registering as user, make transaction, using Ourganic mobile application, and when You are enjoying all the features and facility provided by Ourganic in Ourganic mobile app.
+
+You are welcome to read carefully the entire contents of these Terms and Conditions to be able to understand the limitations of your rights and obligations as an Ourganic user. If you do not agree to the contents of these Terms and Conditions, you may stop accessing Ourganic app.
+
+Definition
+
+1. Affiliate(s) is (i) control party of; (ii) subsidiary of; or (iii) parties who are under one control with PT.Ourganic Indonesia. 
+2. Ourganic or We is PT Ourganic Indonesia along with its Affiliates as a company incorporated under Indonesian law and having registered address at Green Office Park 9, BSD, Tangerang - Banten 15345.
+3. Ourganic Platform User is You, every person or a legal entity that is a Buyer and / or Seller, which uses and enjoys all features and facilities provided on the Ourganic mobile app.
+4. Seller is You, every person or legal entity which doing activities, including but not limited to, registered as Seller in Ourganic marketplace system, making selling transaction in Ourganic Platform, and agrees with Seller Terms and Conditions when doing registration as Seller in Ourganic Platform.  
+5. Buyer is You, every person or legal entity which doing activities, including but not limited to, registered as owner of Ourganic account, visiting, choosing provided Product, making Product transaction process, and using all of Ourganic Services which can be use by Buyer in Ourganic mobile app.  
+6. Content is all of material or information contained within or made available through the Ourganic app, including but not limited to text, graphics, logos, icons, images, audio clips, digital downloads, data compilations and software and all intellectual property rights contained in the Ourganic mobile app.Product is goods or services provided in Ourganic app or its Affiliate, and/or registered Seller in Ourganic app which can be buy by Buyer. 
+7. Certificate is an organic assurance issued by National Accredited Organic Certification Bodies or Organic Communities. 
+
+Content
+All Content which provided in Ourganic app is own by Ourganic. Provision of Content is protected by applicable Law and the entire Intellectual Property Rights Act related to it.
+Other than that, Content that may appear or available on Ourganic app by Ourganic User and Seller will be the responsibility of the Content uploader. And in this case you declare to release Ourganic from any claim caused by the issuance of such Content to the Ourganic Services.
+
+Registration Ourganic User
+We will gladly welcome you to register as Ourganic app User, which has fulfilled the following general requirements:
+
+1. You are an individual who has reached the minimum age limit of 18 (eighteen) years or mode at the time of registration. 
+2. You are a legal entity / business entity that has the legality as required by Ourganic and the applicable laws and regulations in a legitimate jurisdiction.
+3. You represent that you are not an individu and / or legal entity prohibited by the law of the Republic of Indonesia to accept or use the Ourganic Services.
+4. You represent that the agreement you have made with Ourganic, does not violate any other terms, agreements, rights and obligations with any third party.
+5. You represent that all information and / or documents that you complete or convey to Ourganic are accurate, correct, complete, current and appropriate.
+6. We may at all times reserve the right to conduct an examination in relation to the truth, validity of any information or documents submitted to Ourganic app. In case of found any fraud or non-conformity assessed independently by Ourganic, we reserve the right to terminate, cancel or block your access and membership to Ourganic services.
+
+Electronic Contract
+Electronic Contract is a form of engagement upon Your agreement to use Ourganic app, including but not limited to “General Terms and Conditions of Seller” and this “Terms and Conditions of Ourganic User”. When you agree and continue a process in Ourganic Platform as provided by Ourganic, then you’ll be deemed to have agreed with all the provisions as stipulated in Electronic Contract. This Electronic Contract will be show after You passed few process in Ourganic app including registration process as Ourganic Product User, order product etc.  
+
+In case of termination of Electronic Contract by Ourganic for any reason then You and Ourganic agreed to waive Article 1266 and 1267 Civil Code but only as long as judicial intervention is required to terminate any form of agreement that has been made.
+
+User Account
+If You using Ourganic app, You will be responsible to keep the confidentiality of all the Content from Your account and Your password, and to restrict access to Your Computer. If Your age is below 18 years, You required to receiving approval from Your parent or Your guardian, acceptance or approval from parent/guardian to this Terms and Conditions along with their approval to take responsibility to : (i) Your action; (ii) all fee arises in relation with accessing of Ourganic Services or purchasing Product; and (iii) acepptance and your compliance accordance with this Usage Terms and Conditions. 
+
+
+
+Online Trading Transaction Procedures
+All stages of online trading, which including selling process and buying in Ourganic app since accessing, choosing goods, communicate with Seller, communicate with our customer service, buying goods, using voucher, payment process for products, delivery, acceptace, and after sales will refer to Ourganic prevailing providions. For each provisions of the stages can be found in Ourganic app or You can receive it from Ourganic Customer Service. 
+
+Accurancy of Product
+The accuracy of color, information or product descriptions displayed on your monitor screen may not exactly the same with the colors or specifications of the products you receive. The accurancy of color on the screen may differ depending on the lighting, settings, or resolution on Your monitor screen and the product's description may vary due to errors in the downloading process. However, We will strive to consistently provide the accuracy of information as perfect as possible to ensure the accuracy of the products you receive. 
+
+Organic Guarantee
+Ourganic guarantees for every product listed on Ourganic app is 100% organic. Sellers have to submit the evidence of organic certification of each product issued by National Certification Bodies or Organic Communities on product registration process. The evidence will be verified by Ourganic within 1x24 hours before product can be listed on Ourganic app with organic badge. 
+
+Price
+We show on the Ourganic app of the Products represent the entire full retail price of the Product itself sold by Ourganic or its Affiliates, providers, suppliers or sellers which estimated based on industry standard practice or estimates based on price comparison with offer of the product in another website. Products price offered by Ourganic or Ourganic Seller through a marketplace service, shall be determined and governed by the Seller itself. 
+
+Electronic Communication
+When You using Ourganic app, You agree to communicate with us electronically like e-mail, short messages, telephone, social media, live chat, message center and etc. That, all the form of electronic communication can be notified, disclosed and used as evidence as regulated by the applicable laws and regulations of the Republic of Indonesia regarding electronic communications. 
+
+Copyrights
+All Content contained in the Ourganic app, such as text, graphics, logos, icons, images, audioclips, digital downloads, data compilations and software are the property of Ourganic and Content providers in collaboration with Ourganic, is protected by applicable Copyright Act.
+
+The compilation of all Content contained in the Ourganic app is the exclusive property of Ourganic and is protected by applicable Indonesian Copyright Act.
+
+
+Intelectual Property Rights
+The graphics, logos, page titles, icons, scripts and names of any Intellectual Property rights available through any Ourganic Services are owned by Ourganic or its Supplier or Seller. Such trademarks may not be used for things not related to the Products in any way that may cause confusion among Users or harm Ourganic.
+
+In the case of any other trademark displayed on the Ourganic page, which is not a trademark of Ourganic or derived from a non-exclusive right or granted to it. Then the party is responsible independently, to maintain or use it on products sold on the Service.
+
+Risk
+In providing Ourganic Services, We cooperate with Affiliates and / or entrusted third parties to be able to process the delivery of products to You, after purchasing products in Ourganic app. Any form of risk that may arise after the packaging of the product either by Ourganic or its Seller will be borne by the shipping party. Ourganic is solely responsible to providing communication between the shipping party and You.
+
+Other than risk that has been transferred at the time of delivery, You can submit a complaints in relation with products received in case of non-conformity, damage, return or cancellation of the purchase. Furthermore, we will conduct investigations and checks regarding the imposition of responsibility for the risks that have arisen on the product. All provisions of the inspection until settle refers to the rules that apply internally in Ourganic.
+
+Return of Product and Refund Right
+Based on our policy, refund can be done without return of the product. In this situation, Ourganic does not take the title of the refunded product.
+
+Ourganic Software Terms
+In order to provide the best service to you, we may occasionally update to applications of Ourganic Service which we may automatically applied depending on the type of service or by your consent to update our application.
+
+Links from Third Party
+A third party may provide links that direct you to Ourganic, which is not under Ourganic control. We are not responsible for conducting examinations, evaluations or warranties of accuracy on offer through such links that may adopt or duplicate Ourganic. For your convenience, you are advised to re-examine, pay attention and consider independently of the validity of the link.
+
+In case of any suspicion, We will be very glad if you can help to inform Ourganic customer service. We allow you to include links to Ourganic to the extent as they are done correctly and legitimately and do not cause any harm to Ourganic.
+
+We may revoke the rights or other legal actions in the event that it is proven that you have damaged the reputation or good name of Ourganic.
+
+Disclaimer of Warranties and Disposal of Liability
+Ourganic Services and all information, content, materials, products (including software) and other services included or made available through the Ourganic Services are provided by Ourganic as "as is" and "as available", unless otherwise stated in writing. Ourganic makes no representations or warranties of any kind, express or implied, for the operation of the Ourganic Services, or any information, content, materials, products (including software) or other services including within or made available through the Ourganic Services, another mentioned in writing. You expressly agree that the use of the Ourganic service is at your own risk.
+
+To the extent permitted by applicable law, Ourganic rejects all express or implied warranties, including but not limited to, implied warranties of merchantability and fitness for a particular purpose. Ourganic does not warrant that the Ourganic Services, information, content, materials, products (including software) or other services are included in or made available to you through Ourganic services, Ourganic servers or electronic communications sent from Ourganic is free of viruses or other harmful components. Ourganic will not be liable for any damages arising from the use of the Ourganic Services, or from information, content, materials, products (including software) or other services that are included in or made available to you through the Ourganic Services, including but not limited to direct, indirect, incidentalidentident, causal, or other damages unless otherwise stated in writing.
+
+In the event of any contradiction between these Terms and Conditions with any other relevant provision provided by Ourganic, to the extent of general terms these Terms &amp; Conditions will remain in effect.
+
+Invalidity
+If any part of these Terms and Conditions becomes invalid or unenforceable due to applicable laws and regulations, then you agree that such invalidity shall not affect all other parts of these Terms and Conditions, we will endeavor to substitute such provisions to be valid and do not violate the legal provisions to be able to reflect the purpose of the provisions that are not legitimate.
+
+Applicable Law
+By using the Ourganic Services, you agree to be bound that its interpretation will be subject to the provisions of the Law of the Republic of Indonesia. Any legal action or dispute that may arise in connection with the Ourganic Service, shall be settled in the competent jurisdiction of the authorized courts of the Republic of Indonesia.
+
+Policies and Modification
+We reserve the right to make changes to these app, policies, terms of service, and these terms and conditions at any time hereafter submitted to you in the media we provide. All changes, additions, deletions, modifications and any other that We make in connection with such services shall automatically apply within 1x 24 hours after they have been uploaded and announced on Ourganic app.
+
+
+
+</mutableString>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Terms &amp; Conditions" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AO1-15-zdb">
+                                <rect key="frame" x="40" y="121" width="294" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nAw-WT-TyB" firstAttribute="top" secondItem="IpF-hg-42v" secondAttribute="top" id="Cl6-WV-OAb"/>
+                            <constraint firstItem="nAw-WT-TyB" firstAttribute="leading" secondItem="IpF-hg-42v" secondAttribute="leading" id="cns-c5-Lo4"/>
+                            <constraint firstAttribute="trailing" secondItem="nAw-WT-TyB" secondAttribute="trailing" id="hS4-YP-g6D"/>
+                            <constraint firstAttribute="bottom" secondItem="nAw-WT-TyB" secondAttribute="bottom" id="wBt-Vo-bYo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="g92-1v-txB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RE7-OD-enc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2636" y="1014.5320197044335"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eta-fJ-gif">
+            <objects>
+                <viewController id="1XC-PM-lcx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Iq9-Bm-VDT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EiB-8D-bFW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS7-1j-Kw1">
+                                <rect key="frame" x="40" y="179" width="294" height="599"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">Collection of Personal Information
+At Ourganic we recognise that privacy is important. This Privacy Policy applies to all the products, services and information offered by Ourganic Platform. However, there are times We need certain information from you to enable Ourganic to serve you better.
+We understand the importance placed on the privacy of your personal information, and will take all reasonable steps to protect the privacy of the personal information that We collect, use or disclose.  
+
+We collect information about you when you use Ourganic services. Giving of your personal information is voluntarily depending on the type and level of service you choose when use Ourganic app. Personal Information as mentioned is such as: 
+- full name, 
+- e-mail address, 
+- phone number,  
+- address
+-  date / month / year of birth
+
+We wish that the receiving information is a right information and can be accounted. In case of changes of such information, you can update it on Ourganic app, so it will be easier for you to receives our best service, but if you choose not to update the changes or the information of the changes is false then we are not be responsible for any consequences that may arise thereon.
+
+We will not collect sensitive information from you. Sensitive information is a special category of Personal Information and includes, but is not limited to, information about your health, race or ethnic origin, political or religious beliefs, membership of a trade union or association, or criminal record.  
+
+Your personal information shall be maintained and used for the period during which the services are provided, In the event that you intends to terminate or to cancel your membership then we shall destroyed all the information with refer to prevailing laws and regulations.  
+
+Use of Personal Information
+We may use your information to better understand your needs and provide you with better service. We may share your Personal Information amongst our Related Bodies Corporate. We generally use your Personal Information:  
+a. Communication
+To connect you and Ourganic, in form of information exchanges or delivery of information to create a comprehensive understanding in relation with product, service, verification, complaint, etc. 
+b. Regular Marketing
+To deliver information to you related with special offers, announcement, news, short messages through SMS in your phone and etc.
+c. Service Survey
+To giving an opportunity to you voluntarily to participate in a survey related with website or service provided by Ourganic. 
+d. Provision of Service
+To deliver information related with website activities at any time, example system improvement, suspension or maintenance which can inhibit you from accessing our service. 
+e. Business expansion and/or Development
+Seeing your enthusiasm for the services we provide, we will certainly continue to open opportunities for business development so that We can maintain our quality and facilitate your needs.
+
+We can use third party service to help delivering our purpose so that we can understand you more and our service quality, but We warrant to not giving any permission to any party to use such personal information. 
+
+We will not use your Personal Information in a manner contrary to the Privacy Act or this Policy.
+
+You can at any time choose to discontinue the purpose of Use of Personal Information above by following direction to unsubscribe or in ways as stipulated in every marketing type you received from us. 
+
+Disclosure of Information
+Personal information means all informations as mentioned in this terms and conditions or information that can indentified independently or through a combination either directly or indirectly through Ourganic system.
+
+Diclosure of your information done with purpose to support service provided by Ourganic such as delivery, receiving confirmation, complaints, communication which previously obtained your consent at the time of collection of personal information and its disclosure is based on provisions of applicable laws and regulations.
+
+Your Personal Information can be disclose by Ourganic to Affiliates. Ourganic may also disclose your Personal Information to third party service provider for one or more purposes for using Personal Information above from time to time. Please be noted that we may also disclose your Personal Information to various law enforcement agencies and governments around the world for security, customs and immigration purposes.  
+
+Other than the above, we will not disclose your Personal Information without your consent unless disclosure is either necessary to prevent a threat to life or health, authorised or required by law, reasonably necessary to enforce the law or necessary to investigate a suspected unlawful activity. 
+
+Access to And Correction of Your Personal Information 
+Generally, you have the right to see or obtain a copy of Personal Information about you that We may hold. To request access to your Personal Information, please make your request to the contact details below. If for any reason We refuse to give you access to your Personal Information, we will let you know why in writing. If you believe that we hold Personal Information about you that you consider to be inaccurate, incomplete or out of date, please contact Ourganic on the details below.  
+
+Security of Your Information 
+We are committed to ensuring the security of your Personal Information and we will take all reasonable precautions to protect this information from loss, misuse or alteration.  
+
+</mutableString>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bje-rj-tgS">
+                                <rect key="frame" x="40" y="121" width="294" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EiB-8D-bFW" firstAttribute="top" secondItem="Iq9-Bm-VDT" secondAttribute="top" id="9Ho-9V-WtW"/>
+                            <constraint firstAttribute="trailing" secondItem="EiB-8D-bFW" secondAttribute="trailing" id="PUw-E2-qzO"/>
+                            <constraint firstAttribute="bottom" secondItem="EiB-8D-bFW" secondAttribute="bottom" id="pue-tY-Ar8"/>
+                            <constraint firstItem="EiB-8D-bFW" firstAttribute="leading" secondItem="Iq9-Bm-VDT" secondAttribute="leading" id="xJg-j7-9s6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dIx-Do-4bH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v0E-40-El7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3575" y="1014"/>
         </scene>
     </scenes>
     <resources>
