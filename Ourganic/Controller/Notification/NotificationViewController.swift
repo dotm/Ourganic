@@ -21,6 +21,7 @@ class NotificationViewController: UIViewController {
     //MARK: Outlets
     private weak var segmentedControl: UISegmentedControl!
     private weak var productTableView: UITableView!
+    let loadingAlert = LoadingAlert.getLoadingAlert()
     
     //MARK: Properties
     private let PRODUCT_CELL = "Product cell"
@@ -67,17 +68,21 @@ class NotificationViewController: UIViewController {
         segmentedControlChanged(self.segmentedControl)
     }
     @objc private func segmentedControlChanged(_ control: UISegmentedControl){
+        self.navigationController?.present(loadingAlert, animated: true, completion: nil)
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             getProducts_onMyCart() { (myCartRes) in
                 self.productsData = myCartRes
+                self.loadingAlert.dismiss(animated: true, completion: nil)
             }
         case 1:
             getProducts_currentlySelling() { (mySelling) in
                 self.productsData = mySelling
+                self.loadingAlert.dismiss(animated: true, completion: nil)
             }
         default:
             productsData = []
+            loadingAlert.dismiss(animated: true, completion: nil)
         }
     }
     
