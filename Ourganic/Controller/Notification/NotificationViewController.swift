@@ -33,8 +33,16 @@ class NotificationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (!User.isLoggedIn()) {
+            goTo_loginPage()
+            return
+        }
+        
         // Do any additional setup after loading the view.
         setupLayout()
+    }
+    @objc private func goTo_loginPage(){
+        present(LoginUserViewController(), animated: true, completion: nil)
     }
     private func setupLayout(){
         setupSegmentedControl()
@@ -75,6 +83,7 @@ class NotificationViewController: UIViewController {
     
     private func getProducts_onMyCart(completion callback: (([ProductTableViewCellData]) -> Void)?){
         var list:[ProductTableViewCellData] = []
+        
         getOrderList(userId: User.ID!) { (result) in
             DispatchQueue.main.async {
                 self.orderModels.removeAll()

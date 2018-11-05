@@ -82,8 +82,10 @@ func getSellingList (userId: String, completion: @escaping (_ result: [OrderMode
             orderModel.id = order.documentID
             return orderModel
         })
-        
-        getProductList(store_id: Store.ID!) { (prodRes, prodErr) in
+        guard let storeId = Store.ID else {
+            return
+        }
+        getProductList(store_id: storeId) { (prodRes, prodErr) in
             for ord in orders {
                 for prod in prodRes {
                     if prod.product_id.elementsEqual(ord.productId) {
